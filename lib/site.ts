@@ -14,7 +14,7 @@ export const siteConfig = {
     'calculadora precio por proyecto',
   ],
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3002',
-  ownerName: 'Diego Jimenez',
+  ownerName: 'Equipo de Cuánto Presupuestar',
   contactEmail: 'hola@cuantopresupuestar.es',
   country: 'España',
   themeColor: '#145da0',
