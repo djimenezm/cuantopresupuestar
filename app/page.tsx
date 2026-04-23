@@ -188,9 +188,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <section className="section alt">
+        <div className="container text-block">
+          <span className="eyebrow">Otra herramienta</span>
+          <h2>Si primero necesitas saber cuanto facturar al mes, usa Cuanto Facturar</h2>
+          <p>
+            Cuanto Presupuestar te ayuda a llevar tus numeros a un precio por proyecto. Si antes
+            quieres aterrizar tu referencia mensual como autonomo o freelance, puedes apoyarte
+            tambien en <a href="https://www.cuantofacturar.es">Cuanto Facturar</a>.
+          </p>
+        </div>
+      </section>
 
       <FAQ />
       <Footer />
     </main>
   );
 }
+
+
