@@ -72,8 +72,9 @@ describe('CalculatorForm', () => {
     });
     expect(resultCardHeading).toBeInTheDocument();
     expect(within(resultCard!).getByText(/referencia base por hora/i)).toBeInTheDocument();
-    expect(within(resultCard!).getByText(/^precio m[ií]nimo sin margen$/i)).toBeInTheDocument();
+    expect(within(resultCard!).getByText(/^precio minimo defendible$/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/presupuesto recomendado sin iva/i)).toBeInTheDocument();
+    expect(within(resultCard!).getByText(/colchon entre minimo y recomendado/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/total final con iva/i)).toBeInTheDocument();
   });
 
