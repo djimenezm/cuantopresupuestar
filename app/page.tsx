@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Script from 'next/script';
 import CalculatorForm from '@/components/CalculatorForm';
 import FAQ, { faqItems } from '@/components/FAQ';
@@ -168,6 +169,22 @@ export default function HomePage() {
               <h3>3. Presupuesta mejor</h3>
               <p>Usa el total recomendado como base para una propuesta cerrada o por hitos.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container text-block">
+          <span className="eyebrow">Guia SEO</span>
+          <h2>Como presupuestar un proyecto freelance paso a paso</h2>
+          <p>
+            Si quieres entender primero la logica y despues tocar numeros, hemos preparado una guia
+            practica sobre como presupuestar un proyecto freelance sin quedarte corto.
+          </p>
+          <div className="guide-cta">
+            <Link href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
+              Leer la guia
+            </Link>
           </div>
         </div>
       </section>
