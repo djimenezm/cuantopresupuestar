@@ -174,17 +174,45 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <div className="container text-block">
-          <span className="eyebrow">Guia SEO</span>
-          <h2>Como presupuestar un proyecto freelance paso a paso</h2>
-          <p>
-            Si quieres entender primero la logica y despues tocar numeros, hemos preparado una guia
-            practica sobre como presupuestar un proyecto freelance sin quedarte corto.
-          </p>
-          <div className="guide-cta">
-            <Link href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
-              Leer la guia
-            </Link>
+        <div className="container">
+          <div className="text-block">
+            <span className="eyebrow">Guias utiles</span>
+            <h2>Aprende a poner precio antes de tocar los numeros</h2>
+            <p>
+              Si prefieres entender primero la logica y despues usar la calculadora, aqui tienes dos
+              guias pensadas para dudas muy habituales al presupuestar servicios freelance.
+            </p>
+          </div>
+
+          <div className="feature-grid" aria-label="Guias destacadas">
+            <article className="feature-card">
+              <h3>Como presupuestar un proyecto freelance</h3>
+              <p>
+                Baja un precio cerrado a horas reales, buffer, costes directos y margen antes de
+                presentarlo a un cliente.
+              </p>
+              <div className="guide-cta">
+                <Link href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Cuanto cobrar por una pagina web freelance</h3>
+              <p>
+                Revisa que cambia el precio de una web y como evitar presupuestarla a ojo o por
+                comparacion rapida con el mercado.
+              </p>
+              <div className="guide-cta">
+                <Link
+                  href="/cuanto-cobrar-por-una-pagina-web-freelance"
+                  className="primary-button"
+                >
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>

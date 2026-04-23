@@ -275,6 +275,14 @@ export default function ComoPresupuestarProyectoFreelancePage() {
             mensual, costes fijos, horas facturables, horas del proyecto, buffer, margen e IVA para
             obtener una referencia mucho mas util que un precio improvisado.
           </p>
+          <p>
+            Si tu duda concreta gira en torno a webs corporativas, landings o proyectos similares,
+            puedes apoyarte tambien en la guia sobre{' '}
+            <Link href="/cuanto-cobrar-por-una-pagina-web-freelance">
+              cuanto cobrar por una pagina web freelance
+            </Link>
+            .
+          </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
               Calcular mi presupuesto
