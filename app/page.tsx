@@ -225,6 +225,11 @@ export default function HomePage() {
             quieres aterrizar tu referencia mensual como autonomo o freelance, puedes apoyarte
             tambien en <a href="https://www.cuantofacturar.es">Cuanto Facturar</a>.
           </p>
+          <p>
+            Si prefieres moverte entre varias herramientas segun el tipo de encargo, en{' '}
+            <a href="https://www.paneldeherramientas.es">Panel de Herramientas</a> puedes verlas
+            juntas y elegir la que mas encaja con cada presupuesto.
+          </p>
         </div>
       </section>
 
