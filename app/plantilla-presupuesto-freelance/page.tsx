@@ -258,6 +258,11 @@ export default function PlantillaPresupuestoFreelancePage() {
             <Link href="/como-presupuestar-un-proyecto-freelance">
               como presupuestar un proyecto freelance
             </Link>
+            . Y si quieres pulir la parte de venta y no solo la estructura, te conviene sumar
+            tambien la guia sobre{' '}
+            <Link href="/como-hacer-una-propuesta-comercial">
+              como hacer una propuesta comercial freelance
+            </Link>
             .
           </p>
         </div>

@@ -212,6 +212,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Como hacer una propuesta comercial</h3>
+              <p>
+                Aprende a presentar mejor tu enfoque, el alcance y el precio para que el cliente
+                entienda lo que compra y el siguiente paso.
+              </p>
+              <div className="guide-cta">
+                <Link href="/como-hacer-una-propuesta-comercial" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Cuanto cobrar por una pagina web freelance</h3>
               <p>
                 Revisa que cambia el precio de una web y como evitar presupuestarla a ojo o por
