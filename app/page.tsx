@@ -4,6 +4,7 @@ import CalculatorForm from '@/components/CalculatorForm';
 import FAQ, { faqItems } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { siteConfig } from '@/lib/site';
 
 export default function HomePage() {
@@ -242,6 +243,18 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="section alt">
+        <div className="container">
+          <LeadMagnetForm
+            source="home"
+            title="Te avisamos cuando publiquemos el kit de presupuesto freelance"
+            description="Estamos preparando un recurso gratuito con plantilla de presupuesto, propuesta comercial y checklist para defender mejor un precio por proyecto. Si quieres, te avisamos en cuanto salga."
+            buttonLabel="Avisadme cuando salga"
+          />
+        </div>
+      </section>
+
       <section className="section alt">
         <div className="container text-block">
           <span className="eyebrow">Otra herramienta</span>

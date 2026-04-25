@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/como-hacer-una-propuesta-comercial';
@@ -283,6 +284,17 @@ export default function ComoHacerPropuestaComercialPage() {
               revisiones antes de ceder por reflejo.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <LeadMagnetForm
+            source="como-hacer-una-propuesta-comercial"
+            title="Apuntate y te avisamos del kit de propuesta y presupuesto"
+            description="Estamos preparando un kit gratuito para freelancers con plantilla de presupuesto, propuesta comercial y checklist para cerrar mejor una oferta. Si quieres, te avisamos en cuanto lo publiquemos."
+            buttonLabel="Quiero enterarme"
+          />
         </div>
       </section>
 

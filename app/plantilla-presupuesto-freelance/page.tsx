@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/plantilla-presupuesto-freelance';
@@ -293,6 +294,17 @@ export default function PlantillaPresupuestoFreelancePage() {
               seguridad.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <LeadMagnetForm
+            source="plantilla-presupuesto-freelance"
+            title="Quieres el kit cuando este listo?"
+            description="Si esta plantilla te resulta util, deja tu email y te avisaremos cuando publiquemos el kit gratuito con plantilla editable, propuesta comercial y checklist de revision."
+            buttonLabel="Quiero el kit"
+          />
         </div>
       </section>
 
