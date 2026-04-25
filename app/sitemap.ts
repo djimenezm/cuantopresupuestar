@@ -3,6 +3,7 @@ import { getSiteUrl } from '@/lib/site';
 
 const routes = [
   '/',
+  '/kit-presupuesto-freelance',
   '/como-presupuestar-un-proyecto-freelance',
   '/como-hacer-una-propuesta-comercial',
   '/plantilla-presupuesto-freelance',

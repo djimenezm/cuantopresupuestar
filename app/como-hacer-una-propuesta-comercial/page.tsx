@@ -291,9 +291,9 @@ export default function ComoHacerPropuestaComercialPage() {
         <div className="container">
           <LeadMagnetForm
             source="como-hacer-una-propuesta-comercial"
-            title="Apuntate y te avisamos del kit de propuesta y presupuesto"
-            description="Estamos preparando un kit gratuito para freelancers con plantilla de presupuesto, propuesta comercial y checklist para cerrar mejor una oferta. Si quieres, te avisamos en cuanto lo publiquemos."
-            buttonLabel="Quiero enterarme"
+            title="Te enviamos el kit de propuesta y presupuesto"
+            description="Accede al recurso con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar mejor una oferta freelance."
+            buttonLabel="Quiero el kit"
           />
         </div>
       </section>

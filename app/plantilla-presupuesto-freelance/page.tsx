@@ -301,8 +301,8 @@ export default function PlantillaPresupuestoFreelancePage() {
         <div className="container">
           <LeadMagnetForm
             source="plantilla-presupuesto-freelance"
-            title="Quieres el kit cuando este listo?"
-            description="Si esta plantilla te resulta util, deja tu email y te avisaremos cuando publiquemos el kit gratuito con plantilla editable, propuesta comercial y checklist de revision."
+            title="Te enviamos el kit con la plantilla y la checklist"
+            description="Si esta plantilla te resulta util, deja tu email y te enviaremos acceso al kit con una version descargable, propuesta comercial y checklist de revision."
             buttonLabel="Quiero el kit"
           />
         </div>

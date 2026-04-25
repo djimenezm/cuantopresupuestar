@@ -1,0 +1,40 @@
+KIT DE PRESUPUESTO FREELANCE
+
+1. ESTRUCTURA BASE DE PRESUPUESTO
+
+- Nombre del proyecto y fecha
+- Resumen breve del objetivo del encargo
+- Alcance del trabajo y entregables incluidos
+- Numero de revisiones incluidas
+- Plazos estimados y dependencias del cliente
+- Precio del proyecto
+- IVA aparte, si aplica
+- Forma de pago y calendario de hitos
+- Exclusiones: que no entra en el presupuesto
+- Validez de la propuesta
+- Siguiente paso para aprobarla
+
+2. ESTRUCTURA BASE DE PROPUESTA COMERCIAL
+
+- Contexto y problema
+- Objetivo del trabajo
+- Enfoque propuesto
+- Entregables
+- Alcance y limites
+- Precio, forma de pago e IVA
+- Plazos principales
+- Siguiente paso claro
+
+3. CHECKLIST ANTES DE ENVIAR
+
+- La cifra parte de una base economica sana
+- El alcance deja claro que esta incluido y que no
+- Las revisiones tienen limite
+- El IVA esta bien explicado
+- La forma de pago esta clara
+- El cliente sabe cual es el siguiente paso
+
+4. RECORDATORIO
+
+Este kit mejora la presentacion y la revision final.
+La calculadora de Cuanto Presupuestar sigue siendo la mejor pieza para aterrizar un precio minimo y una zona recomendada antes de redactar la propuesta.

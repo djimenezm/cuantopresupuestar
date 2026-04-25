@@ -248,9 +248,9 @@ export default function HomePage() {
         <div className="container">
           <LeadMagnetForm
             source="home"
-            title="Te avisamos cuando publiquemos el kit de presupuesto freelance"
-            description="Estamos preparando un recurso gratuito con plantilla de presupuesto, propuesta comercial y checklist para defender mejor un precio por proyecto. Si quieres, te avisamos en cuanto salga."
-            buttonLabel="Avisadme cuando salga"
+            title="Te enviamos el kit de presupuesto freelance"
+            description="Accede al kit con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar mejor una oferta antes de enviarla."
+            buttonLabel="Quiero el kit"
           />
         </div>
       </section>
