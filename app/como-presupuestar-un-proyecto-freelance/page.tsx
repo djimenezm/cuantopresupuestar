@@ -276,6 +276,12 @@ export default function ComoPresupuestarProyectoFreelancePage() {
             obtener una referencia mucho mas util que un precio improvisado.
           </p>
           <p>
+            Y si ya tienes clara la cifra pero quieres presentarla mejor, puedes apoyarte tambien en
+            la{' '}
+            <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
+            para ordenar alcance, revisiones, pagos y exclusiones.
+          </p>
+          <p>
             Si tu duda concreta gira en torno a webs corporativas, landings o proyectos similares,
             puedes apoyarte tambien en la guia sobre{' '}
             <Link href="/cuanto-cobrar-por-una-pagina-web-freelance">

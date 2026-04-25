@@ -4,6 +4,7 @@ import { getSiteUrl } from '@/lib/site';
 const routes = [
   '/',
   '/como-presupuestar-un-proyecto-freelance',
+  '/plantilla-presupuesto-freelance',
   '/cuanto-cobrar-por-una-pagina-web-freelance',
   '/aviso-legal',
   '/privacidad',

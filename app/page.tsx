@@ -199,6 +199,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Plantilla de presupuesto freelance</h3>
+              <p>
+                Usa una estructura base para presentar mejor el precio, aclarar alcance, revisiones,
+                pagos e IVA antes de enviar la propuesta.
+              </p>
+              <div className="guide-cta">
+                <Link href="/plantilla-presupuesto-freelance" className="primary-button">
+                  Ver plantilla
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Cuanto cobrar por una pagina web freelance</h3>
               <p>
                 Revisa que cambia el precio de una web y como evitar presupuestarla a ojo o por
