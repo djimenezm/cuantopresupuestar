@@ -1,4 +1,7 @@
-import { CalculationResult } from '@/lib/calculator';
+'use client';
+
+import { useState } from 'react';
+import { type CalculationResult } from '@/lib/calculator';
 import { formatCurrency } from '@/lib/format';
 
 type ResultCardProps = {
@@ -6,8 +9,59 @@ type ResultCardProps = {
   hasIVA: boolean;
 };
 
+type CopyStatus = 'idle' | 'copied' | 'error';
+
+async function copyTextToClipboard(text: string) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.setAttribute('readonly', '');
+  textArea.style.position = 'fixed';
+  textArea.style.left = '-9999px';
+  document.body.appendChild(textArea);
+  textArea.select();
+
+  const copied = document.execCommand('copy');
+  document.body.removeChild(textArea);
+
+  if (!copied) {
+    throw new Error('No se pudo copiar el resumen.');
+  }
+}
+
 export default function ResultCard({ result, hasIVA }: ResultCardProps) {
+  const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
   const pricingBuffer = Math.max(0, result.recommendedProjectBudget - result.projectFloorPrice);
+  const proposalSummary = [
+    'Resumen de presupuesto - Cuánto Presupuestar',
+    `Precio mínimo defendible: ${formatCurrency(result.projectFloorPrice)} sin IVA`,
+    `Presupuesto recomendado: ${formatCurrency(result.recommendedProjectBudget)} sin IVA`,
+    hasIVA
+      ? `Total final con IVA: ${formatCurrency(result.totalWithVAT)}`
+      : 'IVA: no añadido en esta simulación',
+    `Horas estimadas: ${result.projectHours} h`,
+    `Horas con buffer: ${result.bufferedProjectHours} h`,
+    `Buffer de revisiones e imprevistos: ${result.revisionBufferPercent}%`,
+    `Referencia base: ${formatCurrency(result.baseHourlyRate)}/h`,
+    `Tarifa efectiva del proyecto: ${formatCurrency(result.effectiveHourlyRate)}/h`,
+    `Costes directos: ${formatCurrency(result.directProjectCosts)}`,
+    `Colchón de negociación: ${formatCurrency(pricingBuffer)}`,
+    'Nota: si el cliente pide bajar precio, conviene ajustar alcance antes de bajar del mínimo defendible.',
+  ].join('\n');
+
+  async function handleCopySummary() {
+    try {
+      await copyTextToClipboard(proposalSummary);
+      setCopyStatus('copied');
+      window.setTimeout(() => setCopyStatus('idle'), 2500);
+    } catch {
+      setCopyStatus('error');
+    }
+  }
 
   return (
     <section className="result-card" aria-live="polite">
@@ -66,6 +120,32 @@ export default function ResultCard({ result, hasIVA }: ResultCardProps) {
           imprevistos o parte del tiempo real del proyecto. La zona comoda para presentar propuesta
           esta mas cerca de <strong>{formatCurrency(result.recommendedProjectBudget)}</strong>.
         </p>
+      </div>
+
+      <div className="result-copy-box">
+        <div className="result-copy-header">
+          <div>
+            <strong>Resumen listo para guardar</strong>
+            <p>
+              Copia una versión corta del cálculo para pegarla en una propuesta, una nota interna o
+              una conversación con el cliente.
+            </p>
+          </div>
+          <button type="button" className="result-copy-button" onClick={handleCopySummary}>
+            {copyStatus === 'copied' ? 'Resumen copiado' : 'Copiar resumen'}
+          </button>
+        </div>
+        <pre className="result-copy-preview">{proposalSummary}</pre>
+        {copyStatus === 'copied' && (
+          <span className="result-copy-status" role="status">
+            Resumen copiado.
+          </span>
+        )}
+        {copyStatus === 'error' && (
+          <span className="result-copy-status result-copy-status-error" role="status">
+            No se ha podido copiar automáticamente. Puedes seleccionar el resumen manualmente.
+          </span>
+        )}
       </div>
 
       <p className="result-summary">
