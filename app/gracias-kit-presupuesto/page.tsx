@@ -44,6 +44,53 @@ export default function GraciasKitPresupuestoPage() {
         </div>
       </section>
 
+      <section className="section alt">
+        <div className="container">
+          <span className="eyebrow">Siguiente paso</span>
+          <h2>Pasa del kit a un precio mas defendible</h2>
+          <div className="feature-grid" aria-label="Siguientes pasos recomendados">
+            <article className="feature-card">
+              <h3>Facturacion base</h3>
+              <p>
+                Si aun no tienes claro tu suelo mensual, calcula cuanto necesitas facturar antes de
+                cerrar precios por proyecto.
+              </p>
+              <div className="guide-cta">
+                <a href="https://www.cuantofacturar.es" className="primary-button">
+                  Calcular facturacion
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Desarrollo web</h3>
+              <p>
+                Si el presupuesto es para una web, revisa alcance, hitos, revisiones y soporte
+                posterior antes de enviarlo.
+              </p>
+              <div className="guide-cta">
+                <Link href="/presupuesto-desarrollo-web-freelance" className="primary-button">
+                  Ver guia web
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Ingresos recurrentes</h3>
+              <p>
+                Si despues del proyecto vas a ofrecer soporte, calcula tambien una cuota mensual de
+                mantenimiento.
+              </p>
+              <div className="guide-cta">
+                <a href="https://www.mantenimientowebmensual.es" className="primary-button">
+                  Calcular mantenimiento
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
