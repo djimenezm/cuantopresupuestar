@@ -56,7 +56,10 @@ export default function GraciasKitPresupuestoPage() {
                 cerrar precios por proyecto.
               </p>
               <div className="guide-cta">
-                <a href="https://www.cuantofacturar.es" className="primary-button">
+                <a
+                  href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=thank-you&utm_campaign=kit_next_step"
+                  className="primary-button"
+                >
                   Calcular facturacion
                 </a>
               </div>
@@ -82,7 +85,10 @@ export default function GraciasKitPresupuestoPage() {
                 mantenimiento.
               </p>
               <div className="guide-cta">
-                <a href="https://www.mantenimientowebmensual.es" className="primary-button">
+                <a
+                  href="https://www.mantenimientowebmensual.es?utm_source=cuantopresupuestar&utm_medium=thank-you&utm_campaign=kit_next_step"
+                  className="primary-button"
+                >
                   Calcular mantenimiento
                 </a>
               </div>
