@@ -12,6 +12,7 @@ export default function Header() {
           <Link href="/#calculadora">Calculadora</Link>
           <Link href="/como-presupuestar-un-proyecto-freelance">Guia</Link>
           <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
+          <Link href="/precio-cerrado-o-por-horas-freelance">Modelo</Link>
           <Link href="/presupuesto-desarrollo-web-freelance">Desarrollo web</Link>
           <Link href="/#como-funciona">Cómo funciona</Link>
           <Link href="/#faq">FAQ</Link>

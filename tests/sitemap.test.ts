@@ -12,6 +12,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/como-hacer-una-propuesta-comercial');
     expect(paths).toContain('/ejemplo-presupuesto-freelance');
     expect(paths).toContain('/plantilla-presupuesto-freelance');
+    expect(paths).toContain('/precio-cerrado-o-por-horas-freelance');
     expect(paths).toContain('/cuanto-cobrar-por-una-pagina-web-freelance');
     expect(paths).toContain('/presupuesto-desarrollo-web-freelance');
     expect(paths).not.toContain('/gracias-kit-presupuesto');

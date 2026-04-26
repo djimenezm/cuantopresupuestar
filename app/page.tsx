@@ -213,6 +213,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Precio cerrado o por horas freelance</h3>
+              <p>
+                Decide cuándo vender por proyecto cerrado, por horas o por fases sin regalar margen
+                ni mezclar alcances.
+              </p>
+              <div className="guide-cta">
+                <Link href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
+                  Leer la guía
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Plantilla de presupuesto freelance</h3>
               <p>
                 Usa una estructura base para presentar mejor el precio, aclarar alcance, revisiones,

@@ -8,6 +8,7 @@ const routes = [
   '/como-hacer-una-propuesta-comercial',
   '/ejemplo-presupuesto-freelance',
   '/plantilla-presupuesto-freelance',
+  '/precio-cerrado-o-por-horas-freelance',
   '/cuanto-cobrar-por-una-pagina-web-freelance',
   '/presupuesto-desarrollo-web-freelance',
   '/aviso-legal',
