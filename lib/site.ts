@@ -1,3 +1,5 @@
+const productionUrl = 'https://www.cuantopresupuestar.es';
+
 export const siteConfig = {
   name: 'Cuánto Presupuestar',
   shortName: 'Cuánto Presupuestar',
@@ -13,7 +15,7 @@ export const siteConfig = {
     'presupuestar proyecto freelance',
     'calculadora precio por proyecto',
   ],
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3002',
+  url: process.env.NODE_ENV === 'development' ? 'http://localhost:3002' : productionUrl,
   ownerName: 'Equipo de Cuánto Presupuestar',
   contactEmail: 'hola@cuantopresupuestar.es',
   country: 'España',
