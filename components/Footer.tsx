@@ -19,6 +19,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="footer-links">
+          <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
           <Link href="/presupuesto-desarrollo-web-freelance">Desarrollo web</Link>
           <a href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Facturar

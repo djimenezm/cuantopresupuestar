@@ -200,6 +200,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Ejemplo de presupuesto freelance</h3>
+              <p>
+                Mira una estructura práctica para presentar alcance, entregables, revisiones,
+                precio, pagos y exclusiones sin dejar huecos peligrosos.
+              </p>
+              <div className="guide-cta">
+                <Link href="/ejemplo-presupuesto-freelance" className="primary-button">
+                  Ver ejemplo
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Plantilla de presupuesto freelance</h3>
               <p>
                 Usa una estructura base para presentar mejor el precio, aclarar alcance, revisiones,
