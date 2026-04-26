@@ -180,8 +180,8 @@ export default function HomePage() {
             <span className="eyebrow">Guias utiles</span>
             <h2>Aprende a poner precio antes de tocar los numeros</h2>
             <p>
-              Si prefieres entender primero la logica y despues usar la calculadora, aqui tienes dos
-              guias pensadas para dudas muy habituales al presupuestar servicios freelance.
+              Si prefieres entender primero la logica y despues usar la calculadora, aqui tienes
+              varias guias pensadas para dudas muy habituales al presupuestar servicios freelance.
             </p>
           </div>
 
@@ -236,6 +236,19 @@ export default function HomePage() {
                   href="/cuanto-cobrar-por-una-pagina-web-freelance"
                   className="primary-button"
                 >
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Presupuesto de desarrollo web freelance</h3>
+              <p>
+                Ordena alcance, fases, hitos, revisiones, extras y soporte posterior antes de
+                enviar una propuesta de desarrollo web.
+              </p>
+              <div className="guide-cta">
+                <Link href="/presupuesto-desarrollo-web-freelance" className="primary-button">
                   Leer la guia
                 </Link>
               </div>
