@@ -11,6 +11,7 @@ export default function Header() {
         <nav className="nav" aria-label="Navegación principal">
           <Link href="/#calculadora">Calculadora</Link>
           <Link href="/como-presupuestar-un-proyecto-freelance">Guia</Link>
+          <Link href="/como-calcular-horas-proyecto-freelance">Horas</Link>
           <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
           <Link href="/precio-cerrado-o-por-horas-freelance">Modelo</Link>
           <Link href="/presupuesto-desarrollo-web-freelance">Desarrollo web</Link>

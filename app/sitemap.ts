@@ -5,6 +5,7 @@ const routes = [
   '/',
   '/kit-presupuesto-freelance',
   '/como-presupuestar-un-proyecto-freelance',
+  '/como-calcular-horas-proyecto-freelance',
   '/como-hacer-una-propuesta-comercial',
   '/ejemplo-presupuesto-freelance',
   '/plantilla-presupuesto-freelance',

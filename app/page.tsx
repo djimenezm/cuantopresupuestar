@@ -200,6 +200,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Como calcular horas de un proyecto freelance</h3>
+              <p>
+                Estima fases, reuniones, revisiones, gestion, pruebas y buffer antes de convertir
+                el esfuerzo real en un precio defendible.
+              </p>
+              <div className="guide-cta">
+                <Link href="/como-calcular-horas-proyecto-freelance" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Ejemplo de presupuesto freelance</h3>
               <p>
                 Mira una estructura práctica para presentar alcance, entregables, revisiones,
