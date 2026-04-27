@@ -265,6 +265,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Condiciones de pago en presupuesto freelance</h3>
+              <p>
+                Define anticipo, pagos por hitos, plazos de factura y entrega final para no dejar
+                todo el riesgo financiero al final del proyecto.
+              </p>
+              <div className="guide-cta">
+                <Link href="/condiciones-pago-presupuesto-freelance" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Plantilla de presupuesto freelance</h3>
               <p>
                 Usa una estructura base para presentar mejor el precio, aclarar alcance, revisiones,

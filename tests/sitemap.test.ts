@@ -15,6 +15,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/plantilla-presupuesto-freelance');
     expect(paths).toContain('/precio-cerrado-o-por-horas-freelance');
     expect(paths).toContain('/margen-presupuesto-freelance');
+    expect(paths).toContain('/condiciones-pago-presupuesto-freelance');
     expect(paths).toContain('/presupuesto-por-fases-freelance');
     expect(paths).toContain('/cuanto-cobrar-por-una-pagina-web-freelance');
     expect(paths).toContain('/presupuesto-desarrollo-web-freelance');

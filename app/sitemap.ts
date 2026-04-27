@@ -11,6 +11,7 @@ const routes = [
   '/plantilla-presupuesto-freelance',
   '/precio-cerrado-o-por-horas-freelance',
   '/margen-presupuesto-freelance',
+  '/condiciones-pago-presupuesto-freelance',
   '/presupuesto-por-fases-freelance',
   '/cuanto-cobrar-por-una-pagina-web-freelance',
   '/presupuesto-desarrollo-web-freelance',
