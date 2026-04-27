@@ -239,6 +239,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Margen en presupuesto freelance</h3>
+              <p>
+                Aprende cuanto margen anadir, como separarlo del buffer y que hacer si el cliente
+                pide bajar precio sin reducir alcance.
+              </p>
+              <div className="guide-cta">
+                <Link href="/margen-presupuesto-freelance" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Presupuesto por fases freelance</h3>
               <p>
                 Divide un proyecto en hitos, pagos parciales, revisiones y entregables para avanzar

@@ -22,6 +22,7 @@ export default function Footer() {
           <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
           <Link href="/como-calcular-horas-proyecto-freelance">Horas</Link>
           <Link href="/precio-cerrado-o-por-horas-freelance">Modelo</Link>
+          <Link href="/margen-presupuesto-freelance">Margen</Link>
           <Link href="/presupuesto-por-fases-freelance">Fases</Link>
           <Link href="/presupuesto-desarrollo-web-freelance">Desarrollo web</Link>
           <a href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">

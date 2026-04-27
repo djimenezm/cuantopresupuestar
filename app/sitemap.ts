@@ -10,6 +10,7 @@ const routes = [
   '/ejemplo-presupuesto-freelance',
   '/plantilla-presupuesto-freelance',
   '/precio-cerrado-o-por-horas-freelance',
+  '/margen-presupuesto-freelance',
   '/presupuesto-por-fases-freelance',
   '/cuanto-cobrar-por-una-pagina-web-freelance',
   '/presupuesto-desarrollo-web-freelance',
