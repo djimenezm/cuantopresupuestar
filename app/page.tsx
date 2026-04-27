@@ -239,6 +239,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Presupuesto por fases freelance</h3>
+              <p>
+                Divide un proyecto en hitos, pagos parciales, revisiones y entregables para avanzar
+                sin convertir cambios nuevos en horas gratis.
+              </p>
+              <div className="guide-cta">
+                <Link href="/presupuesto-por-fases-freelance" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Plantilla de presupuesto freelance</h3>
               <p>
                 Usa una estructura base para presentar mejor el precio, aclarar alcance, revisiones,
