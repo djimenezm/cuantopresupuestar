@@ -2,15 +2,10 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CalculatorForm from '@/components/CalculatorForm';
-import { track } from '@vercel/analytics';
-
-vi.mock('@vercel/analytics', () => ({
-  track: vi.fn(),
-}));
 
 describe('CalculatorForm', () => {
   beforeEach(() => {
-    vi.mocked(track).mockClear();
+    window.va = vi.fn();
   });
 
   it('shows an error and blocks results when billable hours are 0', async () => {
@@ -28,7 +23,7 @@ describe('CalculatorForm', () => {
 
     expect(screen.getByText('Las horas facturables deben ser mayores que 0.')).toBeInTheDocument();
     expect(screen.getByText('Revisa los campos marcados antes de calcular.')).toBeInTheDocument();
-    expect(track).not.toHaveBeenCalled();
+    expect(window.va).not.toHaveBeenCalled();
     expect(
       screen.queryByRole('heading', { name: /tu presupuesto recomendado para este proyecto/i }),
     ).not.toBeInTheDocument();
@@ -66,9 +61,12 @@ describe('CalculatorForm', () => {
     const resultCard = resultCardHeading.closest('section');
 
     expect(resultCard).not.toBeNull();
-    expect(track).toHaveBeenCalledWith('project_quote_calculated', {
-      hasIVA: 'yes',
-      hasMargin: 'yes',
+    expect(window.va).toHaveBeenCalledWith('event', {
+      name: 'project_quote_calculated',
+      data: {
+        hasIVA: 'yes',
+        hasMargin: 'yes',
+      },
     });
     expect(resultCardHeading).toBeInTheDocument();
     expect(within(resultCard!).getByText(/referencia base por hora/i)).toBeInTheDocument();
@@ -126,6 +124,6 @@ describe('CalculatorForm', () => {
     await user.click(submitButton);
     await user.click(submitButton);
 
-    expect(track).toHaveBeenCalledTimes(1);
+    expect(window.va).toHaveBeenCalledTimes(1);
   });
 });

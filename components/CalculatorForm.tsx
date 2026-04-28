@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { track } from '@vercel/analytics';
 import ResultCard from '@/components/ResultCard';
 import { calculateProjectQuote } from '@/lib/calculator';
 
@@ -16,6 +15,25 @@ type FieldName =
   | 'profitMarginPercent';
 
 type FormErrors = Partial<Record<FieldName, string>>;
+
+declare global {
+  interface Window {
+    va?: (
+      command: 'event',
+      payload: {
+        name: string;
+        data?: Record<string, string>;
+      },
+    ) => void;
+  }
+}
+
+function trackProjectQuoteCalculated(data: Record<string, string>) {
+  window.va?.('event', {
+    name: 'project_quote_calculated',
+    data,
+  });
+}
 
 function parseNumericValue(value: string) {
   const normalizedValue = value.replace(',', '.').trim();
@@ -240,7 +258,7 @@ export default function CalculatorForm() {
           setSubmitted(true);
 
           if (!hasValidationErrors && !hasTrackedConversion) {
-            track('project_quote_calculated', {
+            trackProjectQuoteCalculated({
               hasIVA: hasIVA ? 'yes' : 'no',
               hasMargin: parseNumericValue(profitMarginPercent) > 0 ? 'yes' : 'no',
             });
