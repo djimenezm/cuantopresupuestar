@@ -587,6 +587,19 @@ select[aria-invalid='true'] {
   color: var(--accent-dark);
 }
 
+.footer-contact-link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.18em;
+}
+
+.footer-contact-link:hover,
+.footer-contact-link:focus-visible {
+  color: var(--accent);
+  text-decoration-thickness: 0.16em;
+}
+
 .footer-copy {
   display: grid;
   gap: 0.35rem;

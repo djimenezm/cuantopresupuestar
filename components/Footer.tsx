@@ -11,7 +11,9 @@ export default function Footer() {
           </p>
           <p>
             Titular: {siteConfig.ownerName} · Contacto:{' '}
-            <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+            <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
+              {siteConfig.contactEmail}
+            </a>
           </p>
           <p className="footer-note">
             Herramienta orientativa para presupuestar proyectos freelance. No constituye
