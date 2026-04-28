@@ -65,9 +65,8 @@ export default function HomePage() {
             <span className="eyebrow">Cuánto Presupuestar</span>
             <h1>Calculadora para saber cuánto presupuestar un proyecto freelance</h1>
             <p className="lead">
-              Convierte tu objetivo mensual en un presupuesto por proyecto más defendible. Calcula una
-              referencia base por hora, añade buffer de revisiones, costes directos, margen extra e
-              IVA aparte para no presupuestar a ciegas.
+              Convierte tu objetivo mensual en un presupuesto freelance defendible con horas,
+              buffer, costes, margen e IVA aparte.
             </p>
             <div className="hero-badges" aria-label="Ventajas principales">
               <span className="hero-badge">Sin registro</span>

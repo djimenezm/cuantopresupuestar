@@ -19,4 +19,29 @@ describe('performance configuration', () => {
     expect(nextConfig).toContain('./lib/no-browser-polyfills.ts');
     expect(noPolyfillsModule.trim()).toBe('export {};');
   });
+
+  it('keeps the homepage lead compact for LCP', () => {
+    const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
+    const calculatorForm = readFileSync(
+      join(process.cwd(), 'components/CalculatorForm.tsx'),
+      'utf8',
+    );
+    const globalStyles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const leadMatch = homePage.match(/<p className="lead">([\s\S]*?)<\/p>/);
+    const calculatorIntroMatch = calculatorForm.match(
+      /<p className="card-intro" id="calculator-intro">([\s\S]*?)<\/p>/,
+    );
+    const leadText = leadMatch?.[1].replace(/\s+/g, ' ').trim() ?? '';
+    const calculatorIntroText =
+      calculatorIntroMatch?.[1].replace(/\s+/g, ' ').trim() ?? '';
+
+    expect(leadText.length).toBeLessThanOrEqual(130);
+    expect(calculatorIntroText.length).toBeLessThanOrEqual(95);
+    expect(calculatorForm).not.toContain(
+      'Convierte tu objetivo mensual en un presupuesto por proyecto',
+    );
+    expect(globalStyles).toMatch(/\.lead\s*{[^}]*font-size:\s*1rem/s);
+    expect(globalStyles).toMatch(/\.lead\s*{[^}]*line-height:\s*1\.55/s);
+    expect(globalStyles).toMatch(/\.lead\s*{[^}]*max-width:\s*48ch/s);
+  });
 });

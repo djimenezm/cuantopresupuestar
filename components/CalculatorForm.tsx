@@ -246,8 +246,7 @@ export default function CalculatorForm() {
     <div className="calculator-card" id="calculadora">
       <h2>Calculadora</h2>
       <p className="card-intro" id="calculator-intro">
-        Convierte tu objetivo mensual en un presupuesto por proyecto más defendible usando horas
-        facturables, buffer, costes directos y una reserva fiscal orientativa.
+        Calcula un precio base con horas facturables, buffer, costes y reserva fiscal.
       </p>
 
       <form
