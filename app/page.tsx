@@ -193,7 +193,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
-                  Leer la guia
+                  Guía de proyecto
                 </Link>
               </div>
             </article>
@@ -206,7 +206,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/como-calcular-horas-proyecto-freelance" className="primary-button">
-                  Leer la guia
+                  Calcular horas
                 </Link>
               </div>
             </article>
@@ -232,7 +232,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
-                  Leer la guía
+                  Elegir modelo
                 </Link>
               </div>
             </article>
@@ -245,7 +245,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/margen-presupuesto-freelance" className="primary-button">
-                  Leer la guia
+                  Añadir margen
                 </Link>
               </div>
             </article>
@@ -258,7 +258,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/presupuesto-por-fases-freelance" className="primary-button">
-                  Leer la guia
+                  Plan por fases
                 </Link>
               </div>
             </article>
@@ -271,7 +271,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/condiciones-pago-presupuesto-freelance" className="primary-button">
-                  Leer la guia
+                  Definir pagos
                 </Link>
               </div>
             </article>
@@ -297,7 +297,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/como-hacer-una-propuesta-comercial" className="primary-button">
-                  Leer la guia
+                  Crear propuesta
                 </Link>
               </div>
             </article>
@@ -313,7 +313,7 @@ export default function HomePage() {
                   href="/cuanto-cobrar-por-una-pagina-web-freelance"
                   className="primary-button"
                 >
-                  Leer la guia
+                  Precio web
                 </Link>
               </div>
             </article>
@@ -326,7 +326,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <Link href="/presupuesto-desarrollo-web-freelance" className="primary-button">
-                  Leer la guia
+                  Desarrollo web
                 </Link>
               </div>
             </article>
