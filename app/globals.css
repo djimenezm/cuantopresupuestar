@@ -7,6 +7,8 @@
   --line: #d7e0ea;
   --accent: #145da0;
   --accent-dark: #0e477d;
+  --focus-ring: #f59e0b;
+  --focus-shadow: rgba(245, 158, 11, 0.28);
   --shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
   --radius: 18px;
   --container: 1120px;
@@ -30,6 +32,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--focus-shadow);
 }
 
 .container {
