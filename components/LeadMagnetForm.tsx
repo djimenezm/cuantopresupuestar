@@ -45,7 +45,14 @@ export default function LeadMagnetForm({
           <span>Email</span>
           <input type="email" name="email" placeholder="tu@email.com" required />
         </label>
-        <input type="text" name="_honey" className="honey-field" tabIndex={-1} autoComplete="off" />
+        <input
+          type="text"
+          name="_honey"
+          className="honey-field"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
         <button type="submit" className="primary-button">
           {buttonLabel}
         </button>
