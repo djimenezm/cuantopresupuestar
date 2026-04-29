@@ -20,6 +20,8 @@ async function copyTextToClipboard(text: string) {
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.setAttribute('readonly', '');
+  textArea.setAttribute('aria-hidden', 'true');
+  textArea.tabIndex = -1;
   textArea.style.position = 'fixed';
   textArea.style.left = '-9999px';
   document.body.appendChild(textArea);
