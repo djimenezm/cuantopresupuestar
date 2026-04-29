@@ -7,6 +7,12 @@ describe('footer accessibility', () => {
     const styles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
 
     expect(footer).toContain('className="footer-contact-link"');
+    expect(footer).toContain('className="footer-contact-row"');
+    expect(footer).toContain('Contacto: {siteConfig.contactEmail}');
+    expect(footer).not.toContain('Contacto:{');
+    expect(styles).toMatch(/\.footer-contact-link\s*{[^}]*display:\s*inline-flex/s);
+    expect(styles).toMatch(/\.footer-contact-link\s*{[^}]*border:\s*1px solid/s);
+    expect(styles).toMatch(/\.footer-contact-link\s*{[^}]*background:\s*#eef6ff/s);
     expect(styles).toMatch(/\.footer-contact-link\s*{[^}]*text-decoration:\s*underline/s);
     expect(styles).toMatch(/\.footer-contact-link\s*{[^}]*text-decoration-thickness:/s);
     expect(styles).toMatch(/\.footer-contact-link\s*{[^}]*font-weight:\s*700/s);

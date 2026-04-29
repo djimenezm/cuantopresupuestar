@@ -8,10 +8,10 @@ export default function Footer() {
           <p>
             Copyright {new Date().getFullYear()} {siteConfig.name}
           </p>
-          <p>
-            Titular: {siteConfig.ownerName} · Contacto:{' '}
+          <p>Titular: {siteConfig.ownerName}</p>
+          <p className="footer-contact-row">
             <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
-              {siteConfig.contactEmail}
+              Contacto: {siteConfig.contactEmail}
             </a>
           </p>
           <p className="footer-note">
