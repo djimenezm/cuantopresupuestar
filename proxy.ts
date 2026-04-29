@@ -28,6 +28,8 @@ function createContentSecurityPolicy(nonce: string) {
   return directives.join('; ');
 }
 
+const strictTransportSecurity = 'max-age=63072000; includeSubDomains; preload';
+
 export function proxy(request: NextRequest) {
   const nonce = createNonce();
   const contentSecurityPolicy = createContentSecurityPolicy(nonce);
@@ -43,6 +45,7 @@ export function proxy(request: NextRequest) {
   });
 
   response.headers.set('Content-Security-Policy', contentSecurityPolicy);
+  response.headers.set('Strict-Transport-Security', strictTransportSecurity);
 
   return response;
 }

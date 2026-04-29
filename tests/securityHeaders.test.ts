@@ -18,4 +18,11 @@ describe('security headers', () => {
     expect(layout).toContain("headers()).get('x-nonce')");
     expect(layout).toContain('nonce={nonce}');
   });
+
+  it('serves a preload-ready HSTS policy', () => {
+    const proxy = readFileSync(join(process.cwd(), 'proxy.ts'), 'utf8');
+
+    expect(proxy).toContain('Strict-Transport-Security');
+    expect(proxy).toContain('max-age=63072000; includeSubDomains; preload');
+  });
 });
