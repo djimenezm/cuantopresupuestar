@@ -156,7 +156,7 @@ export default function KitPresupuestoFreelancePage() {
             </div>
             <div className="guide-cta">
               <a href={downloadUrl} className="primary-button" download>
-                Descargar version en texto
+                Descargar plantilla en texto
               </a>
               <Link href="/#calculadora" className="primary-button">
                 Ir a la calculadora

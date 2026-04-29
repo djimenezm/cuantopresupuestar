@@ -38,7 +38,7 @@ export default function GraciasKitPresupuestoPage() {
               Volver a la calculadora
             </Link>
             <Link href="/recursos/kit-presupuesto-freelance.txt" className="primary-button">
-              Descargar version en texto
+              Descargar kit en texto
             </Link>
           </div>
         </div>
