@@ -32,4 +32,12 @@ describe('security headers', () => {
     expect(proxy).toContain('Cross-Origin-Opener-Policy');
     expect(proxy).toContain("crossOriginOpenerPolicy = 'same-origin'");
   });
+
+  it('prevents clickjacking with CSP and X-Frame-Options', () => {
+    const proxy = readFileSync(join(process.cwd(), 'proxy.ts'), 'utf8');
+
+    expect(proxy).toContain("frame-ancestors 'none'");
+    expect(proxy).toContain('X-Frame-Options');
+    expect(proxy).toContain("xFrameOptions = 'DENY'");
+  });
 });
