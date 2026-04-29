@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 import './globals.css';
 
@@ -56,16 +57,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get('x-nonce') ?? undefined;
+
   return (
     <html lang="es" data-scroll-behavior="smooth">
       <body>
         {children}
         <script
+          nonce={nonce}
           defer
           src="/_vercel/insights/script.js"
           data-sdkn="@vercel/analytics/next"
