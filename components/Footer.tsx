@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site';
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" role="contentinfo">
       <div className="container footer-inner">
         <div className="footer-copy">
           <p>
@@ -20,7 +20,7 @@ export default function Footer() {
             asesoramiento fiscal ni legal.
           </p>
         </div>
-        <div className="footer-links">
+        <nav className="footer-links" aria-label="Navegación secundaria">
           <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
           <Link href="/como-calcular-horas-proyecto-freelance">Horas</Link>
           <Link href="/precio-cerrado-o-por-horas-freelance">Modelo</Link>
@@ -46,7 +46,7 @@ export default function Footer() {
           <Link href="/aviso-legal">Aviso legal</Link>
           <Link href="/privacidad">Privacidad</Link>
           <Link href="/cookies">Cookies</Link>
-        </div>
+        </nav>
       </div>
     </footer>
   );

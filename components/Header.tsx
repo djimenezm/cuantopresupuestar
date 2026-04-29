@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="site-header">
+    <header className="site-header" role="banner">
       <div className="container header-inner">
-        <Link href="/" className="brand">
+        <Link href="/" className="brand" aria-label="Ir al inicio de Cuánto Presupuestar">
           Cuánto Presupuestar
         </Link>
 
