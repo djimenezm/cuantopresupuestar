@@ -55,7 +55,7 @@ describe('CalculatorForm', () => {
 
     await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
 
-    const resultCardHeading = screen.getByRole('heading', {
+    const resultCardHeading = await screen.findByRole('heading', {
       name: /tu presupuesto recomendado para este proyecto/i,
     });
     const resultCard = resultCardHeading.closest('section');
@@ -91,7 +91,7 @@ describe('CalculatorForm', () => {
     render(<CalculatorForm />);
 
     await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
-    await user.click(screen.getByRole('button', { name: /copiar resumen/i }));
+    await user.click(await screen.findByRole('button', { name: /copiar resumen/i }));
 
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Presupuesto recomendado'));
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Precio mínimo defendible'));

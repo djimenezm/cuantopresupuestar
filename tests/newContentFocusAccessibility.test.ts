@@ -12,7 +12,9 @@ describe('new content focus accessibility', () => {
 
     expect(calculatorForm).toContain('resultRegionRef.current?.focus');
     expect(calculatorForm).toContain('validSubmissionCount');
-    expect(calculatorForm).toContain('ref={resultRegionRef}');
+    expect(calculatorForm).toContain('setResultRegionRef');
+    expect(calculatorForm).toContain('ref={setResultRegionRef}');
+    expect(calculatorForm).toContain('requestAnimationFrame');
     expect(resultCard).toContain('tabIndex={-1}');
     expect(resultCard).toContain('aria-labelledby="result-card-title"');
     expect(styles).toMatch(/\.result-card:focus\s*{[^}]*outline:\s*3px solid var\(--focus-ring\)/s);

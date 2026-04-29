@@ -59,4 +59,14 @@ describe('performance configuration', () => {
     expect(notFound).not.toContain("from 'next/link'");
     expect(jsonLd).toContain("headers()).get('x-nonce')");
   });
+
+  it('loads the result card only after the calculator is submitted', () => {
+    const calculatorForm = readFileSync(
+      join(process.cwd(), 'components/CalculatorForm.tsx'),
+      'utf8',
+    );
+
+    expect(calculatorForm).not.toContain("import ResultCard from '@/components/ResultCard'");
+    expect(calculatorForm).toContain("lazy(() => import('@/components/ResultCard'))");
+  });
 });

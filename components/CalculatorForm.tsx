@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
-import ResultCard from '@/components/ResultCard';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { calculateProjectQuote } from '@/lib/calculator';
+
+const ResultCard = lazy(() => import('@/components/ResultCard'));
 
 type FieldName =
   | 'targetMonthlyNet'
@@ -185,7 +186,7 @@ export default function CalculatorForm() {
   const [submitted, setSubmitted] = useState(false);
   const [hasTrackedConversion, setHasTrackedConversion] = useState(false);
   const [validSubmissionCount, setValidSubmissionCount] = useState(0);
-  const resultRegionRef = useRef<HTMLElement>(null);
+  const resultRegionRef = useRef<HTMLElement | null>(null);
 
   const validationErrors = useMemo(
     () =>
@@ -249,6 +250,17 @@ export default function CalculatorForm() {
       resultRegionRef.current?.focus({ preventScroll: false });
     }
   }, [validSubmissionCount]);
+
+  const setResultRegionRef = useCallback(
+    (node: HTMLElement | null) => {
+      resultRegionRef.current = node;
+
+      if (node && validSubmissionCount > 0) {
+        window.requestAnimationFrame(() => node.focus({ preventScroll: false }));
+      }
+    },
+    [validSubmissionCount],
+  );
 
   return (
     <div className="calculator-card" id="calculadora">
@@ -505,7 +517,15 @@ export default function CalculatorForm() {
       </form>
 
       {submitted && !hasValidationErrors && (
-        <ResultCard ref={resultRegionRef} result={result} hasIVA={hasIVA} />
+        <Suspense
+          fallback={
+            <p className="form-note" role="status">
+              Preparando resultado...
+            </p>
+          }
+        >
+          <ResultCard ref={setResultRegionRef} result={result} hasIVA={hasIVA} />
+        </Suspense>
       )}
     </div>
   );
