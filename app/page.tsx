@@ -1,9 +1,8 @@
-import Link from 'next/link';
-import Script from 'next/script';
 import CalculatorForm from '@/components/CalculatorForm';
 import FAQ, { faqItems } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import JsonLd from '@/components/JsonLd';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { siteConfig } from '@/lib/site';
 
@@ -46,16 +45,8 @@ export default function HomePage() {
 
   return (
     <main>
-      <Script
-        id="webapp-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="webapp-schema" data={webAppSchema} />
+      <JsonLd id="faq-schema" data={faqSchema} />
 
       <Header />
 
@@ -192,9 +183,9 @@ export default function HomePage() {
                 presentarlo a un cliente.
               </p>
               <div className="guide-cta">
-                <Link href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
+                <a href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
                   Guía de proyecto
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -205,9 +196,9 @@ export default function HomePage() {
                 el esfuerzo real en un precio defendible.
               </p>
               <div className="guide-cta">
-                <Link href="/como-calcular-horas-proyecto-freelance" className="primary-button">
+                <a href="/como-calcular-horas-proyecto-freelance" className="primary-button">
                   Calcular horas
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -218,9 +209,9 @@ export default function HomePage() {
                 precio, pagos y exclusiones sin dejar huecos peligrosos.
               </p>
               <div className="guide-cta">
-                <Link href="/ejemplo-presupuesto-freelance" className="primary-button">
+                <a href="/ejemplo-presupuesto-freelance" className="primary-button">
                   Ver ejemplo
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -231,9 +222,9 @@ export default function HomePage() {
                 ni mezclar alcances.
               </p>
               <div className="guide-cta">
-                <Link href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
+                <a href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
                   Elegir modelo
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -244,9 +235,9 @@ export default function HomePage() {
                 pide bajar precio sin reducir alcance.
               </p>
               <div className="guide-cta">
-                <Link href="/margen-presupuesto-freelance" className="primary-button">
+                <a href="/margen-presupuesto-freelance" className="primary-button">
                   Añadir margen
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -257,9 +248,9 @@ export default function HomePage() {
                 sin convertir cambios nuevos en horas gratis.
               </p>
               <div className="guide-cta">
-                <Link href="/presupuesto-por-fases-freelance" className="primary-button">
+                <a href="/presupuesto-por-fases-freelance" className="primary-button">
                   Plan por fases
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -270,9 +261,9 @@ export default function HomePage() {
                 todo el riesgo financiero al final del proyecto.
               </p>
               <div className="guide-cta">
-                <Link href="/condiciones-pago-presupuesto-freelance" className="primary-button">
+                <a href="/condiciones-pago-presupuesto-freelance" className="primary-button">
                   Definir pagos
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -283,9 +274,9 @@ export default function HomePage() {
                 pagos e IVA antes de enviar la propuesta.
               </p>
               <div className="guide-cta">
-                <Link href="/plantilla-presupuesto-freelance" className="primary-button">
+                <a href="/plantilla-presupuesto-freelance" className="primary-button">
                   Ver plantilla
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -296,9 +287,9 @@ export default function HomePage() {
                 entienda lo que compra y el siguiente paso.
               </p>
               <div className="guide-cta">
-                <Link href="/como-hacer-una-propuesta-comercial" className="primary-button">
+                <a href="/como-hacer-una-propuesta-comercial" className="primary-button">
                   Crear propuesta
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -309,12 +300,12 @@ export default function HomePage() {
                 comparacion rapida con el mercado.
               </p>
               <div className="guide-cta">
-                <Link
+                <a
                   href="/cuanto-cobrar-por-una-pagina-web-freelance"
                   className="primary-button"
                 >
                   Precio web
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -325,9 +316,9 @@ export default function HomePage() {
                 enviar una propuesta de desarrollo web.
               </p>
               <div className="guide-cta">
-                <Link href="/presupuesto-desarrollo-web-freelance" className="primary-button">
+                <a href="/presupuesto-desarrollo-web-freelance" className="primary-button">
                   Desarrollo web
-                </Link>
+                </a>
               </div>
             </article>
           </div>

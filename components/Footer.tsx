@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
 
 export default function Footer() {
@@ -21,13 +20,13 @@ export default function Footer() {
           </p>
         </div>
         <nav className="footer-links" aria-label="Navegación secundaria">
-          <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
-          <Link href="/como-calcular-horas-proyecto-freelance">Horas</Link>
-          <Link href="/precio-cerrado-o-por-horas-freelance">Modelo</Link>
-          <Link href="/margen-presupuesto-freelance">Margen</Link>
-          <Link href="/condiciones-pago-presupuesto-freelance">Pagos</Link>
-          <Link href="/presupuesto-por-fases-freelance">Fases</Link>
-          <Link href="/presupuesto-desarrollo-web-freelance">Desarrollo web</Link>
+          <a href="/ejemplo-presupuesto-freelance">Ejemplo</a>
+          <a href="/como-calcular-horas-proyecto-freelance">Horas</a>
+          <a href="/precio-cerrado-o-por-horas-freelance">Modelo</a>
+          <a href="/margen-presupuesto-freelance">Margen</a>
+          <a href="/condiciones-pago-presupuesto-freelance">Pagos</a>
+          <a href="/presupuesto-por-fases-freelance">Fases</a>
+          <a href="/presupuesto-desarrollo-web-freelance">Desarrollo web</a>
           <a href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Facturar
           </a>
@@ -43,9 +42,9 @@ export default function Footer() {
           <a href="https://www.paneldeherramientas.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Panel
           </a>
-          <Link href="/aviso-legal">Aviso legal</Link>
-          <Link href="/privacidad">Privacidad</Link>
-          <Link href="/cookies">Cookies</Link>
+          <a href="/aviso-legal">Aviso legal</a>
+          <a href="/privacidad">Privacidad</a>
+          <a href="/cookies">Cookies</a>
         </nav>
       </div>
     </footer>

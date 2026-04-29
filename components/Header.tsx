@@ -1,25 +1,25 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages */
 
 export default function Header() {
   return (
     <header className="site-header" role="banner">
       <div className="container header-inner">
-        <Link href="/" className="brand" aria-label="Ir al inicio de Cuánto Presupuestar">
+        <a href="/" className="brand" aria-label="Ir al inicio de Cuánto Presupuestar">
           Cuánto Presupuestar
-        </Link>
+        </a>
 
         <nav className="nav" aria-label="Navegación principal">
-          <Link href="/#calculadora">Calculadora</Link>
-          <Link href="/como-presupuestar-un-proyecto-freelance">Guia</Link>
-          <Link href="/como-calcular-horas-proyecto-freelance">Horas</Link>
-          <Link href="/ejemplo-presupuesto-freelance">Ejemplo</Link>
-          <Link href="/precio-cerrado-o-por-horas-freelance">Modelo</Link>
-          <Link href="/margen-presupuesto-freelance">Margen</Link>
-          <Link href="/condiciones-pago-presupuesto-freelance">Pagos</Link>
-          <Link href="/presupuesto-por-fases-freelance">Fases</Link>
-          <Link href="/presupuesto-desarrollo-web-freelance">Desarrollo web</Link>
-          <Link href="/#como-funciona">Cómo funciona</Link>
-          <Link href="/#faq">FAQ</Link>
+          <a href="/#calculadora">Calculadora</a>
+          <a href="/como-presupuestar-un-proyecto-freelance">Guía</a>
+          <a href="/como-calcular-horas-proyecto-freelance">Horas</a>
+          <a href="/ejemplo-presupuesto-freelance">Ejemplo</a>
+          <a href="/precio-cerrado-o-por-horas-freelance">Modelo</a>
+          <a href="/margen-presupuesto-freelance">Margen</a>
+          <a href="/condiciones-pago-presupuesto-freelance">Pagos</a>
+          <a href="/presupuesto-por-fases-freelance">Fases</a>
+          <a href="/presupuesto-desarrollo-web-freelance">Desarrollo web</a>
+          <a href="/#como-funciona">Cómo funciona</a>
+          <a href="/#faq">FAQ</a>
         </nav>
       </div>
     </header>

@@ -4,7 +4,9 @@ import { join } from 'node:path';
 describe('homepage accessibility', () => {
   it('uses unique visible labels for guide card links', () => {
     const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
-    const guideLinks = Array.from(homePage.matchAll(/<Link\b([^>]*)>\s*([^<]+?)\s*<\/Link>/g))
+    const guideLinks = Array.from(
+      homePage.matchAll(/<(?:Link|a)\b([^>]*)>\s*([^<]+?)\s*<\/(?:Link|a)>/g),
+    )
       .map(([, attributes, label]) => ({
         attributes,
         label: label.replace(/\s+/g, ' ').trim(),

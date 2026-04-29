@@ -44,4 +44,19 @@ describe('performance configuration', () => {
     expect(globalStyles).toMatch(/\.lead\s*{[^}]*line-height:\s*1\.55/s);
     expect(globalStyles).toMatch(/\.lead\s*{[^}]*max-width:\s*48ch/s);
   });
+
+  it('keeps static homepage chrome out of the client bundle', () => {
+    const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
+    const header = readFileSync(join(process.cwd(), 'components/Header.tsx'), 'utf8');
+    const footer = readFileSync(join(process.cwd(), 'components/Footer.tsx'), 'utf8');
+    const jsonLd = readFileSync(join(process.cwd(), 'components/JsonLd.tsx'), 'utf8');
+    const notFound = readFileSync(join(process.cwd(), 'app/not-found.tsx'), 'utf8');
+
+    expect(homePage).not.toContain("from 'next/script'");
+    expect(homePage).not.toContain("from 'next/link'");
+    expect(header).not.toContain("from 'next/link'");
+    expect(footer).not.toContain("from 'next/link'");
+    expect(notFound).not.toContain("from 'next/link'");
+    expect(jsonLd).toContain("headers()).get('x-nonce')");
+  });
 });
