@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { type CalculationResult } from '@/lib/calculator';
 import { formatCurrency } from '@/lib/format';
 
@@ -33,7 +33,10 @@ async function copyTextToClipboard(text: string) {
   }
 }
 
-export default function ResultCard({ result, hasIVA }: ResultCardProps) {
+const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
+  { result, hasIVA },
+  ref,
+) {
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
   const pricingBuffer = Math.max(0, result.recommendedProjectBudget - result.projectFloorPrice);
   const proposalSummary = [
@@ -64,8 +67,14 @@ export default function ResultCard({ result, hasIVA }: ResultCardProps) {
   }
 
   return (
-    <section className="result-card" aria-live="polite">
-      <h3>Tu presupuesto recomendado para este proyecto</h3>
+    <section
+      ref={ref}
+      className="result-card"
+      tabIndex={-1}
+      aria-live="polite"
+      aria-labelledby="result-card-title"
+    >
+      <h3 id="result-card-title">Tu presupuesto recomendado para este proyecto</h3>
 
       <p className="result-lead">
         Con esta simulacion, una propuesta razonable quedaria en{' '}
@@ -193,4 +202,6 @@ export default function ResultCard({ result, hasIVA }: ResultCardProps) {
       </div>
     </section>
   );
-}
+});
+
+export default ResultCard;

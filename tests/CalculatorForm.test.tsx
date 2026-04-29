@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CalculatorForm from '@/components/CalculatorForm';
@@ -69,6 +69,7 @@ describe('CalculatorForm', () => {
       },
     });
     expect(resultCardHeading).toBeInTheDocument();
+    await waitFor(() => expect(resultCard).toHaveFocus());
     expect(within(resultCard!).getByText(/referencia base por hora/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/^precio minimo defendible$/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/presupuesto recomendado sin iva/i)).toBeInTheDocument();

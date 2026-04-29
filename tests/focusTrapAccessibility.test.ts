@@ -38,7 +38,6 @@ describe('focus trap accessibility', () => {
     expect(content).not.toMatch(/\binert\b/);
     expect(content).not.toMatch(/addEventListener\(["']keydown["']/);
     expect(content).not.toMatch(/onKeyDown=\{/);
-    expect(content).not.toMatch(/\.focus\(/);
     expect(content).not.toMatch(/autoFocus/);
   });
 });

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import ResultCard from '@/components/ResultCard';
 import { calculateProjectQuote } from '@/lib/calculator';
 
@@ -184,6 +184,8 @@ export default function CalculatorForm() {
   const [hasIVA, setHasIVA] = useState(true);
   const [submitted, setSubmitted] = useState(false);
   const [hasTrackedConversion, setHasTrackedConversion] = useState(false);
+  const [validSubmissionCount, setValidSubmissionCount] = useState(0);
+  const resultRegionRef = useRef<HTMLElement>(null);
 
   const validationErrors = useMemo(
     () =>
@@ -242,6 +244,12 @@ export default function CalculatorForm() {
     hasIVA,
   ]);
 
+  useEffect(() => {
+    if (validSubmissionCount > 0) {
+      resultRegionRef.current?.focus({ preventScroll: false });
+    }
+  }, [validSubmissionCount]);
+
   return (
     <div className="calculator-card" id="calculadora">
       <h2>Calculadora</h2>
@@ -255,6 +263,10 @@ export default function CalculatorForm() {
         onSubmit={(event) => {
           event.preventDefault();
           setSubmitted(true);
+
+          if (!hasValidationErrors) {
+            setValidSubmissionCount((currentCount) => currentCount + 1);
+          }
 
           if (!hasValidationErrors && !hasTrackedConversion) {
             trackProjectQuoteCalculated({
@@ -492,7 +504,9 @@ export default function CalculatorForm() {
         </p>
       </form>
 
-      {submitted && !hasValidationErrors && <ResultCard result={result} hasIVA={hasIVA} />}
+      {submitted && !hasValidationErrors && (
+        <ResultCard ref={resultRegionRef} result={result} hasIVA={hasIVA} />
+      )}
     </div>
   );
 }
