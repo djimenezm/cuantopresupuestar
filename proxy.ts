@@ -22,6 +22,7 @@ function createContentSecurityPolicy(nonce: string) {
     "object-src 'none'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
+    ...(isDevelopment ? [] : ["require-trusted-types-for 'script'"]),
     ...(isDevelopment ? [] : ['upgrade-insecure-requests']),
   ];
 

@@ -40,4 +40,10 @@ describe('security headers', () => {
     expect(proxy).toContain('X-Frame-Options');
     expect(proxy).toContain("xFrameOptions = 'DENY'");
   });
+
+  it('enforces Trusted Types for DOM XSS sinks in production', () => {
+    const proxy = readFileSync(join(process.cwd(), 'proxy.ts'), 'utf8');
+
+    expect(proxy).toContain("require-trusted-types-for 'script'");
+  });
 });
