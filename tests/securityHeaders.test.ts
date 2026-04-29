@@ -25,4 +25,11 @@ describe('security headers', () => {
     expect(proxy).toContain('Strict-Transport-Security');
     expect(proxy).toContain('max-age=63072000; includeSubDomains; preload');
   });
+
+  it('isolates the browsing context with COOP', () => {
+    const proxy = readFileSync(join(process.cwd(), 'proxy.ts'), 'utf8');
+
+    expect(proxy).toContain('Cross-Origin-Opener-Policy');
+    expect(proxy).toContain("crossOriginOpenerPolicy = 'same-origin'");
+  });
 });

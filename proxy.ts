@@ -29,6 +29,7 @@ function createContentSecurityPolicy(nonce: string) {
 }
 
 const strictTransportSecurity = 'max-age=63072000; includeSubDomains; preload';
+const crossOriginOpenerPolicy = 'same-origin';
 
 export function proxy(request: NextRequest) {
   const nonce = createNonce();
@@ -46,6 +47,7 @@ export function proxy(request: NextRequest) {
 
   response.headers.set('Content-Security-Policy', contentSecurityPolicy);
   response.headers.set('Strict-Transport-Security', strictTransportSecurity);
+  response.headers.set('Cross-Origin-Opener-Policy', crossOriginOpenerPolicy);
 
   return response;
 }
