@@ -8,6 +8,7 @@ describe('security headers', () => {
 
     expect(proxy).toContain('Content-Security-Policy');
     expect(proxy).toContain("script-src 'self' 'nonce-${nonce}' 'strict-dynamic'");
+    expect(proxy).toContain("https: http: 'unsafe-inline'");
     expect(proxy).not.toContain("script-src 'self' 'unsafe-inline'");
     expect(proxy).toContain("style-src 'self' 'nonce-${nonce}' 'unsafe-inline'");
     expect(proxy).toContain("object-src 'none'");
@@ -31,6 +32,12 @@ describe('security headers', () => {
 
     expect(proxy).toContain('Cross-Origin-Opener-Policy');
     expect(proxy).toContain("crossOriginOpenerPolicy = 'same-origin'");
+    expect(proxy).toContain('Referrer-Policy');
+    expect(proxy).toContain("referrerPolicy = 'strict-origin-when-cross-origin'");
+    expect(proxy).toContain('X-Content-Type-Options');
+    expect(proxy).toContain("xContentTypeOptions = 'nosniff'");
+    expect(proxy).toContain('Permissions-Policy');
+    expect(proxy).toContain('camera=(), microphone=(), geolocation=(), payment=()');
   });
 
   it('prevents clickjacking with CSP and X-Frame-Options', () => {

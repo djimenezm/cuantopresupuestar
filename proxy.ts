@@ -12,12 +12,12 @@ function createContentSecurityPolicy(nonce: string) {
   const isDevelopment = process.env.NODE_ENV === 'development';
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDevelopment ? " 'unsafe-eval'" : ''}`,
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: http: 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''}`,
     // Next inlines critical CSS when inlineCss is enabled, so styles need this fallback.
     `style-src 'self' 'nonce-${nonce}' 'unsafe-inline'`,
     "img-src 'self' data: blob:",
     "font-src 'self'",
-    "connect-src 'self' https://vitals.vercel-insights.com",
+    "connect-src 'self' https://vitals.vercel-insights.com https://*.vercel-insights.com",
     "form-action 'self' https://formsubmit.co",
     "object-src 'none'",
     "base-uri 'self'",
@@ -31,7 +31,10 @@ function createContentSecurityPolicy(nonce: string) {
 
 const strictTransportSecurity = 'max-age=63072000; includeSubDomains; preload';
 const crossOriginOpenerPolicy = 'same-origin';
+const referrerPolicy = 'strict-origin-when-cross-origin';
+const xContentTypeOptions = 'nosniff';
 const xFrameOptions = 'DENY';
+const permissionsPolicy = 'camera=(), microphone=(), geolocation=(), payment=()';
 
 export function proxy(request: NextRequest) {
   const nonce = createNonce();
@@ -50,7 +53,10 @@ export function proxy(request: NextRequest) {
   response.headers.set('Content-Security-Policy', contentSecurityPolicy);
   response.headers.set('Strict-Transport-Security', strictTransportSecurity);
   response.headers.set('Cross-Origin-Opener-Policy', crossOriginOpenerPolicy);
+  response.headers.set('Referrer-Policy', referrerPolicy);
+  response.headers.set('X-Content-Type-Options', xContentTypeOptions);
   response.headers.set('X-Frame-Options', xFrameOptions);
+  response.headers.set('Permissions-Policy', permissionsPolicy);
 
   return response;
 }
