@@ -84,7 +84,7 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-26',
-    dateModified: '2026-04-26',
+    dateModified: '2026-05-02',
   };
 
   const breadcrumbSchema = {
@@ -259,6 +259,12 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
             tambien la guia para{' '}
             <Link href="/cuanto-cobrar-web-corporativa-freelance">
               calcular cuanto cobrar por una web corporativa freelance
+            </Link>
+            .
+            Si el cliente habla de una web profesional sin mucho detalle tecnico, puede encajar
+            mejor la guia de{' '}
+            <Link href="/precio-pagina-web-profesional-freelance">
+              precio de una pagina web profesional freelance
             </Link>
             .
           </p>

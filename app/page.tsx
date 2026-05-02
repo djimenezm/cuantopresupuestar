@@ -323,6 +323,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Precio de una pagina web profesional</h3>
+              <p>
+                Baja una web profesional a alcance, contenidos, revisiones, integraciones, extras y
+                margen antes de enviar una propuesta cerrada.
+              </p>
+              <div className="guide-cta">
+                <a href="/precio-pagina-web-profesional-freelance" className="primary-button">
+                  Web profesional
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Presupuesto de desarrollo web freelance</h3>
               <p>
                 Ordena alcance, fases, hitos, revisiones, extras y soporte posterior antes de

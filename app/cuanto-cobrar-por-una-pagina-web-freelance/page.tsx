@@ -83,7 +83,7 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-23',
-    dateModified: '2026-04-23',
+    dateModified: '2026-05-02',
   };
 
   const breadcrumbSchema = {
@@ -239,6 +239,11 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
             Si el encargo es una web de empresa con varias paginas, tambien puedes revisar{' '}
             <Link href="/cuanto-cobrar-web-corporativa-freelance">
               cuanto cobrar por una web corporativa freelance
+            </Link>
+            .
+            Y si el cliente te pide una web profesional con mas criterio de entrega, revisa{' '}
+            <Link href="/precio-pagina-web-profesional-freelance">
+              precio de una pagina web profesional freelance
             </Link>
             .
           </p>

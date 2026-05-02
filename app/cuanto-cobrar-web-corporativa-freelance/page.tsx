@@ -158,6 +158,9 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
               <Link href="/#calculadora" className="primary-button">
                 Calcular web corporativa
               </Link>
+              <Link href="/precio-pagina-web-profesional-freelance" className="primary-button">
+                Ver web profesional
+              </Link>
               <Link
                 href="/cuanto-cobrar-por-una-pagina-web-freelance"
                 className="primary-button"
@@ -290,6 +293,14 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
             Si el proyecto es una sola pagina enfocada a conversion, puede encajar mejor en una
             calculadora especifica de landing. Si despues de publicar habra soporte recurrente,
             separa el mantenimiento mensual del presupuesto inicial.
+          </p>
+          <p>
+            Si la duda del cliente es el precio de una web profesional completa, tambien puedes
+            apoyarte en la guia de{' '}
+            <Link href="/precio-pagina-web-profesional-freelance">
+              precio de una pagina web profesional freelance
+            </Link>
+            .
           </p>
           <p>
             Para ese segundo caso puedes revisar{' '}
