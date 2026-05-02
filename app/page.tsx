@@ -310,6 +310,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Cuanto cobrar por una web corporativa freelance</h3>
+              <p>
+                Separa paginas, contenidos, revisiones, integraciones y soporte para no presupuestar
+                una web de empresa como si fuera una landing sencilla.
+              </p>
+              <div className="guide-cta">
+                <a href="/cuanto-cobrar-web-corporativa-freelance" className="primary-button">
+                  Web corporativa
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Presupuesto de desarrollo web freelance</h3>
               <p>
                 Ordena alcance, fases, hitos, revisiones, extras y soporte posterior antes de

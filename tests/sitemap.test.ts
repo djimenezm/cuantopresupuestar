@@ -18,6 +18,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/condiciones-pago-presupuesto-freelance');
     expect(paths).toContain('/presupuesto-por-fases-freelance');
     expect(paths).toContain('/cuanto-cobrar-por-una-pagina-web-freelance');
+    expect(paths).toContain('/cuanto-cobrar-web-corporativa-freelance');
     expect(paths).toContain('/presupuesto-desarrollo-web-freelance');
     expect(paths).not.toContain('/gracias-kit-presupuesto');
   });

@@ -27,6 +27,7 @@ export default function Footer() {
           <a href="/condiciones-pago-presupuesto-freelance">Pagos</a>
           <a href="/presupuesto-por-fases-freelance">Fases</a>
           <a href="/presupuesto-desarrollo-web-freelance">Desarrollo web</a>
+          <a href="/cuanto-cobrar-web-corporativa-freelance">Web corporativa</a>
           <a href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Facturar
           </a>

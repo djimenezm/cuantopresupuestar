@@ -254,6 +254,14 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
             funcionalidades, limitar revisiones, separar soporte posterior o dejar integraciones
             avanzadas como fase dos.
           </p>
+          <p>
+            Si el encargo se parece mas a una web de empresa que a un desarrollo a medida, revisa
+            tambien la guia para{' '}
+            <Link href="/cuanto-cobrar-web-corporativa-freelance">
+              calcular cuanto cobrar por una web corporativa freelance
+            </Link>
+            .
+          </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
               Usar la calculadora

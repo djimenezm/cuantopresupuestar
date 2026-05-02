@@ -236,6 +236,11 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
               como presupuestar un proyecto freelance
             </Link>
             , porque la logica de fondo es la misma: definir bien tu suelo antes de negociar.
+            Si el encargo es una web de empresa con varias paginas, tambien puedes revisar{' '}
+            <Link href="/cuanto-cobrar-web-corporativa-freelance">
+              cuanto cobrar por una web corporativa freelance
+            </Link>
+            .
           </p>
         </div>
       </section>
