@@ -323,6 +323,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Cuanto cobrar por una tienda online freelance</h3>
+              <p>
+                Calcula una tienda online con catalogo, pagos, envios, integraciones, revisiones,
+                margen y soporte posterior separado del proyecto inicial.
+              </p>
+              <div className="guide-cta">
+                <a href="/cuanto-cobrar-tienda-online-freelance" className="primary-button">
+                  Tienda online
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Precio de una pagina web profesional</h3>
               <p>
                 Baja una web profesional a alcance, contenidos, revisiones, integraciones, extras y

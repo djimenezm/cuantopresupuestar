@@ -15,6 +15,7 @@ const routes = [
   '/presupuesto-por-fases-freelance',
   '/cuanto-cobrar-por-una-pagina-web-freelance',
   '/cuanto-cobrar-web-corporativa-freelance',
+  '/cuanto-cobrar-tienda-online-freelance',
   '/precio-pagina-web-profesional-freelance',
   '/presupuesto-desarrollo-web-freelance',
   '/aviso-legal',
