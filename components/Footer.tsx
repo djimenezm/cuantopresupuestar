@@ -1,54 +1,88 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import { siteConfig } from '@/lib/site';
+
+const footerGroups = [
+  {
+    title: 'Calcular',
+    links: [
+      { href: '/#calculadora', label: 'Calculadora' },
+      { href: '/como-calcular-horas-proyecto-freelance', label: 'Calcular horas' },
+      { href: '/margen-presupuesto-freelance', label: 'Definir el margen' },
+    ],
+  },
+  {
+    title: 'Preparar',
+    links: [
+      { href: '/ejemplo-presupuesto-freelance', label: 'Ejemplo de presupuesto' },
+      { href: '/plantilla-presupuesto-freelance', label: 'Plantilla freelance' },
+      { href: '/condiciones-pago-presupuesto-freelance', label: 'Condiciones de pago' },
+      { href: '/presupuesto-por-fases-freelance', label: 'Presupuesto por fases' },
+    ],
+  },
+] as const;
 
 export default function Footer() {
   return (
     <footer className="site-footer" role="contentinfo">
-      <div className="container footer-inner">
-        <div className="footer-copy">
-          <p>
-            Copyright {new Date().getFullYear()} {siteConfig.name}
-          </p>
-          <p>Titular: {siteConfig.ownerName}</p>
-          <p className="footer-contact-row">
-            <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
-              Contacto: {siteConfig.contactEmail}
+      <div className="container footer-shell">
+        <div className="footer-main">
+          <div className="footer-brand-block">
+            <a href="/" className="footer-brand">
+              Cuánto Presupuestar
             </a>
-          </p>
-          <p className="footer-note">
-            Herramienta orientativa para presupuestar proyectos freelance. No constituye
-            asesoramiento fiscal ni legal.
-          </p>
+            <p>Proyectos con más margen y menos dudas antes de enviar la propuesta.</p>
+            <p className="footer-contact-row">
+              <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
+                Contacto: {siteConfig.contactEmail}
+              </a>
+            </p>
+          </div>
+
+          <nav className="footer-links" aria-label="Navegación secundaria">
+            {footerGroups.map((group) => (
+              <div className="footer-group" key={group.title}>
+                <p className="footer-group-title">{group.title}</p>
+                {group.links.map((link) => (
+                  <a href={link.href} key={link.href}>
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ))}
+
+            <div className="footer-group">
+              <p className="footer-group-title">Herramientas</p>
+              <a href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Cuánto facturar
+              </a>
+              <a href="https://www.cuantocobrarlandingpage.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Cobrar una landing
+              </a>
+              <a href="https://www.mantenimientowebmensual.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Mantenimiento web
+              </a>
+              <a href="https://www.paneldeherramientas.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Panel de herramientas
+              </a>
+            </div>
+          </nav>
         </div>
-        <nav className="footer-links" aria-label="Navegación secundaria">
-          <a href="/ejemplo-presupuesto-freelance">Ejemplo</a>
-          <a href="/como-calcular-horas-proyecto-freelance">Horas</a>
-          <a href="/precio-cerrado-o-por-horas-freelance">Modelo</a>
-          <a href="/margen-presupuesto-freelance">Margen</a>
-          <a href="/condiciones-pago-presupuesto-freelance">Pagos</a>
-          <a href="/presupuesto-por-fases-freelance">Fases</a>
-          <a href="/presupuesto-desarrollo-web-freelance">Desarrollo web</a>
-          <a href="/cuanto-cobrar-web-corporativa-freelance">Web corporativa</a>
-          <a href="/cuanto-cobrar-tienda-online-freelance">Tienda online</a>
-          <a href="/precio-pagina-web-profesional-freelance">Web profesional</a>
-          <a href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Facturar
-          </a>
-          <a href="https://www.mantenimientowebmensual.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Mantenimiento web
-          </a>
-          <a href="https://www.cuantocobrarlandingpage.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Landing pages
-          </a>
-          <a href="https://www.paneldeherramientas.es/precios-freelance?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=pricing_hub">
-            Precios freelance
-          </a>
-          <a href="https://www.paneldeherramientas.es?utm_source=cuantopresupuestar&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Panel
-          </a>
-          <a href="/aviso-legal">Aviso legal</a>
-          <a href="/privacidad">Privacidad</a>
-          <a href="/cookies">Cookies</a>
-        </nav>
+
+        <div className="footer-bottom">
+          <div className="footer-legal-copy">
+            <p>
+              Copyright {new Date().getFullYear()} {siteConfig.name} · Titular:{' '}
+              {siteConfig.ownerName}
+            </p>
+            <p>Herramienta orientativa. No constituye asesoramiento fiscal ni legal.</p>
+          </div>
+          <nav aria-label="Enlaces legales">
+            <a href="/aviso-legal">Aviso legal</a>
+            <a href="/privacidad">Privacidad</a>
+            <a href="/cookies">Cookies</a>
+          </nav>
+        </div>
       </div>
     </footer>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
+import { fontVariables } from '@/lib/fonts';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 import './globals.css';
 
@@ -65,7 +66,7 @@ export default async function RootLayout({
   const nonce = (await headers()).get('x-nonce') ?? undefined;
 
   return (
-    <html lang="es" data-scroll-behavior="smooth">
+    <html lang="es" data-scroll-behavior="smooth" className={fontVariables}>
       <body>
         {children}
         <script

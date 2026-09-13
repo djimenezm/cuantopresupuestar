@@ -10,7 +10,7 @@ describe('security headers', () => {
     expect(proxy).toContain("script-src 'self' 'nonce-${nonce}' 'strict-dynamic'");
     expect(proxy).toContain("https: http: 'unsafe-inline'");
     expect(proxy).not.toContain("script-src 'self' 'unsafe-inline'");
-    expect(proxy).toContain("style-src 'self' 'nonce-${nonce}' 'unsafe-inline'");
+    expect(proxy).toContain("style-src 'self' 'unsafe-inline'");
     expect(proxy).toContain("object-src 'none'");
     expect(proxy).toContain("base-uri 'self'");
     expect(proxy).toContain("frame-ancestors 'none'");

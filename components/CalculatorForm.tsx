@@ -1,9 +1,8 @@
 'use client';
 
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import ResultCard from '@/components/ResultCard';
 import { calculateProjectQuote } from '@/lib/calculator';
-
-const ResultCard = lazy(() => import('@/components/ResultCard'));
 
 type FieldName =
   | 'targetMonthlyNet'
@@ -266,7 +265,7 @@ export default function CalculatorForm() {
     <div className="calculator-card" id="calculadora">
       <h2>Calculadora</h2>
       <p className="card-intro" id="calculator-intro">
-        Calcula un precio base con horas facturables, buffer, costes y reserva fiscal.
+        Define tus números y el proyecto. El resultado aparece al calcular, sin registro.
       </p>
 
       <form
@@ -517,15 +516,7 @@ export default function CalculatorForm() {
       </form>
 
       {submitted && !hasValidationErrors && (
-        <Suspense
-          fallback={
-            <p className="form-note" role="status">
-              Preparando resultado...
-            </p>
-          }
-        >
-          <ResultCard ref={setResultRegionRef} result={result} hasIVA={hasIVA} />
-        </Suspense>
+        <ResultCard ref={setResultRegionRef} result={result} hasIVA={hasIVA} />
       )}
     </div>
   );

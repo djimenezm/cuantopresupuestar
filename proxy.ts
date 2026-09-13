@@ -13,8 +13,8 @@ function createContentSecurityPolicy(nonce: string) {
   const directives = [
     "default-src 'self'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: http: 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''}`,
-    // Next inlines critical CSS when inlineCss is enabled, so styles need this fallback.
-    `style-src 'self' 'nonce-${nonce}' 'unsafe-inline'`,
+    // Next/Image uses inline presentation styles; scripts remain nonce-protected separately.
+    "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob:",
     "font-src 'self'",
     "connect-src 'self' https://vitals.vercel-insights.com https://*.vercel-insights.com",

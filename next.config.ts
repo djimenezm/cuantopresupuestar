@@ -10,9 +10,6 @@ const nextConfig: NextConfig = {
       'next/dist/build/polyfills/polyfill-module.js': './lib/no-browser-polyfills.ts',
     },
   },
-  experimental: {
-    inlineCss: true,
-  },
 };
 
 export default nextConfig;

@@ -2,10 +2,10 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 describe('performance configuration', () => {
-  it('inlines the global stylesheet to avoid a render-blocking CSS request', () => {
+  it('keeps CSS on the reliable external stylesheet path', () => {
     const nextConfig = readFileSync(join(process.cwd(), 'next.config.ts'), 'utf8');
 
-    expect(nextConfig).toMatch(/inlineCss:\s*true/);
+    expect(nextConfig).not.toMatch(/inlineCss:\s*true/);
   });
 
   it('does not ship Next browser polyfills for legacy browsers', () => {
@@ -20,29 +20,24 @@ describe('performance configuration', () => {
     expect(noPolyfillsModule.trim()).toBe('export {};');
   });
 
-  it('keeps the homepage lead compact for LCP', () => {
+  it('keeps the homepage message compact for LCP', () => {
     const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
     const calculatorForm = readFileSync(
       join(process.cwd(), 'components/CalculatorForm.tsx'),
       'utf8',
     );
-    const globalStyles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
-    const leadMatch = homePage.match(/<p className="lead">([\s\S]*?)<\/p>/);
     const calculatorIntroMatch = calculatorForm.match(
       /<p className="card-intro" id="calculator-intro">([\s\S]*?)<\/p>/,
     );
-    const leadText = leadMatch?.[1].replace(/\s+/g, ' ').trim() ?? '';
     const calculatorIntroText =
       calculatorIntroMatch?.[1].replace(/\s+/g, ' ').trim() ?? '';
 
-    expect(leadText.length).toBeLessThanOrEqual(130);
     expect(calculatorIntroText.length).toBeLessThanOrEqual(95);
+    expect(homePage).toContain('Convierte horas, costes y margen en una cifra clara');
+    expect(homePage).not.toContain('<FAQ />');
     expect(calculatorForm).not.toContain(
       'Convierte tu objetivo mensual en un presupuesto por proyecto',
     );
-    expect(globalStyles).toMatch(/\.lead\s*{[^}]*font-size:\s*1rem/s);
-    expect(globalStyles).toMatch(/\.lead\s*{[^}]*line-height:\s*1\.55/s);
-    expect(globalStyles).toMatch(/\.lead\s*{[^}]*max-width:\s*48ch/s);
   });
 
   it('keeps static homepage chrome out of the client bundle', () => {
@@ -60,13 +55,13 @@ describe('performance configuration', () => {
     expect(jsonLd).toContain("headers()).get('x-nonce')");
   });
 
-  it('loads the result card only after the calculator is submitted', () => {
+  it('keeps the essential result UI in the initial calculator bundle', () => {
     const calculatorForm = readFileSync(
       join(process.cwd(), 'components/CalculatorForm.tsx'),
       'utf8',
     );
 
-    expect(calculatorForm).not.toContain("import ResultCard from '@/components/ResultCard'");
-    expect(calculatorForm).toContain("lazy(() => import('@/components/ResultCard'))");
+    expect(calculatorForm).toContain("import ResultCard from '@/components/ResultCard'");
+    expect(calculatorForm).not.toContain("lazy(() => import('@/components/ResultCard'))");
   });
 });

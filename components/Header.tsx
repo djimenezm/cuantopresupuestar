@@ -10,16 +10,9 @@ export default function Header() {
 
         <nav className="nav" aria-label="Navegación principal">
           <a href="/#calculadora">Calculadora</a>
-          <a href="/como-presupuestar-un-proyecto-freelance">Guía</a>
-          <a href="/como-calcular-horas-proyecto-freelance">Horas</a>
+          <a href="/#como-funciona">Qué obtienes</a>
           <a href="/ejemplo-presupuesto-freelance">Ejemplo</a>
-          <a href="/precio-cerrado-o-por-horas-freelance">Modelo</a>
-          <a href="/margen-presupuesto-freelance">Margen</a>
-          <a href="/condiciones-pago-presupuesto-freelance">Pagos</a>
-          <a href="/presupuesto-por-fases-freelance">Fases</a>
-          <a href="/presupuesto-desarrollo-web-freelance">Desarrollo web</a>
-          <a href="/#como-funciona">Cómo funciona</a>
-          <a href="/#faq">FAQ</a>
+          <a href="/como-presupuestar-un-proyecto-freelance">Guía</a>
         </nav>
       </div>
     </header>

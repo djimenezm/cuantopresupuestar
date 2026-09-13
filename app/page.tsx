@@ -1,10 +1,15 @@
+import Image from 'next/image';
 import CalculatorForm from '@/components/CalculatorForm';
-import FAQ, { faqItems } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
-import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { siteConfig } from '@/lib/site';
+
+const outcomeItems = [
+  'Precio mínimo defendible',
+  'Presupuesto recomendado',
+  'Margen e IVA separados',
+] as const;
 
 export default function HomePage() {
   const webAppSchema = {
@@ -23,379 +28,87 @@ export default function HomePage() {
       priceCurrency: 'EUR',
     },
     featureList: [
-      'Calculadora para saber cuánto presupuestar un proyecto freelance',
-      'Referencia base por hora a partir de tu objetivo mensual',
-      'Buffer de revisiones e imprevistos',
-      'IVA aparte y margen configurable',
+      'Precio mínimo defendible para un proyecto freelance',
+      'Presupuesto recomendado según horas, costes y margen',
+      'IVA separado del precio del proyecto',
     ],
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
-
   return (
-    <main>
+    <main id="contenido-principal" className="quote-landing">
       <JsonLd id="webapp-schema" data={webAppSchema} />
-      <JsonLd id="faq-schema" data={faqSchema} />
 
       <Header />
 
-      <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <span className="eyebrow">Cuánto Presupuestar</span>
-            <h1>Calculadora para saber cuánto presupuestar un proyecto freelance</h1>
-            <p className="lead">
-              Convierte tu objetivo mensual en un presupuesto freelance defendible con horas,
-              buffer, costes, margen e IVA aparte.
-            </p>
-            <div className="hero-badges" aria-label="Ventajas principales">
-              <span className="hero-badge">Sin registro</span>
-              <span className="hero-badge">Pensada para proyectos cerrados</span>
-              <span className="hero-badge">IVA siempre aparte</span>
-            </div>
-            <ul className="hero-points">
-              <li>Convierte una intuición difusa en una cifra más defendible para el cliente.</li>
-              <li>Incluye horas facturables reales, buffer, costes directos y reserva fiscal orientativa.</li>
-              <li>Útil para diseño, desarrollo, consultoría, marketing y servicios profesionales.</li>
-            </ul>
-            <p className="hero-cta-note">
-              Si ya estás cerrando proyectos por precio fijo, úsala para comprobar si ese importe te
-              deja el margen que buscas.
-            </p>
+      <section className="quote-hero" aria-labelledby="quote-hero-title">
+        <Image
+          src="/images/project-budget-hero.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="quote-hero-image"
+        />
+        <div className="quote-hero-scrim" />
+        <div className="container quote-hero-content">
+          <span className="quote-hero-kicker">Calculadora para freelance y estudios</span>
+          <h1 id="quote-hero-title">Cuánto presupuestar por un proyecto, sin improvisar.</h1>
+          <p>
+            Convierte horas, costes y margen en una cifra clara que puedas defender ante el cliente.
+          </p>
+
+          <div className="quote-hero-actions">
+            <a href="#calculadora" className="primary-button">
+              Calcular este proyecto
+            </a>
+            <a href="#como-funciona" className="quote-ghost-button">
+              Ver qué obtengo
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="quote-calculator-band" aria-labelledby="quote-calculator-heading">
+        <div className="container quote-calculator-shell">
+          <div className="quote-calculator-copy">
+            <span className="eyebrow">Calcula antes de enviar</span>
+            <h2 id="quote-calculator-heading">Tu proyecto tiene un precio. Encuéntralo.</h2>
+            <p>Ajusta esfuerzo, costes y margen. La calculadora hace el resto.</p>
           </div>
 
           <CalculatorForm />
         </div>
       </section>
 
-      <section className="section">
-        <div className="container feature-grid" aria-label="Puntos clave de la herramienta">
-          <article className="feature-card">
-            <h2>Qué resuelve</h2>
-            <p>
-              Parte de tu objetivo mensual, tus costes fijos y tus horas facturables para sacar una
-              referencia por hora. Después la convierte en un presupuesto de proyecto con buffer,
-              costes directos y margen.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Cuándo te aporta más valor</h2>
-            <p>
-              Cuando trabajas con precios cerrados y quieres validar si una propuesta está alineada
-              con el esfuerzo real, el tiempo no vendible y el suelo económico de tu actividad.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Dónde poner el filtro final</h2>
-            <p>
-              En proyectos grandes, contratos complejos o encajes fiscales finos. La herramienta está
-              pensada para orientar tu precio, no para sustituir una revisión profesional.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="section" id="como-funciona">
-        <div className="container text-block">
-          <h2>Cómo funciona la calculadora</h2>
-          <p>
-            Primero estima cuánto necesitas facturar al mes para sostener tu objetivo neto y tus
-            costes fijos. Esa cifra se reparte entre tus horas facturables reales para obtener una
-            referencia base por hora.
-          </p>
-          <p>
-            Después esa referencia se lleva al proyecto: introduces las horas estimadas, un buffer de
-            revisiones e imprevistos, los costes directos y el margen extra que quieres defender. Con
-            eso obtienes un precio mínimo sin margen, un presupuesto recomendado y, si aplica, el
-            total con IVA aparte.
-          </p>
-          <div className="disclaimer-box">
-            <strong>Idea clave:</strong> presupuestar por proyecto no significa dejar de pensar por
-            hora. Significa usar tu referencia por hora para validar que el precio cerrado sigue
-            teniendo sentido.
+      <section
+        className="quote-mini-strip"
+        id="como-funciona"
+        aria-label="Resultado de la calculadora"
+      >
+        <div className="container quote-mini-strip-inner">
+          <strong>Obtienes solo lo necesario:</strong>
+          <div>
+            {outcomeItems.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section alt">
-        <div className="container conversion-grid">
-          <div className="conversion-copy">
-            <h2>No uses el presupuesto como techo: úsalo como suelo defendible</h2>
-            <p>
-              La herramienta te da una cifra para no presupuestar solo por intuición o por presión del
-              contexto. Si tu propuesta actual queda muy por debajo, probablemente te falte margen,
-              tiempo o protección frente a cambios.
-            </p>
-            <p>
-              La idea no es fijar un precio exacto al céntimo, sino ayudarte a llegar a una cifra que
-              puedas defender con más criterio delante de un cliente.
-            </p>
+      <section className="quote-next-band">
+        <div className="container quote-next-panel">
+          <div>
+            <span className="eyebrow">Después del cálculo</span>
+            <h2>Convierte la cifra en una propuesta clara.</h2>
+            <p>Presenta alcance, revisiones y pagos sin dejar huecos ni regalar trabajo.</p>
           </div>
-
-          <div className="conversion-steps" aria-label="Cómo aprovechar mejor el resultado">
-            <article className="conversion-step">
-              <h3>1. Contrasta</h3>
-              <p>Compara el resultado con tu propuesta actual y detecta si te deja margen real.</p>
-            </article>
-
-            <article className="conversion-step">
-              <h3>2. Ajusta</h3>
-              <p>Prueba cambios en horas, buffer o margen para encontrar tu mínimo razonable.</p>
-            </article>
-
-            <article className="conversion-step">
-              <h3>3. Presupuesta mejor</h3>
-              <p>Usa el total recomendado como base para una propuesta cerrada o por hitos.</p>
-            </article>
-          </div>
+          <a href="/ejemplo-presupuesto-freelance" className="primary-button">
+            Ver ejemplo de presupuesto
+          </a>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="text-block">
-            <span className="eyebrow">Guias utiles</span>
-            <h2>Aprende a poner precio antes de tocar los numeros</h2>
-            <p>
-              Si prefieres entender primero la logica y despues usar la calculadora, aqui tienes
-              varias guias pensadas para dudas muy habituales al presupuestar servicios freelance.
-            </p>
-          </div>
-
-          <div className="feature-grid" aria-label="Guias destacadas">
-            <article className="feature-card">
-              <h3>Como presupuestar un proyecto freelance</h3>
-              <p>
-                Baja un precio cerrado a horas reales, buffer, costes directos y margen antes de
-                presentarlo a un cliente.
-              </p>
-              <div className="guide-cta">
-                <a href="/como-presupuestar-un-proyecto-freelance" className="primary-button">
-                  Guía de proyecto
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Como calcular horas de un proyecto freelance</h3>
-              <p>
-                Estima fases, reuniones, revisiones, gestion, pruebas y buffer antes de convertir
-                el esfuerzo real en un precio defendible.
-              </p>
-              <div className="guide-cta">
-                <a href="/como-calcular-horas-proyecto-freelance" className="primary-button">
-                  Calcular horas
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Ejemplo de presupuesto freelance</h3>
-              <p>
-                Mira una estructura práctica para presentar alcance, entregables, revisiones,
-                precio, pagos y exclusiones sin dejar huecos peligrosos.
-              </p>
-              <div className="guide-cta">
-                <a href="/ejemplo-presupuesto-freelance" className="primary-button">
-                  Ver ejemplo
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Precio cerrado o por horas freelance</h3>
-              <p>
-                Decide cuándo vender por proyecto cerrado, por horas o por fases sin regalar margen
-                ni mezclar alcances.
-              </p>
-              <div className="guide-cta">
-                <a href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
-                  Elegir modelo
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Margen en presupuesto freelance</h3>
-              <p>
-                Aprende cuanto margen anadir, como separarlo del buffer y que hacer si el cliente
-                pide bajar precio sin reducir alcance.
-              </p>
-              <div className="guide-cta">
-                <a href="/margen-presupuesto-freelance" className="primary-button">
-                  Añadir margen
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Presupuesto por fases freelance</h3>
-              <p>
-                Divide un proyecto en hitos, pagos parciales, revisiones y entregables para avanzar
-                sin convertir cambios nuevos en horas gratis.
-              </p>
-              <div className="guide-cta">
-                <a href="/presupuesto-por-fases-freelance" className="primary-button">
-                  Plan por fases
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Condiciones de pago en presupuesto freelance</h3>
-              <p>
-                Define anticipo, pagos por hitos, plazos de factura y entrega final para no dejar
-                todo el riesgo financiero al final del proyecto.
-              </p>
-              <div className="guide-cta">
-                <a href="/condiciones-pago-presupuesto-freelance" className="primary-button">
-                  Definir pagos
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Plantilla de presupuesto freelance</h3>
-              <p>
-                Usa una estructura base para presentar mejor el precio, aclarar alcance, revisiones,
-                pagos e IVA antes de enviar la propuesta.
-              </p>
-              <div className="guide-cta">
-                <a href="/plantilla-presupuesto-freelance" className="primary-button">
-                  Ver plantilla
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Como hacer una propuesta comercial</h3>
-              <p>
-                Aprende a presentar mejor tu enfoque, el alcance y el precio para que el cliente
-                entienda lo que compra y el siguiente paso.
-              </p>
-              <div className="guide-cta">
-                <a href="/como-hacer-una-propuesta-comercial" className="primary-button">
-                  Crear propuesta
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Cuanto cobrar por una pagina web freelance</h3>
-              <p>
-                Revisa que cambia el precio de una web y como evitar presupuestarla a ojo o por
-                comparacion rapida con el mercado.
-              </p>
-              <div className="guide-cta">
-                <a
-                  href="/cuanto-cobrar-por-una-pagina-web-freelance"
-                  className="primary-button"
-                >
-                  Precio web
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Cuanto cobrar por una web corporativa freelance</h3>
-              <p>
-                Separa paginas, contenidos, revisiones, integraciones y soporte para no presupuestar
-                una web de empresa como si fuera una landing sencilla.
-              </p>
-              <div className="guide-cta">
-                <a href="/cuanto-cobrar-web-corporativa-freelance" className="primary-button">
-                  Web corporativa
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Cuanto cobrar por una tienda online freelance</h3>
-              <p>
-                Calcula una tienda online con catalogo, pagos, envios, integraciones, revisiones,
-                margen y soporte posterior separado del proyecto inicial.
-              </p>
-              <div className="guide-cta">
-                <a href="/cuanto-cobrar-tienda-online-freelance" className="primary-button">
-                  Tienda online
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Precio de una pagina web profesional</h3>
-              <p>
-                Baja una web profesional a alcance, contenidos, revisiones, integraciones, extras y
-                margen antes de enviar una propuesta cerrada.
-              </p>
-              <div className="guide-cta">
-                <a href="/precio-pagina-web-profesional-freelance" className="primary-button">
-                  Web profesional
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Presupuesto de desarrollo web freelance</h3>
-              <p>
-                Ordena alcance, fases, hitos, revisiones, extras y soporte posterior antes de
-                enviar una propuesta de desarrollo web.
-              </p>
-              <div className="guide-cta">
-                <a href="/presupuesto-desarrollo-web-freelance" className="primary-button">
-                  Desarrollo web
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section alt">
-        <div className="container">
-          <LeadMagnetForm
-            source="home"
-            title="Te enviamos el kit de presupuesto freelance"
-            description="Accede al kit con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar mejor una oferta antes de enviarla."
-            buttonLabel="Quiero el kit"
-          />
-        </div>
-      </section>
-
-      <section className="section alt">
-        <div className="container text-block">
-          <span className="eyebrow">Otra herramienta</span>
-          <h2>Si primero necesitas saber cuanto facturar al mes, usa Cuanto Facturar</h2>
-          <p>
-            Cuanto Presupuestar te ayuda a llevar tus numeros a un precio por proyecto. Si antes
-            quieres aterrizar tu referencia mensual como autonomo o freelance, puedes apoyarte
-            tambien en <a href="https://www.cuantofacturar.es">Cuanto Facturar</a>.
-          </p>
-          <p>
-            Si prefieres moverte entre varias herramientas segun el tipo de encargo, en{' '}
-            <a href="https://www.paneldeherramientas.es">Panel de Herramientas</a> puedes verlas
-            juntas y elegir la que mas encaja con cada presupuesto.
-          </p>
-        </div>
-      </section>
-
-      <FAQ />
       <Footer />
     </main>
   );
 }
-
-
