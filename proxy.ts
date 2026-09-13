@@ -15,13 +15,14 @@ function createContentSecurityPolicy(nonce: string) {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: http: 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''}`,
     // Next/Image uses inline presentation styles; scripts remain nonce-protected separately.
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: https://*.googlesyndication.com https://*.doubleclick.net",
     "font-src 'self'",
-    "connect-src 'self' https://vitals.vercel-insights.com https://*.vercel-insights.com",
+    "connect-src 'self' https://vitals.vercel-insights.com https://*.vercel-insights.com https://*.googlesyndication.com https://*.doubleclick.net",
     "form-action 'self' https://formsubmit.co",
     "object-src 'none'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
+    "frame-src https://*.googlesyndication.com https://*.doubleclick.net",
     ...(isDevelopment ? [] : ["require-trusted-types-for 'script'"]),
     ...(isDevelopment ? [] : ['upgrade-insecure-requests']),
   ];
