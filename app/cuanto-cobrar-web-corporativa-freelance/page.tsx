@@ -7,25 +7,25 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/cuanto-cobrar-web-corporativa-freelance';
-const title = 'Cuanto cobrar por una web corporativa freelance';
+const title = 'Cuánto cobrar por una web corporativa freelance';
 const description =
-  'Guia para calcular cuanto cobrar por una web corporativa freelance segun numero de paginas, contenido, revisiones, integraciones, margen e IVA aparte.';
+  'Guía para calcular cuánto cobrar por una web corporativa freelance según número de páginas, contenido, revisiones, integraciones, margen e IVA aparte.';
 
 const pageFaqItems = [
   {
-    question: 'Cuanto cobrar por una web corporativa freelance?',
+    question: '¿Cuánto cobrar por una web corporativa freelance?',
     answer:
-      'Depende del alcance real: numero de paginas, contenidos, diseno, desarrollo, formularios, integraciones, revisiones, reuniones, margen y soporte posterior. Conviene calcular un minimo interno antes de dar una cifra cerrada.',
+      'Depende del alcance real: número de páginas, contenidos, diseño, desarrollo, formularios, integraciones, revisiones, reuniones, margen y soporte posterior. Conviene calcular un mínimo interno antes de dar una cifra cerrada.',
   },
   {
-    question: 'Que diferencia hay entre una landing y una web corporativa?',
+    question: '¿Qué diferencia hay entre una landing y una web corporativa?',
     answer:
-      'Una landing suele concentrarse en una accion concreta. Una web corporativa normalmente incluye varias paginas, navegacion, contenidos de empresa, servicios, formularios y mas coordinacion con el cliente.',
+      'Una landing suele concentrarse en una acción concreta. Una web corporativa normalmente incluye varias páginas, navegación, contenidos de empresa, servicios, formularios y más coordinación con el cliente.',
   },
   {
-    question: 'Como evito quedarme corto al presupuestar una web corporativa?',
+    question: '¿Cómo evito quedarme corto al presupuestar una web corporativa?',
     answer:
-      'Separa fases, paginas, entregables, revisiones, textos, imagenes, integraciones y soporte. Si el cliente pide rebaja, reduce alcance antes de reducir margen.',
+      'Separa fases, páginas, entregables, revisiones, textos, imágenes, integraciones y soporte. Si el cliente pide rebaja, reduce alcance antes de reducir margen.',
   },
 ] as const;
 
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'cuanto cobrar web corporativa freelance',
+    'cuánto cobrar web corporativa freelance',
     'precio web corporativa freelance',
     'presupuesto web corporativa freelance',
-    'cuanto cobrar pagina web corporativa',
+    'cuánto cobrar página web corporativa',
     'presupuestar web corporativa',
   ],
   openGraph: {
@@ -142,14 +142,14 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
       <section className="hero">
         <div className="container article-layout">
           <div className="text-block">
-            <span className="eyebrow">Guia de precio web</span>
-            <h1>Cuanto cobrar por una web corporativa freelance</h1>
+            <span className="eyebrow">Guía de precio web</span>
+            <h1>Cuánto cobrar por una web corporativa freelance</h1>
             <p className="lead">
               Una web corporativa no es solo montar varias secciones. Suele incluir estrategia,
-              estructura, contenidos, maquetacion, formularios, revisiones y coordinacion. Si lo
-              reduces a una cifra rapida, es facil que el proyecto se coma tu margen.
+              estructura, contenidos, maquetación, formularios, revisiones y coordinación. Si lo
+              reduces a una cifra rápida, es fácil que el proyecto se coma tu margen.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Web corporativa</span>
               <span className="hero-badge">Precio por proyecto</span>
               <span className="hero-badge">Alcance y revisiones</span>
@@ -165,16 +165,16 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
                 href="/cuanto-cobrar-por-una-pagina-web-freelance"
                 className="primary-button"
               >
-                Ver guia general de webs
+                Ver guía general de webs
               </Link>
             </div>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Cuando usar esta guia</h2>
+            <h2>Cuándo usar esta guía</h2>
             <ul className="article-list">
-              <li>El cliente necesita una web de empresa con varias paginas.</li>
-              <li>Hay contenido, formularios, SEO basico o integraciones sencillas.</li>
+              <li>El cliente necesita una web de empresa con varias páginas.</li>
+              <li>Hay contenido, formularios, SEO básico o integraciones sencillas.</li>
               <li>Quieres separar precio base, revisiones, extras y soporte posterior.</li>
               <li>Necesitas defender el presupuesto sin parecer arbitrario.</li>
             </ul>
@@ -184,20 +184,20 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>La pregunta correcta no es solo cuanto cobrar</h2>
+          <h2>La pregunta correcta no es solo cuánto cobrar</h2>
           <p>
-            La pregunta mas util es que tiene que estar incluido para que el precio tenga sentido.
-            Una web corporativa puede ser una presencia basica de cinco paginas o un proyecto con
-            arquitectura, copy, formularios, analitica, blog, multiidioma y soporte de lanzamiento.
+            La pregunta más útil es que tiene que estar incluido para que el precio tenga sentido.
+            Una web corporativa puede ser una presencia básica de cinco páginas o un proyecto con
+            arquitectura, copy, formularios, analítica, blog, multiidioma y soporte de lanzamiento.
           </p>
           <p>
             Por eso conviene separar el presupuesto en capas. Primero calculas tu suelo interno y
-            despues decides que parte del alcance presentas como fase inicial, extra o servicio
+            después decides que parte del alcance presentas como fase inicial, extra o servicio
             posterior.
           </p>
           <div className="disclaimer-box">
             <strong>Idea clave:</strong> una web corporativa se debe presupuestar por alcance, no por
-            numero de paginas de forma aislada.
+            número de páginas de forma aislada.
           </div>
         </div>
       </section>
@@ -205,17 +205,17 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
       <section className="section alt">
         <div className="container feature-grid" aria-label="Factores de precio web corporativa">
           <article className="feature-card">
-            <h2>1. Paginas y estructura</h2>
+            <h2>1. Páginas y estructura</h2>
             <p>
-              Inicio, servicios, sobre nosotros, contacto, legales, casos, blog o paginas de venta
-              no requieren el mismo esfuerzo. La arquitectura tambien cuenta.
+              Inicio, servicios, sobre nosotros, contacto, legales, casos, blog o páginas de venta
+              no requieren el mismo esfuerzo. La arquitectura también cuenta.
             </p>
           </article>
 
           <article className="feature-card">
             <h2>2. Contenido y revisiones</h2>
             <p>
-              Textos, imagenes, cambios de copy, rondas de aprobacion y feedback del cliente pueden
+              Textos, imágenes, cambios de copy, rondas de aprobación y feedback del cliente pueden
               pesar tanto como el desarrollo visible.
             </p>
           </article>
@@ -223,8 +223,8 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
           <article className="feature-card">
             <h2>3. Integraciones y entrega</h2>
             <p>
-              Formularios, analytics, pixel, CRM, dominios, email, despliegue y soporte inicial
-              deben aparecer en el calculo si forman parte del proyecto.
+              Formularios, analytics, píxel, CRM, dominios, email, despliegue y soporte inicial
+              deben aparecer en el cálculo si forman parte del proyecto.
             </p>
           </article>
         </div>
@@ -233,30 +233,30 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
       <section className="section">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Formula practica para presupuestar una web corporativa</h2>
+            <h2>Fórmula práctica para presupuestar una web corporativa</h2>
             <ol className="article-list article-list-ordered">
-              <li>Define numero de paginas, plantillas y bloques reutilizables.</li>
-              <li>Separa discovery, estructura, diseno, desarrollo, pruebas y entrega.</li>
-              <li>Estima reuniones, revision de contenidos y comunicacion con el cliente.</li>
-              <li>Incluye costes directos: licencias, plugins, tipografias, imagenes o herramientas.</li>
-              <li>Anade buffer por revisiones, margen profesional e IVA aparte cuando aplique.</li>
-              <li>Deja fuera como extras todo lo que no este descrito en el alcance inicial.</li>
+              <li>Define número de páginas, plantillas y bloques reutilizables.</li>
+              <li>Separa discovery, estructura, diseño, desarrollo, pruebas y entrega.</li>
+              <li>Estima reuniones, revisión de contenidos y comunicación con el cliente.</li>
+              <li>Incluye costes directos: licencias, plugins, tipografías, imágenes o herramientas.</li>
+              <li>Añade buffer por revisiones, margen profesional e IVA aparte cuando aplique.</li>
+              <li>Deja fuera como extras todo lo que no esté descrito en el alcance inicial.</li>
             </ol>
             <p>
               Si necesitas bajar ese esquema a una cifra concreta, usa la calculadora como suelo y
               luego ajusta con criterio comercial. El precio recomendado no sustituye tu criterio,
-              pero evita que empieces negociando desde una intuicion demasiado baja.
+              pero evita que empieces negociando desde una intuición demasiado baja.
             </p>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Extras que conviene separar</h2>
+            <h2>Extras qué conviene separar</h2>
             <ul className="article-list">
               <li>Copywriting completo o reescritura profunda de textos.</li>
-              <li>Fotografia, video, iconografia o banco de imagenes premium.</li>
+              <li>Fotografía, vídeo, iconografía o banco de imágenes premium.</li>
               <li>SEO avanzado, estrategia de contenidos o blog continuo.</li>
               <li>Automatizaciones, CRM, pasarelas o integraciones no previstas.</li>
-              <li>Mantenimiento mensual despues de publicar la web.</li>
+              <li>Mantenimiento mensual después de publicar la web.</li>
             </ul>
           </aside>
         </div>
@@ -266,13 +266,13 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
         <div className="container text-block">
           <h2>Rangos orientativos sin convertirlos en promesa</h2>
           <p>
-            No hay una cifra universal, pero si hay una forma sensata de pensar. Una web
-            corporativa sencilla puede vivir en un rango muy distinto a una web con varias areas de
+            No hay una cifra universal, pero sí hay una forma sensata de pensar. Una web
+            corporativa sencilla puede vivir en un rango muy distinto a una web con varias áreas de
             servicio, contenidos a medida, integraciones y soporte de lanzamiento.
           </p>
           <p>
-            Si el proyecto parece pequeno pero exige muchas reuniones, contenido sin preparar o
-            decisiones abiertas, no es realmente pequeno. Ese es el tipo de detalle que debes meter
+            Si el proyecto parece pequeño pero exige muchas reuniones, contenido sin preparar o
+            decisiones abiertas, no es realmente pequeño. Ese es el tipo de detalle que debes meter
             en horas, buffer y condiciones.
           </p>
           <div className="guide-cta">
@@ -280,7 +280,7 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
               Usar calculadora de proyectos web
             </Link>
             <Link href="/como-hacer-una-propuesta-comercial" className="primary-button">
-              Ver checklist de propuesta web
+              Ver lista de comprobación de propuesta web
             </Link>
           </div>
         </div>
@@ -288,30 +288,27 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Como conectarlo con otras decisiones de precio</h2>
+          <h2>Cómo conectarlo con otras decisiones de precio</h2>
           <p>
-            Si el proyecto es una sola pagina enfocada a conversion, puede encajar mejor en una
-            calculadora especifica de landing. Si despues de publicar habra soporte recurrente,
+            Si el proyecto es una sola página enfocada a conversión, puede encajar mejor en una
+            calculadora específica de landing. Si después de publicar habrá soporte recurrente,
             separa el mantenimiento mensual del presupuesto inicial.
           </p>
           <p>
-            Si la duda del cliente es el precio de una web profesional completa, tambien puedes
-            apoyarte en la guia de{' '}
+            Si la duda del cliente es el precio de una web profesional completa, también puedes
+            apoyarte en la guía de{' '}
             <Link href="/precio-pagina-web-profesional-freelance">
-              precio de una pagina web profesional freelance
-            </Link>
-            .
+              precio de una página web profesional freelance
+            </Link>.
           </p>
           <p>
             Para ese segundo caso puedes revisar{' '}
             <a href="https://www.mantenimientowebmensual.es?utm_source=cuantopresupuestar&utm_medium=web-corporativa&utm_campaign=contextual_link">
               la calculadora de mantenimiento web mensual
-            </a>
-            . Y si el proyecto es una landing pura, usa{' '}
+            </a>. Y si el proyecto es una landing pura, usa{' '}
             <a href="https://www.cuantocobrarlandingpage.es?utm_source=cuantopresupuestar&utm_medium=web-corporativa&utm_campaign=contextual_link">
               la calculadora de landing pages
-            </a>
-            .
+            </a>.
           </p>
         </div>
       </section>
@@ -320,8 +317,8 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
         <div className="container">
           <LeadMagnetForm
             source="cuanto-cobrar-web-corporativa-freelance"
-            title="Llevate el kit para preparar tu presupuesto web"
-            description="Recibe una plantilla, una estructura de propuesta y un checklist para revisar alcance, revisiones, extras y margen antes de enviar una web corporativa."
+            title="Llévate el kit para preparar tu presupuesto web"
+            description="Recibe una plantilla, una estructura de propuesta y una lista de comprobación para revisar alcance, revisiones, extras y margen antes de enviar una web corporativa."
             buttonLabel="Quiero el kit web"
           />
         </div>
@@ -330,7 +327,7 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
       <section className="section" aria-labelledby="web-corporativa-faq-title">
         <div className="container text-block">
           <h2 id="web-corporativa-faq-title">
-            Preguntas frecuentes sobre cuanto cobrar por una web corporativa
+            Preguntas frecuentes sobre cuánto cobrar por una web corporativa
           </h2>
 
           <div className="faq-list">

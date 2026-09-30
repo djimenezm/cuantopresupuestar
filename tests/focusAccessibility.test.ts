@@ -1,9 +1,8 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { readStyles } from './readStyles';
 
 describe('keyboard focus accessibility', () => {
   it('provides a visible focus indicator for native interactive controls', () => {
-    const styles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const styles = readStyles();
 
     expect(styles).toContain('--focus-ring:');
     expect(styles).toMatch(/:where\([^)]*a[^)]*button[^)]*input[^)]*select[^)]*textarea/s);

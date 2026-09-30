@@ -1,60 +1,28 @@
 # Cuánto Presupuestar
 
-MVP en Next.js para calcular cuánto presupuestar un proyecto freelance a partir de un objetivo mensual, unos costes fijos, tus horas facturables, un buffer de revisiones y una reserva fiscal orientativa.
+Calculadora para presupuestar proyectos freelance con horas, costes, revisiones y margen. Las guías y ejemplos ayudan a interpretar y presentar el resultado.
 
-## Requisitos
+## Empezar
 
-- Node.js 20.9 o superior
-- npm 10 o superior
-
-## Arranque en local
+Requiere Node.js 20.9 o superior y npm 10 o superior.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Después abre:
+La aplicación local se abre en <http://localhost:3002/>.
+
+## Comprobar cambios
 
 ```bash
-http://localhost:3002
+npm run lint
+npm test
+npm run build
 ```
 
-## Variable de entorno
+## Documentación
 
-Para producción, configura:
+- [Estructura, configuración y revisión local](docs/desarrollo.md)
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://www.cuantopresupuestar.es
-```
-
-## Estructura
-
-```text
-cuanto-presupuestar/
-  app/
-    aviso-legal/page.tsx
-    cookies/page.tsx
-    privacidad/page.tsx
-    globals.css
-    layout.tsx
-    page.tsx
-  components/
-    CalculatorForm.tsx
-    FAQ.tsx
-    Footer.tsx
-    Header.tsx
-    ResultCard.tsx
-  lib/
-    calculator.ts
-    format.ts
-    site.ts
-  public/
-  .env.example
-  .gitignore
-  next-env.d.ts
-  next.config.ts
-  package.json
-  README.md
-  tsconfig.json
-```
+Los anuncios no se activan por defecto. Consulta la guía de desarrollo antes de cambiar su configuración.

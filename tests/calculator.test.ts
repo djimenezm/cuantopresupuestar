@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateProjectQuote } from '@/lib/calculator';
+import { assessClientPrice, calculateProjectQuote } from '@/lib/calculator';
 
 describe('calculateProjectQuote', () => {
   it('calculates a project budget from the monthly target and project inputs', () => {
@@ -77,5 +77,42 @@ describe('calculateProjectQuote', () => {
         effectiveHourlyRate: 0,
       }),
     );
+  });
+});
+
+describe('assessClientPrice', () => {
+  const quote = calculateProjectQuote({
+    targetMonthlyNet: 2000,
+    monthlyFixedCosts: 400,
+    billableHoursPerMonth: 80,
+    projectHours: 20,
+    revisionBufferPercent: 15,
+    directProjectCosts: 150,
+    taxReservePercent: 20,
+    profitMarginPercent: 15,
+    hasIVA: true,
+  });
+
+  it('turns a low client offer into the hours that would need to leave scope', () => {
+    const assessment = assessClientPrice(quote, 800);
+
+    expect(assessment.gapToFloor).toBe(-183.75);
+    expect(assessment.hoursToTrim).toBe(5.07);
+    expect(assessment.directCostsUncovered).toBe(false);
+  });
+
+  it('flags an offer that does not cover even the direct costs', () => {
+    const assessment = assessClientPrice(quote, 100);
+
+    expect(assessment.directCostsUncovered).toBe(true);
+    expect(assessment.hoursToTrim).toBe(23);
+  });
+
+  it('shows the distance to the recommended price for a viable offer', () => {
+    const assessment = assessClientPrice(quote, 1000);
+
+    expect(assessment.gapToFloor).toBe(16.25);
+    expect(assessment.gapToRecommended).toBe(-131.31);
+    expect(assessment.hoursToTrim).toBe(0);
   });
 });

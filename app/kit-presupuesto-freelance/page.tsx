@@ -8,23 +8,23 @@ import { getSiteUrl, siteConfig } from '@/lib/site';
 const route = '/kit-presupuesto-freelance';
 const title = 'Kit de presupuesto freelance';
 const description =
-  'Recurso practico con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar mejor un presupuesto freelance antes de enviarlo.';
+  'Recurso práctico con plantilla de presupuesto, estructura de propuesta comercial y lista de comprobación para revisar mejor un presupuesto freelance antes de enviarlo.';
 
 const faqItems = [
   {
-    question: 'Que incluye este kit de presupuesto freelance?',
+    question: '¿Qué incluye este kit de presupuesto freelance?',
     answer:
-      'Incluye una estructura base de presupuesto, una guia para ordenar la propuesta comercial y un checklist corto para revisar alcance, pagos, revisiones e IVA antes de enviar la oferta.',
+      'Incluye una estructura base de presupuesto, una guía para ordenar la propuesta comercial y una lista de comprobación breve para revisar alcance, pagos, revisiones e IVA antes de enviar la oferta.',
   },
   {
-    question: 'Este kit sustituye la calculadora?',
+    question: '¿Este kit sustituye la calculadora?',
     answer:
-      'No. El kit te ayuda a presentar y revisar mejor la oferta. La calculadora sigue siendo la mejor pieza para aterrizar una cifra minima y una zona recomendada antes de redactar el documento.',
+      'No. El kit te ayuda a presentar y revisar mejor la oferta. La calculadora sigue siendo la mejor pieza para aterrizar una cifra mínima y una zona recomendada antes de redactar el documento.',
   },
   {
-    question: 'Puedo descargarlo y adaptarlo?',
+    question: '¿Puedo descargarlo y adaptarlo?',
     answer:
-      'Si. Hay una version descargable en texto para que la adaptes a tus servicios, entregables y forma de trabajar.',
+      'Sí. Hay una versión descargable en texto para que la adaptes a tus servicios, entregables y forma de trabajar.',
   },
 ] as const;
 
@@ -145,14 +145,14 @@ export default function KitPresupuestoFreelancePage() {
             <span className="eyebrow">Recurso gratuito</span>
             <h1>Kit de presupuesto freelance</h1>
             <p className="lead">
-              Un recurso simple para pasar de una cifra suelta a una propuesta mas clara. Incluye
-              estructura de presupuesto, orden basico para la propuesta comercial y una checklist
+              Un recurso simple para pasar de una cifra suelta a una propuesta más clara. Incluye
+              estructura de presupuesto, orden básico para la propuesta comercial y una lista de comprobación
               corta para revisar la oferta antes de enviarla.
             </p>
-            <div className="hero-badges" aria-label="Que incluye el kit">
+            <div className="hero-badges" aria-label="Qué incluye el kit">
               <span className="hero-badge">Plantilla base</span>
               <span className="hero-badge">Propuesta comercial</span>
-              <span className="hero-badge">Checklist final</span>
+              <span className="hero-badge">Lista de comprobación final</span>
             </div>
             <div className="guide-cta">
               <a href={downloadUrl} className="primary-button" download>
@@ -165,12 +165,12 @@ export default function KitPresupuestoFreelancePage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Que te llevas</h2>
+            <h2>Qué te llevas</h2>
             <ul className="article-list">
               <li>Un guion base para estructurar un presupuesto.</li>
-              <li>Un orden mas comercial para presentar el servicio.</li>
-              <li>Una lista corta de comprobacion antes de enviar la oferta.</li>
-              <li>Una version descargable para adaptarla a tu trabajo.</li>
+              <li>Un orden más comercial para presentar el servicio.</li>
+              <li>Una lista corta de comprobación antes de enviar la oferta.</li>
+              <li>Una versión descargable para adaptarla a tu trabajo.</li>
             </ul>
           </aside>
         </div>
@@ -183,11 +183,11 @@ export default function KitPresupuestoFreelancePage() {
             <li>Encabezado con nombre del proyecto y fecha.</li>
             <li>Resumen del objetivo del encargo.</li>
             <li>Alcance del trabajo y entregables incluidos.</li>
-            <li>Numero de revisiones incluidas.</li>
+            <li>Número de revisiones incluidas.</li>
             <li>Plazos estimados y dependencias del cliente.</li>
             <li>Precio del proyecto y si el IVA va aparte.</li>
             <li>Forma de pago y calendario de hitos si aplica.</li>
-            <li>Exclusiones: que no entra en el presupuesto.</li>
+            <li>Exclusiones: qué no entra en el presupuesto.</li>
             <li>Validez de la propuesta.</li>
             <li>Siguiente paso para aprobarla.</li>
           </ol>
@@ -196,37 +196,37 @@ export default function KitPresupuestoFreelancePage() {
 
       <section className="section alt">
         <div className="container text-block">
-          <h2>2. Orden basico para la propuesta comercial</h2>
+          <h2>2. Orden básico para la propuesta comercial</h2>
           <ol className="article-list article-list-ordered">
             <li>Contexto y problema a resolver.</li>
             <li>Objetivo del trabajo o resultado esperado.</li>
             <li>Enfoque propuesto y entregables.</li>
-            <li>Alcance, revisiones y limites.</li>
+            <li>Alcance, revisiones y límites.</li>
             <li>Precio, forma de pago e IVA.</li>
             <li>Plazos e hitos principales.</li>
             <li>Siguiente paso claro para avanzar.</li>
           </ol>
           <p>
             La idea no es escribir un documento largo. La idea es que el cliente entienda que
-            compra, que no compra y que tiene que pasar para decir que si.
+            compra, que no compra y que tiene que pasar para decir que sí.
           </p>
         </div>
       </section>
 
       <section className="section">
         <div className="container text-block">
-          <h2>3. Checklist rapida antes de enviar</h2>
+          <h2>3. Lista de comprobación rápida antes de enviar</h2>
           <ol className="article-list article-list-ordered">
-            <li>La cifra parte de una base economica sana y no de una intuicion rapida.</li>
-            <li>El alcance deja claro que esta incluido y que no.</li>
-            <li>Las revisiones tienen un limite comprensible.</li>
-            <li>El IVA esta bien explicado.</li>
+            <li>La cifra parte de una base económica sana y no de una intuición rápida.</li>
+            <li>El alcance deja claro que está incluido y que no.</li>
+            <li>Las revisiones tienen un límite comprensible.</li>
+            <li>El IVA está bien explicado.</li>
             <li>La forma de pago no deja zonas grises.</li>
-            <li>El cliente sabe cual es el siguiente paso.</li>
+            <li>El cliente sabe cuál es el siguiente paso.</li>
           </ol>
           <div className="disclaimer-box">
-            <strong>Recuerda:</strong> este kit mejora la presentacion y la revision final, pero la
-            calculadora sigue siendo la pieza que te ayuda a aterrizar el numero.
+            <strong>Recuerda:</strong> este kit mejora la presentación y la revisión final, pero la
+            calculadora sigue siendo la pieza que te ayuda a aterrizar el número.
           </div>
         </div>
       </section>
@@ -236,7 +236,7 @@ export default function KitPresupuestoFreelancePage() {
           <article className="feature-card">
             <h2>Plantilla de presupuesto</h2>
             <p>
-              Si quieres mas contexto para cada bloque, revisa la guia de{' '}
+              Si quieres más contexto para cada bloque, revisa la guía de{' '}
               <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>.
             </p>
           </article>
@@ -244,18 +244,17 @@ export default function KitPresupuestoFreelancePage() {
           <article className="feature-card">
             <h2>Propuesta comercial</h2>
             <p>
-              Si quieres reforzar la parte de venta, usa tambien la guia sobre{' '}
+              Si quieres reforzar la parte de venta, usa también la guía sobre{' '}
               <Link href="/como-hacer-una-propuesta-comercial">
-                como hacer una propuesta comercial
-              </Link>
-              .
+                cómo hacer una propuesta comercial
+              </Link>.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>Numero base</h2>
+            <h2>Número base</h2>
             <p>
-              Si aun no tienes clara la cifra, vuelve a la calculadora antes de redactar nada.
+              Si aún no tienes clara la cifra, vuelve a la calculadora antes de redactar nada.
             </p>
           </article>
         </div>
@@ -281,7 +280,7 @@ export default function KitPresupuestoFreelancePage() {
           <span className="eyebrow">Siguiente paso</span>
           <h2>Descarga el kit o vuelve a calcular tu presupuesto</h2>
           <p>
-            Si ya tienes una propuesta en marcha, puedes descargar la version en texto y adaptarla.
+            Si ya tienes una propuesta en marcha, puedes descargar la versión en texto y adaptarla.
             Si sigues afinando la cifra, vuelve antes a la calculadora.
           </p>
           <div className="guide-cta">

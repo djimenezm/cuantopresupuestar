@@ -4,6 +4,8 @@ import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import { projectExampleInput, projectExampleQuote } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/ejemplo-presupuesto-freelance';
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     'presupuesto freelance ejemplo',
     'modelo presupuesto freelance',
     'ejemplo propuesta freelance',
-    'como presentar un presupuesto freelance',
+    'cómo presentar un presupuesto freelance',
   ],
   openGraph: {
     title: `${title} | ${siteConfig.name}`,
@@ -193,6 +195,27 @@ export default function EjemploPresupuestoFreelancePage() {
             <strong>Idea clave:</strong> primero calcula una cifra defendible. Después conviértela
             en un presupuesto claro que el cliente pueda entender.
           </div>
+          <h3>Una web corporativa de 32 horas, paso a paso</h3>
+          <p>
+            Supongamos un objetivo neto de {formatCurrency(projectExampleInput.targetMonthlyNet)}
+            {' '}al mes, {formatCurrency(projectExampleInput.monthlyFixedCosts)} de costes fijos y
+            {' '}{projectExampleInput.billableHoursPerMonth} horas facturables. Para esta web estimamos
+            {' '}{projectExampleInput.projectHours} horas de trabajo, una reserva del
+            {' '}{projectExampleInput.revisionBufferPercent}% para revisiones y
+            {' '}{formatCurrency(projectExampleInput.directProjectCosts)} de costes directos.
+          </p>
+          <dl className="worked-example">
+            <div><dt>Tarifa interna por hora</dt><dd>{formatCurrency(projectExampleQuote.baseHourlyRate)}</dd></div>
+            <div><dt>Horas con reserva para revisiones</dt><dd>{formatNumber(projectExampleQuote.bufferedProjectHours)} h</dd></div>
+            <div><dt>Coste mínimo del proyecto</dt><dd>{formatCurrency(projectExampleQuote.projectFloorPrice)}</dd></div>
+            <div><dt>Presupuesto con margen del {projectExampleInput.profitMarginPercent}%</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
+            <div><dt>IVA orientativo aparte</dt><dd>{formatCurrency(projectExampleQuote.vatAmount)}</dd></div>
+          </dl>
+          <p>
+            La reserva fiscal del {projectExampleInput.taxReservePercent}% solo sirve aquí para
+            estimar la tarifa interna; no sustituye un cálculo tributario personalizado. El precio
+            del presupuesto se presenta sin IVA y los importes están redondeados a céntimos.
+          </p>
         </div>
       </section>
 
@@ -222,7 +245,8 @@ export default function EjemploPresupuestoFreelancePage() {
             <p>
               Presupuesto para diseño y desarrollo de página web corporativa. Incluye estructura,
               diseño responsive, maquetación, formulario de contacto, configuración básica SEO y dos
-              rondas de revisión.
+              rondas de revisión. En este ejemplo se estiman {projectExampleInput.projectHours} horas
+              de trabajo antes de la reserva para revisiones.
             </p>
             <p>
               No incluye redacción completa de textos, sesiones de foto, campañas, mantenimiento
@@ -265,7 +289,8 @@ export default function EjemploPresupuestoFreelancePage() {
           <h2>Texto de ejemplo para presentar el precio</h2>
           <div className="disclaimer-box">
             <p>
-              El importe del proyecto es de 1.200 EUR + IVA. Este precio incluye las fases,
+              El importe del proyecto es de {formatCurrency(projectExampleQuote.recommendedProjectBudget)}
+              {' '}más IVA, si corresponde. Este precio incluye las fases,
               entregables y revisiones descritas en la propuesta. Cualquier cambio de alcance,
               nueva sección o revisión adicional se presupuestará aparte antes de realizarse.
             </p>
@@ -300,8 +325,7 @@ export default function EjemploPresupuestoFreelancePage() {
             o la guía de{' '}
             <Link href="/cuanto-cobrar-por-una-pagina-web-freelance">
               cuánto cobrar por una página web freelance
-            </Link>
-            .
+            </Link>.
           </p>
         </div>
       </section>
@@ -310,8 +334,8 @@ export default function EjemploPresupuestoFreelancePage() {
         <div className="container">
           <LeadMagnetForm
             source="ejemplo-presupuesto-freelance"
-            title="Te enviamos el kit con ejemplo, plantilla y checklist"
-            description="Accede al kit con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar mejor una oferta antes de enviarla."
+            title="Te enviamos el kit con ejemplo, plantilla y lista de comprobación"
+            description="Accede al kit con plantilla de presupuesto, estructura de propuesta comercial y lista de comprobación para revisar mejor una oferta antes de enviarla."
             buttonLabel="Quiero el kit"
           />
         </div>

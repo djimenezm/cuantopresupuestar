@@ -27,12 +27,19 @@ describe('HTML landmarks', () => {
 
   it('keeps every app route wrapped in a main landmark', () => {
     const pages = collectPageFiles(join(process.cwd(), 'app'));
+    const legalShell = readFileSync(join(process.cwd(), 'components/LegalShell.tsx'), 'utf8');
 
     expect(pages.length).toBeGreaterThan(0);
+    expect(legalShell).toContain('<Header />');
+    expect(legalShell).toContain('<main id="contenido-principal" className="legal-page container">');
+    expect(legalShell).toContain('<Footer />');
     pages.forEach((page) => {
       const content = readFileSync(page, 'utf8');
 
-      expect(content).toMatch(/<main[\s>]/);
+      expect(content).toMatch(/<main[\s>]|<LegalShell>/);
+      if (content.includes('<LegalShell>')) {
+        expect(content).toContain("import LegalShell from '@/components/LegalShell'");
+      }
     });
   });
 });

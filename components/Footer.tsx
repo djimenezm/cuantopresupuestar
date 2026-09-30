@@ -25,6 +25,15 @@ const footerGroups = [
 export default function Footer() {
   return (
     <footer className="site-footer" role="contentinfo">
+      <div className="footer-invite-band">
+        <div className="container footer-invite">
+          <div>
+            <span className="footer-invite-kicker">Antes de enviar tu propuesta</span>
+            <p>Presupuesta con más claridad.</p>
+          </div>
+          <a href="/#calculadora" className="footer-invite-link">Hacer el cálculo <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
       <div className="container footer-shell">
         <div className="footer-main">
           <div className="footer-brand-block">
@@ -32,11 +41,16 @@ export default function Footer() {
               Cuánto Presupuestar
             </a>
             <p>Proyectos con más margen y menos dudas antes de enviar la propuesta.</p>
-            <p className="footer-contact-row">
-              <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
-                Contacto: {siteConfig.contactEmail}
+            <div className="footer-contact">
+              <span className="footer-contact-label">Contacto</span>
+              <a
+                className="footer-contact-link"
+                href={`mailto:${siteConfig.contactEmail}`}
+                aria-label={`Enviar un correo a ${siteConfig.contactEmail}`}
+              >
+                {siteConfig.contactEmail}
               </a>
-            </p>
+            </div>
           </div>
 
           <nav className="footer-links" aria-label="Navegación secundaria">

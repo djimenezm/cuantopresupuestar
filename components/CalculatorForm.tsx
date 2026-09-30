@@ -1,20 +1,23 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type ClipboardEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import ResultCard from '@/components/ResultCard';
 import { calculateProjectQuote } from '@/lib/calculator';
-
-type FieldName =
-  | 'targetMonthlyNet'
-  | 'monthlyFixedCosts'
-  | 'billableHoursPerMonth'
-  | 'projectHours'
-  | 'revisionBufferPercent'
-  | 'directProjectCosts'
-  | 'taxReservePercent'
-  | 'profitMarginPercent';
-
-type FormErrors = Partial<Record<FieldName, string>>;
+import {
+  DEFAULT_FORM_VALUES,
+  type FieldName,
+  getNormalizedPastedValue,
+  normalizeFieldValue,
+  validateForm,
+} from '@/lib/calculatorForm';
+import { parseSpanishNumber } from '@/lib/spanishNumber';
 
 declare global {
   interface Window {
@@ -35,157 +38,52 @@ function trackProjectQuoteCalculated(data: Record<string, string>) {
   });
 }
 
-function parseNumericValue(value: string) {
-  const normalizedValue = value.replace(',', '.').trim();
+function handleNumericPaste(
+  event: ClipboardEvent<HTMLInputElement>,
+  field: FieldName,
+  setValue: (value: string) => void,
+) {
+  const pastedValue = event.clipboardData.getData('text');
+  const normalizedValue = getNormalizedPastedValue(field, pastedValue);
 
-  if (normalizedValue === '') {
-    return Number.NaN;
+  if (normalizedValue === null) {
+    return;
   }
 
-  return Number(normalizedValue);
-}
-
-function formatNormalizedNumber(value: number, maximumFractionDigits = 2) {
-  return value.toLocaleString('en-US', {
-    useGrouping: false,
-    maximumFractionDigits,
-  });
-}
-
-function normalizeFieldValue(field: FieldName, value: string) {
-  const parsedValue = parseNumericValue(value);
-
-  if (!Number.isFinite(parsedValue)) {
-    return value.trim() === '' ? '' : value;
-  }
-
-  switch (field) {
-    case 'targetMonthlyNet':
-    case 'monthlyFixedCosts':
-    case 'projectHours':
-    case 'directProjectCosts':
-      return formatNormalizedNumber(Math.max(0, parsedValue));
-    case 'billableHoursPerMonth':
-      return formatNormalizedNumber(Math.max(0, Math.round(parsedValue)), 0);
-    case 'revisionBufferPercent':
-    case 'taxReservePercent':
-    case 'profitMarginPercent':
-      return formatNormalizedNumber(Math.min(100, Math.max(0, parsedValue)), 1);
-  }
-}
-
-function getFieldError(field: FieldName, value: string) {
-  const parsedValue = parseNumericValue(value);
-
-  if (value.trim() === '') {
-    switch (field) {
-      case 'targetMonthlyNet':
-        return 'Indica tu objetivo mensual.';
-      case 'monthlyFixedCosts':
-        return 'Indica tus costes fijos mensuales.';
-      case 'billableHoursPerMonth':
-        return 'Indica tus horas facturables al mes.';
-      case 'projectHours':
-        return 'Indica las horas estimadas del proyecto.';
-      case 'revisionBufferPercent':
-        return 'Indica un buffer de revisiones.';
-      case 'directProjectCosts':
-        return 'Indica los costes directos del proyecto.';
-      case 'taxReservePercent':
-        return 'Indica una reserva fiscal orientativa.';
-      case 'profitMarginPercent':
-        return 'Indica el margen extra del proyecto.';
-    }
-  }
-
-  if (!Number.isFinite(parsedValue)) {
-    switch (field) {
-      case 'billableHoursPerMonth':
-        return 'Introduce un número válido de horas.';
-      case 'revisionBufferPercent':
-      case 'taxReservePercent':
-      case 'profitMarginPercent':
-        return 'Introduce un porcentaje válido.';
-      default:
-        return 'Introduce un importe válido.';
-    }
-  }
-
-  if (field === 'targetMonthlyNet' && parsedValue <= 0) {
-    return 'El objetivo mensual debe ser mayor que 0.';
-  }
-
-  if (field === 'billableHoursPerMonth' && parsedValue <= 0) {
-    return 'Las horas facturables deben ser mayores que 0.';
-  }
-
-  if (field === 'billableHoursPerMonth' && !Number.isInteger(parsedValue)) {
-    return 'Las horas facturables deben ser un número entero.';
-  }
-
-  if (field === 'projectHours' && parsedValue <= 0) {
-    return 'Las horas del proyecto deben ser mayores que 0.';
-  }
-
-  if (
-    (field === 'revisionBufferPercent' || field === 'taxReservePercent' || field === 'profitMarginPercent') &&
-    parsedValue > 100
-  ) {
-    return 'El porcentaje debe ser como máximo 100.';
-  }
-
-  if (parsedValue < 0) {
-    switch (field) {
-      case 'targetMonthlyNet':
-        return 'El objetivo mensual no puede ser negativo.';
-      case 'monthlyFixedCosts':
-        return 'Los costes fijos no pueden ser negativos.';
-      case 'billableHoursPerMonth':
-        return 'Las horas facturables no pueden ser negativas.';
-      case 'projectHours':
-        return 'Las horas del proyecto no pueden ser negativas.';
-      case 'revisionBufferPercent':
-        return 'El buffer no puede ser negativo.';
-      case 'directProjectCosts':
-        return 'Los costes directos no pueden ser negativos.';
-      case 'taxReservePercent':
-        return 'La reserva fiscal no puede ser negativa.';
-      case 'profitMarginPercent':
-        return 'El margen no puede ser negativo.';
-    }
-  }
-
-  return '';
-}
-
-function validateForm(values: Record<FieldName, string>): FormErrors {
-  const nextErrors: FormErrors = {};
-
-  (Object.keys(values) as FieldName[]).forEach((field) => {
-    const error = getFieldError(field, values[field]);
-
-    if (error) {
-      nextErrors[field] = error;
-    }
-  });
-
-  return nextErrors;
+  event.preventDefault();
+  setValue(normalizedValue);
 }
 
 export default function CalculatorForm() {
-  const [targetMonthlyNet, setTargetMonthlyNet] = useState('2000');
-  const [monthlyFixedCosts, setMonthlyFixedCosts] = useState('350');
-  const [billableHoursPerMonth, setBillableHoursPerMonth] = useState('80');
-  const [projectHours, setProjectHours] = useState('18');
-  const [revisionBufferPercent, setRevisionBufferPercent] = useState('15');
-  const [directProjectCosts, setDirectProjectCosts] = useState('0');
-  const [taxReservePercent, setTaxReservePercent] = useState('20');
-  const [profitMarginPercent, setProfitMarginPercent] = useState('10');
-  const [hasIVA, setHasIVA] = useState(true);
+  const [targetMonthlyNet, setTargetMonthlyNet] = useState(DEFAULT_FORM_VALUES.targetMonthlyNet);
+  const [monthlyFixedCosts, setMonthlyFixedCosts] = useState(DEFAULT_FORM_VALUES.monthlyFixedCosts);
+  const [billableHoursPerMonth, setBillableHoursPerMonth] = useState(
+    DEFAULT_FORM_VALUES.billableHoursPerMonth,
+  );
+  const [projectHours, setProjectHours] = useState(DEFAULT_FORM_VALUES.projectHours);
+  const [revisionBufferPercent, setRevisionBufferPercent] = useState(
+    DEFAULT_FORM_VALUES.revisionBufferPercent,
+  );
+  const [directProjectCosts, setDirectProjectCosts] = useState(DEFAULT_FORM_VALUES.directProjectCosts);
+  const [taxReservePercent, setTaxReservePercent] = useState(
+    DEFAULT_FORM_VALUES.taxReservePercent,
+  );
+  const [profitMarginPercent, setProfitMarginPercent] = useState(
+    DEFAULT_FORM_VALUES.profitMarginPercent,
+  );
+  const [hasIVA, setHasIVA] = useState(DEFAULT_FORM_VALUES.hasIVA);
   const [submitted, setSubmitted] = useState(false);
+  const [invalidSubmissionCount, setInvalidSubmissionCount] = useState(0);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [hasTrackedConversion, setHasTrackedConversion] = useState(false);
   const [validSubmissionCount, setValidSubmissionCount] = useState(0);
   const resultRegionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (invalidSubmissionCount > 0) {
+      formRef.current?.querySelector<HTMLInputElement>('[aria-invalid="true"]')?.focus();
+    }
+  }, [invalidSubmissionCount]);
 
   const validationErrors = useMemo(
     () =>
@@ -211,7 +109,7 @@ export default function CalculatorForm() {
     ],
   );
 
-  const parsedBillableHours = parseNumericValue(billableHoursPerMonth);
+  const parsedBillableHours = parseSpanishNumber(billableHoursPerMonth);
   const hasValidationErrors = Object.keys(validationErrors).length > 0;
   const showBillableHoursError =
     Boolean(validationErrors.billableHoursPerMonth) &&
@@ -222,14 +120,14 @@ export default function CalculatorForm() {
 
   const result = useMemo(() => {
     return calculateProjectQuote({
-      targetMonthlyNet: parseNumericValue(targetMonthlyNet),
-      monthlyFixedCosts: parseNumericValue(monthlyFixedCosts),
-      billableHoursPerMonth: parseNumericValue(billableHoursPerMonth),
-      projectHours: parseNumericValue(projectHours),
-      revisionBufferPercent: parseNumericValue(revisionBufferPercent),
-      directProjectCosts: parseNumericValue(directProjectCosts),
-      taxReservePercent: parseNumericValue(taxReservePercent),
-      profitMarginPercent: parseNumericValue(profitMarginPercent),
+      targetMonthlyNet: parseSpanishNumber(targetMonthlyNet),
+      monthlyFixedCosts: parseSpanishNumber(monthlyFixedCosts),
+      billableHoursPerMonth: parseSpanishNumber(billableHoursPerMonth),
+      projectHours: parseSpanishNumber(projectHours),
+      revisionBufferPercent: parseSpanishNumber(revisionBufferPercent),
+      directProjectCosts: parseSpanishNumber(directProjectCosts),
+      taxReservePercent: parseSpanishNumber(taxReservePercent),
+      profitMarginPercent: parseSpanishNumber(profitMarginPercent),
       hasIVA,
     });
   }, [
@@ -269,11 +167,16 @@ export default function CalculatorForm() {
       </p>
 
       <form
+        ref={formRef}
         noValidate
         aria-describedby="calculator-intro"
         onSubmit={(event) => {
           event.preventDefault();
           setSubmitted(true);
+
+          if (hasValidationErrors) {
+            setInvalidSubmissionCount((count) => count + 1);
+          }
 
           if (!hasValidationErrors) {
             setValidSubmissionCount((currentCount) => currentCount + 1);
@@ -282,7 +185,7 @@ export default function CalculatorForm() {
           if (!hasValidationErrors && !hasTrackedConversion) {
             trackProjectQuoteCalculated({
               hasIVA: hasIVA ? 'yes' : 'no',
-              hasMargin: parseNumericValue(profitMarginPercent) > 0 ? 'yes' : 'no',
+              hasMargin: parseSpanishNumber(profitMarginPercent) > 0 ? 'yes' : 'no',
             });
             setHasTrackedConversion(true);
           }
@@ -297,6 +200,9 @@ export default function CalculatorForm() {
             step="0.01"
             value={targetMonthlyNet}
             onChange={(event) => setTargetMonthlyNet(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'targetMonthlyNet', setTargetMonthlyNet)
+            }
             onBlur={(event) =>
               setTargetMonthlyNet(normalizeFieldValue('targetMonthlyNet', event.target.value))
             }
@@ -320,6 +226,9 @@ export default function CalculatorForm() {
             step="0.01"
             value={monthlyFixedCosts}
             onChange={(event) => setMonthlyFixedCosts(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'monthlyFixedCosts', setMonthlyFixedCosts)
+            }
             onBlur={(event) =>
               setMonthlyFixedCosts(normalizeFieldValue('monthlyFixedCosts', event.target.value))
             }
@@ -343,6 +252,9 @@ export default function CalculatorForm() {
             step="1"
             value={billableHoursPerMonth}
             onChange={(event) => setBillableHoursPerMonth(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'billableHoursPerMonth', setBillableHoursPerMonth)
+            }
             onBlur={(event) =>
               setBillableHoursPerMonth(normalizeFieldValue('billableHoursPerMonth', event.target.value))
             }
@@ -364,6 +276,7 @@ export default function CalculatorForm() {
             step="0.5"
             value={projectHours}
             onChange={(event) => setProjectHours(event.target.value)}
+            onPaste={(event) => handleNumericPaste(event, 'projectHours', setProjectHours)}
             onBlur={(event) => setProjectHours(normalizeFieldValue('projectHours', event.target.value))}
             aria-invalid={submitted && Boolean(validationErrors.projectHours)}
             aria-describedby={submitted && validationErrors.projectHours ? 'project-hours-error' : undefined}
@@ -384,6 +297,9 @@ export default function CalculatorForm() {
             step="0.5"
             value={revisionBufferPercent}
             onChange={(event) => setRevisionBufferPercent(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'revisionBufferPercent', setRevisionBufferPercent)
+            }
             onBlur={(event) =>
               setRevisionBufferPercent(normalizeFieldValue('revisionBufferPercent', event.target.value))
             }
@@ -410,6 +326,9 @@ export default function CalculatorForm() {
             step="0.01"
             value={directProjectCosts}
             onChange={(event) => setDirectProjectCosts(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'directProjectCosts', setDirectProjectCosts)
+            }
             onBlur={(event) =>
               setDirectProjectCosts(normalizeFieldValue('directProjectCosts', event.target.value))
             }
@@ -430,10 +349,13 @@ export default function CalculatorForm() {
           <input
             type="number"
             min="0"
-            max="100"
+            max="99"
             step="0.5"
             value={taxReservePercent}
             onChange={(event) => setTaxReservePercent(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'taxReservePercent', setTaxReservePercent)
+            }
             onBlur={(event) =>
               setTaxReservePercent(normalizeFieldValue('taxReservePercent', event.target.value))
             }
@@ -462,6 +384,9 @@ export default function CalculatorForm() {
             step="0.5"
             value={profitMarginPercent}
             onChange={(event) => setProfitMarginPercent(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'profitMarginPercent', setProfitMarginPercent)
+            }
             onBlur={(event) =>
               setProfitMarginPercent(normalizeFieldValue('profitMarginPercent', event.target.value))
             }

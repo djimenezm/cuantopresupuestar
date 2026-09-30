@@ -14,7 +14,7 @@ describe('security headers', () => {
     expect(proxy).toContain("object-src 'none'");
     expect(proxy).toContain("base-uri 'self'");
     expect(proxy).toContain("frame-ancestors 'none'");
-    expect(proxy).toContain("form-action 'self' https://formsubmit.co");
+    expect(proxy).toContain("form-action 'self' https://2caafd8d.sibforms.com");
     expect(proxy).toContain('x-nonce');
     expect(layout).toContain("headers()).get('x-nonce')");
     expect(layout).toContain('nonce={nonce}');
@@ -48,9 +48,9 @@ describe('security headers', () => {
     expect(proxy).toContain("xFrameOptions = 'DENY'");
   });
 
-  it('enforces Trusted Types for DOM XSS sinks in production', () => {
+  it('keeps Trusted Types disabled until Next supports the policy end to end', () => {
     const proxy = readFileSync(join(process.cwd(), 'proxy.ts'), 'utf8');
 
-    expect(proxy).toContain("require-trusted-types-for 'script'");
+    expect(proxy).not.toContain("require-trusted-types-for 'script'");
   });
 });

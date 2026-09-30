@@ -18,6 +18,8 @@ export const siteConfig = {
   url: process.env.NODE_ENV === 'development' ? 'http://localhost:3002' : productionUrl,
   ownerName: 'Equipo de Cuánto Presupuestar',
   contactEmail: 'hola@cuantopresupuestar.es',
+  brevoKitFormAction:
+    'https://2caafd8d.sibforms.com/serve/MUIFAAZHnoqKY--6eQNT7RpZBeoGAzOuNB-Qp5MrwGqZMAw7B2yxOOos0eeyO-3iMOBG7Y_i2wJSp5VMSbHZ8iu4U59xBBunU_fyBNdzIv073Tl-Udt-UEeDE6ftUs-N_ytyIphZBN2kTmcGWHc9jdPQQ9Fr0TxW-9WiK0xq-R48Gfuse4H_MUlZdnNo2zAS9kEXlLGV-vUQdkiFVA==',
   country: 'España',
   themeColor: '#145da0',
   backgroundColor: '#f6f8fb',

@@ -7,25 +7,25 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/presupuesto-desarrollo-web-freelance';
-const title = 'Presupuesto de desarrollo web freelance: como calcularlo con margen';
+const title = 'Presupuesto de desarrollo web freelance: cómo calcularlo con margen';
 const description =
-  'Guia para preparar un presupuesto de desarrollo web freelance con alcance, horas reales, revisiones, costes directos, hitos, margen e IVA aparte.';
+  'Guía para preparar un presupuesto de desarrollo web freelance con alcance, horas reales, revisiones, costes directos, hitos, margen e IVA aparte.';
 
 const pageFaqItems = [
   {
-    question: 'Como hacer un presupuesto de desarrollo web freelance?',
+    question: '¿Cómo hacer un presupuesto de desarrollo web freelance?',
     answer:
-      'Empieza definiendo alcance, entregables, horas estimadas, revisiones, costes directos, margen y condiciones de pago. Despues convierte esa estimacion en un precio cerrado que no dependa solo de intuicion.',
+      'Empieza definiendo alcance, entregables, horas estimadas, revisiones, costes directos, margen y condiciones de pago. Después convierte esa estimación en un precio cerrado que no dependa solo de intuición.',
   },
   {
-    question: 'Que debe incluir un presupuesto de desarrollo web?',
+    question: '¿Qué debe incluir un presupuesto de desarrollo web?',
     answer:
-      'Debe incluir objetivos, paginas o funcionalidades, tecnologia, entregables, plazos, revisiones, exclusiones, soporte posterior, forma de pago e IVA cuando aplique.',
+      'Debe incluir objetivos, páginas o funcionalidades, tecnología, entregables, plazos, revisiones, exclusiones, soporte posterior, forma de pago e IVA cuando aplique.',
   },
   {
-    question: 'Como evitar cambios de alcance en desarrollo web?',
+    question: '¿Cómo evitar cambios de alcance en desarrollo web?',
     answer:
-      'Conviene definir que esta incluido, que se considera extra, cuantas rondas de revision hay y como se presupuestan nuevas funcionalidades o cambios fuera del acuerdo inicial.',
+      'Conviene definir qué está incluido, qué se considera extra, cuántas rondas de revisión hay y cómo se presupuestan nuevas funcionalidades o cambios fuera del acuerdo inicial.',
   },
 ] as const;
 
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   keywords: [
     'presupuesto desarrollo web freelance',
     'presupuesto desarrollo web',
-    'como presupuestar desarrollo web',
+    'cómo presupuestar desarrollo web',
     'precio desarrollo web freelance',
     'propuesta desarrollo web freelance',
   ],
@@ -142,15 +142,15 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
       <section className="hero">
         <div className="container article-layout">
           <div className="text-block">
-            <span className="eyebrow">Guia practica</span>
-            <h1>Presupuesto de desarrollo web freelance: como calcularlo sin perder margen</h1>
+            <span className="eyebrow">Guía práctica</span>
+            <h1>Presupuesto de desarrollo web freelance: cómo calcularlo sin perder margen</h1>
             <p className="lead">
               Un proyecto de desarrollo web no se presupuesta igual que una tarea suelta. Hay
-              discovery, arquitectura, reuniones, maquetacion, desarrollo, pruebas, revisiones,
+              discovery, arquitectura, reuniones, maquetación, desarrollo, pruebas, revisiones,
               entrega y soporte. Si no lo separas, el precio cerrado acaba absorbiendo trabajo
               invisible.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Desarrollo web</span>
               <span className="hero-badge">Precio cerrado</span>
               <span className="hero-badge">Hitos y alcance</span>
@@ -166,7 +166,7 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Que vas a ordenar</h2>
+            <h2>Qué vas a ordenar</h2>
             <ul className="article-list">
               <li>Alcance real antes de dar una cifra.</li>
               <li>Horas estimadas por fase del proyecto.</li>
@@ -182,7 +182,7 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
           <article className="feature-card">
             <h2>1. Alcance funcional</h2>
             <p>
-              Define paginas, formularios, CMS, integraciones, idiomas, roles, migraciones y
+              Define páginas, formularios, CMS, integraciones, idiomas, roles, migraciones y
               cualquier funcionalidad que pueda cambiar las horas reales del proyecto.
             </p>
           </article>
@@ -190,7 +190,7 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
           <article className="feature-card">
             <h2>2. Trabajo no visible</h2>
             <p>
-              Incluye discovery, reuniones, coordinacion, pruebas, documentacion y entrega. Si no
+              Incluye discovery, reuniones, coordinación, pruebas, documentación y entrega. Si no
               aparece en el presupuesto interno, acaba saliendo de tu margen.
             </p>
           </article>
@@ -198,8 +198,8 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
           <article className="feature-card">
             <h2>3. Riesgo y soporte</h2>
             <p>
-              Reserva margen para cambios, dependencias externas, errores de estimacion, urgencias
-              y soporte post-lanzamiento si el cliente espera acompanamiento.
+              Reserva margen para cambios, dependencias externas, errores de estimación, urgencias
+              y soporte post-lanzamiento si el cliente espera acompañamiento.
             </p>
           </article>
         </div>
@@ -208,34 +208,34 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
       <section className="section alt">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Formula para construir el precio desde dentro</h2>
+            <h2>Fórmula para construir el precio desde dentro</h2>
             <p>
               Antes de enviar una propuesta, separa el proyecto en fases. No necesitas acertar cada
-              hora al minuto, pero si necesitas saber si el precio final cubre el suelo economico de
+              hora al minuto, pero si necesitas saber si el precio final cubre el suelo económico de
               tu actividad.
             </p>
             <ol className="article-list article-list-ordered">
               <li>Lista entregables y funcionalidades concretas.</li>
-              <li>Estima horas por fase: analisis, diseno, desarrollo, pruebas y entrega.</li>
-              <li>Suma reuniones, gestion, revisiones y tiempo no productivo.</li>
-              <li>Anade costes directos: licencias, plugins, colaboraciones o herramientas.</li>
+              <li>Estima horas por fase: análisis, diseño, desarrollo, pruebas y entrega.</li>
+              <li>Suma reuniones, gestión, revisiones y tiempo no productivo.</li>
+              <li>Añade costes directos: licencias, plugins, colaboraciones o herramientas.</li>
               <li>Aplica buffer, margen profesional e IVA aparte cuando corresponda.</li>
             </ol>
             <div className="disclaimer-box">
-              <strong>Regla sana:</strong> si el cliente pide precio cerrado, tu calculo interno
-              debe ser todavia mas claro. El precio puede ser cerrado, pero el alcance no puede ser
+              <strong>Regla sana:</strong> si el cliente pide precio cerrado, tu cálculo interno
+              debe ser todavía más claro. El precio puede ser cerrado, pero el alcance no puede ser
               infinito.
             </div>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Exclusiones que conviene nombrar</h2>
+            <h2>Exclusiones qué conviene nombrar</h2>
             <ul className="article-list">
-              <li>Textos, imagenes o contenidos no entregados por el cliente.</li>
+              <li>Textos, imágenes o contenidos no entregados por el cliente.</li>
               <li>Nuevas funcionalidades no descritas en la propuesta.</li>
               <li>SEO avanzado, automatizaciones o integraciones extra.</li>
               <li>Mantenimiento mensual, soporte continuo o evolutivos.</li>
-              <li>Cambios aprobados despues de cerrar una fase.</li>
+              <li>Cambios aprobados después de cerrar una fase.</li>
             </ul>
           </aside>
         </div>
@@ -243,11 +243,11 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Como presentarlo para que el cliente entienda el precio</h2>
+          <h2>Cómo presentarlo para que el cliente entienda el precio</h2>
           <p>
-            No presentes solo una cifra. Presenta el objetivo del proyecto, que entregas, que
-            incluye cada fase, que queda fuera, cuantos hitos de pago hay y que ocurre cuando el
-            alcance cambia. Esto reduce friccion y hace que el precio parezca menos arbitrario.
+            No presentes solo una cifra. Presenta el objetivo del proyecto, qué entregas, qué
+            incluye cada fase, qué queda fuera, cuántos hitos de pago hay y qué ocurre cuando el
+            alcance cambia. Esto reduce fricción y hace que el precio parezca menos arbitrario.
           </p>
           <p>
             Si el cliente pide rebaja, no reduzcas precio sin reducir alcance. Puedes eliminar
@@ -255,18 +255,16 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
             avanzadas como fase dos.
           </p>
           <p>
-            Si el encargo se parece mas a una web de empresa que a un desarrollo a medida, revisa
-            tambien la guia para{' '}
+            Si el encargo se parece más a una web de empresa que a un desarrollo a medida, revisa
+            también la guía para{' '}
             <Link href="/cuanto-cobrar-web-corporativa-freelance">
-              calcular cuanto cobrar por una web corporativa freelance
-            </Link>
-            .
-            Si el cliente habla de una web profesional sin mucho detalle tecnico, puede encajar
-            mejor la guia de{' '}
+              calcular cuánto cobrar por una web corporativa freelance
+            </Link>.
+            Si el cliente habla de una web profesional sin mucho detalle técnico, puede encajar
+            mejor la guía de{' '}
             <Link href="/precio-pagina-web-profesional-freelance">
-              precio de una pagina web profesional freelance
-            </Link>
-            .
+              precio de una página web profesional freelance
+            </Link>.
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
@@ -283,8 +281,8 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
         <div className="container">
           <LeadMagnetForm
             source="presupuesto-desarrollo-web-freelance"
-            title="Llevate el kit para preparar tu presupuesto web"
-            description="Recibe la plantilla, la estructura de propuesta y el checklist para revisar alcance, hitos, extras y margen antes de enviar un presupuesto de desarrollo web."
+            title="Llévate el kit para preparar tu presupuesto web"
+            description="Recibe la plantilla, la estructura de propuesta y la lista de comprobación para revisar alcance, hitos, extras y margen antes de enviar un presupuesto de desarrollo web."
             buttonLabel="Quiero el kit"
           />
         </div>

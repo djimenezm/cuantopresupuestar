@@ -1,3 +1,4 @@
+import { readStyles } from './readStyles';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -8,7 +9,7 @@ describe('new content focus accessibility', () => {
       'utf8',
     );
     const resultCard = readFileSync(join(process.cwd(), 'components/ResultCard.tsx'), 'utf8');
-    const styles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const styles = readStyles();
 
     expect(calculatorForm).toContain('resultRegionRef.current?.focus');
     expect(calculatorForm).toContain('validSubmissionCount');

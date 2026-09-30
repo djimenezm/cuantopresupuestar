@@ -7,25 +7,25 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/como-hacer-una-propuesta-comercial';
-const title = 'Como hacer una propuesta comercial freelance que defienda mejor tu precio';
+const title = 'Cómo hacer una propuesta comercial freelance que defienda mejor tu precio';
 const description =
-  'Guia practica para hacer una propuesta comercial freelance con estructura clara, alcance, precio, objeciones y siguiente paso sin convertirla en un PDF vacio.';
+  'Guía práctica para hacer una propuesta comercial freelance con estructura clara, alcance, precio, objeciones y siguiente paso sin convertirla en un PDF vacío.';
 
 const pageFaqItems = [
   {
-    question: 'Que debe incluir una propuesta comercial freelance?',
+    question: '¿Qué debe incluir una propuesta comercial freelance?',
     answer:
-      'Como minimo deberia incluir contexto, problema, enfoque, alcance, entregables, precio, forma de pago, limites y siguiente paso. La idea es que el cliente entienda que compra y por que cuesta eso.',
+      'Como mínimo debería incluir contexto, problema, enfoque, alcance, entregables, precio, forma de pago, límites y siguiente paso. La idea es que el cliente entienda que compra y por qué cuesta eso.',
   },
   {
-    question: 'Es lo mismo una propuesta comercial que un presupuesto?',
+    question: '¿Es lo mismo una propuesta comercial que un presupuesto?',
     answer:
-      'No exactamente. Un presupuesto suele centrarse mas en precio y condiciones, mientras que una propuesta comercial suele explicar tambien el enfoque, el valor y el encaje del servicio.',
+      'No exactamente. Un presupuesto suele centrarse más en precio y condiciones, mientras que una propuesta comercial suele explicar también el enfoque, el valor y el encaje del servicio.',
   },
   {
-    question: 'Una buena propuesta comercial sirve si el precio esta mal calculado?',
+    question: '¿Una buena propuesta comercial sirve si el precio está mal calculado?',
     answer:
-      'No. Una propuesta bien presentada ayuda a defender mejor el precio, pero antes necesitas una cifra sana. Si el numero esta mal, el documento no lo arregla.',
+      'No. Una propuesta bien presentada ayuda a defender mejor el precio, pero antes necesitas una cifra sana. Si el número está mal, el documento no lo arregla.',
   },
 ] as const;
 
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'como hacer una propuesta comercial freelance',
+    'cómo hacer una propuesta comercial freelance',
     'propuesta comercial freelance',
     'modelo propuesta comercial freelance',
-    'como presentar una propuesta a un cliente',
+    'cómo presentar una propuesta a un cliente',
     'propuesta de servicios freelance',
   ],
   openGraph: {
@@ -142,14 +142,14 @@ export default function ComoHacerPropuestaComercialPage() {
       <section className="hero">
         <div className="container article-layout">
           <div className="text-block">
-            <span className="eyebrow">Guia practica</span>
-            <h1>Como hacer una propuesta comercial freelance que defienda mejor tu precio</h1>
+            <span className="eyebrow">Guía práctica</span>
+            <h1>Cómo hacer una propuesta comercial freelance que defienda mejor tu precio</h1>
             <p className="lead">
-              Una propuesta comercial no deberia ser un PDF bonito con una cifra al final. Deberia
+              Una propuesta comercial no debería ser un PDF bonito con una cifra al final. Debería
               ayudarte a explicar el problema, el enfoque, el alcance y el precio de una manera que
-              el cliente pueda entender y comparar con menos friccion.
+              el cliente pueda entender y comparar con menos fricción.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Propuesta comercial</span>
               <span className="hero-badge">Precio defendible</span>
               <span className="hero-badge">Siguiente paso claro</span>
@@ -162,12 +162,12 @@ export default function ComoHacerPropuestaComercialPage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Que vas a aterrizar aqui</h2>
+            <h2>Qué vas a aterrizar aquí</h2>
             <ul className="article-list">
-              <li>Que estructura hace mas facil que el cliente entienda tu propuesta.</li>
-              <li>Como presentar alcance, precio y pagos sin sonar ambiguo.</li>
-              <li>Que diferencia hay entre propuesta comercial y presupuesto.</li>
-              <li>Como usar la calculadora antes de redactar el documento.</li>
+              <li>Que estructura hace más fácil que el cliente entienda tu propuesta.</li>
+              <li>Cómo presentar alcance, precio y pagos sin sonar ambiguo.</li>
+              <li>Qué diferencia hay entre propuesta comercial y presupuesto.</li>
+              <li>Cómo usar la calculadora antes de redactar el documento.</li>
             </ul>
           </aside>
         </div>
@@ -177,17 +177,17 @@ export default function ComoHacerPropuestaComercialPage() {
         <div className="container text-block">
           <h2>Una propuesta comercial no es solo una forma elegante de enviar un precio</h2>
           <p>
-            Su trabajo real es reducir friccion. Si el cliente entiende mejor el problema, el
+            Su trabajo real es reducir fricción. Si el cliente entiende mejor el problema, el
             enfoque, los entregables y el siguiente paso, negociar deja de girar solo alrededor del
-            numero final.
+            número final.
           </p>
           <p>
-            La propuesta no sustituye al presupuesto ni al calculo economico. Lo que hace es darles
+            La propuesta no sustituye al presupuesto ni al cálculo económico. Lo que hace es darles
             contexto y ayudarte a defender mejor la cifra que ya has trabajado.
           </p>
           <div className="disclaimer-box">
             <strong>Idea clave:</strong> una propuesta comercial fuerte no maquilla un mal precio.
-            Pero si el precio esta bien calculado, si puede ayudarte a presentarlo mucho mejor.
+            Pero si el precio está bien calculado, si puede ayudarte a presentarlo mucho mejor.
           </div>
         </div>
       </section>
@@ -198,14 +198,14 @@ export default function ComoHacerPropuestaComercialPage() {
             <h2>1. Contexto y problema</h2>
             <p>
               Abre con lo que necesita el cliente y el resultado que busca. Esto da sentido a todo
-              lo que viene despues y reduce la sensacion de que vendes una lista generica de tareas.
+              lo que viene después y reduce la sensación de que vendes una lista genérica de tareas.
             </p>
           </article>
 
           <article className="feature-card">
             <h2>2. Enfoque y alcance</h2>
             <p>
-              Explica como lo vas a resolver, que entregas y donde estan los limites. Eso protege
+              Explica cómo lo vas a resolver, que entregas y dónde están los límites. Eso protege
               el alcance y reduce cambios mal entendidos.
             </p>
           </article>
@@ -213,8 +213,8 @@ export default function ComoHacerPropuestaComercialPage() {
           <article className="feature-card">
             <h2>3. Precio y siguiente paso</h2>
             <p>
-              Presenta el importe, pagos, condiciones y una accion clara para avanzar. Si dejas el
-              cierre ambiguo, es facil que la propuesta se quede congelada.
+              Presenta el importe, pagos, condiciones y una acción clara para avanzar. Si dejas el
+              cierre ambiguo, es fácil que la propuesta se quede congelada.
             </p>
           </article>
         </div>
@@ -234,24 +234,24 @@ export default function ComoHacerPropuestaComercialPage() {
             <li>Siguiente paso para aprobar o responder.</li>
           </ol>
           <p>
-            Esta estructura no tiene por que ser rigida, pero si deberia ayudarte a evitar el error
-            mas comun: enviar una propuesta que suena bien, pero deja demasiadas preguntas abiertas.
+            Esta estructura no tiene por qué ser rígida, pero si debería ayudarte a evitar el error
+            más común: enviar una propuesta que suena bien, pero deja demasiadas preguntas abiertas.
           </p>
         </div>
       </section>
 
       <section className="section alt">
         <div className="container text-block">
-          <h2>Errores tipicos al redactar una propuesta comercial</h2>
+          <h2>Errores típicos al redactar una propuesta comercial</h2>
           <ol className="article-list article-list-ordered">
             <li>Hablar mucho del proceso y poco del problema del cliente.</li>
-            <li>Describir entregables sin aclarar limites ni exclusiones.</li>
+            <li>Describir entregables sin aclarar límites ni exclusiones.</li>
             <li>Meter el precio al final sin anclar antes el valor del trabajo.</li>
-            <li>No dejar claro cual es el siguiente paso para avanzar.</li>
+            <li>No dejar claro cuál es el siguiente paso para avanzar.</li>
             <li>Enviar una propuesta muy cuidada con una cifra mal calculada.</li>
           </ol>
           <p>
-            Ese ultimo punto importa mucho: si primero no has trabajado bien el numero, el documento
+            Ese último punto importa mucho: si primero no has trabajado bien el número, el documento
             no te va a salvar. Para eso te conviene pasar antes por la{' '}
             <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
             y por la calculadora.
@@ -260,19 +260,19 @@ export default function ComoHacerPropuestaComercialPage() {
       </section>
 
       <section className="section">
-        <div className="container feature-grid" aria-label="Como conectar propuesta y calculadora">
+        <div className="container feature-grid" aria-label="Cómo conectar propuesta y calculadora">
           <article className="feature-card">
             <h2>Calcula primero</h2>
             <p>
-              Usa la calculadora para llegar a una cifra minima y a una zona recomendada antes de
+              Usa la calculadora para llegar a una cifra mínima y a una zona recomendada antes de
               escribir la propuesta.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>Redacta despues</h2>
+            <h2>Redacta después</h2>
             <p>
-              Convierte ese numero en una propuesta con estructura, limites, plazos y pagos claros
+              Convierte ese número en una propuesta con estructura, límites, plazos y pagos claros
               para que el cliente pueda entender mejor lo que compra.
             </p>
           </article>
@@ -280,7 +280,7 @@ export default function ComoHacerPropuestaComercialPage() {
           <article className="feature-card">
             <h2>Negocia tocando alcance</h2>
             <p>
-              Si aparece presion sobre el precio, usa la propuesta para mover entregables, fases o
+              Si aparece presión sobre el precio, usa la propuesta para mover entregables, fases o
               revisiones antes de ceder por reflejo.
             </p>
           </article>
@@ -292,7 +292,7 @@ export default function ComoHacerPropuestaComercialPage() {
           <LeadMagnetForm
             source="como-hacer-una-propuesta-comercial"
             title="Te enviamos el kit de propuesta y presupuesto"
-            description="Accede al recurso con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar mejor una oferta freelance."
+            description="Accede al recurso con plantilla de presupuesto, estructura de propuesta comercial y lista de comprobación para revisar mejor una oferta freelance."
             buttonLabel="Quiero el kit"
           />
         </div>
@@ -301,7 +301,7 @@ export default function ComoHacerPropuestaComercialPage() {
       <section className="section alt" aria-labelledby="propuesta-comercial-faq-title">
         <div className="container text-block">
           <h2 id="propuesta-comercial-faq-title">
-            Preguntas frecuentes sobre como hacer una propuesta comercial freelance
+            Preguntas frecuentes sobre cómo hacer una propuesta comercial freelance
           </h2>
 
           <div className="faq-list">
@@ -318,9 +318,9 @@ export default function ComoHacerPropuestaComercialPage() {
       <section className="section">
         <div className="container text-block">
           <span className="eyebrow">Siguiente paso</span>
-          <h2>Primero saca la cifra y luego conviertela en propuesta</h2>
+          <h2>Primero saca la cifra y luego conviértela en propuesta</h2>
           <p>
-            Si quieres que la propuesta te ayude de verdad, antes necesitas una base economica sana.
+            Si quieres que la propuesta te ayude de verdad, antes necesitas una base económica sana.
             Usa la calculadora y luego ordena el mensaje comercial.
           </p>
           <div className="guide-cta">

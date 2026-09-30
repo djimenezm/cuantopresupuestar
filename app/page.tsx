@@ -98,6 +98,30 @@ export default function HomePage() {
 
       <AdSlot placement="primary" />
 
+      <section className="quote-method-band" aria-labelledby="quote-method-heading">
+        <div className="container quote-method-grid">
+          <div>
+            <span className="eyebrow">Cómo se calcula</span>
+            <h2 id="quote-method-heading">Un precio de proyecto basado en tus números.</h2>
+          </div>
+          <div className="quote-method-detail">
+            <p>
+              Tu objetivo mensual, costes y horas facturables dan una tarifa base. La aplicamos a
+              las horas del proyecto, incluida la reserva para revisiones, y añadimos costes
+              directos y margen.
+            </p>
+            <p>
+              El IVA se muestra aparte. El resultado es una referencia para decidir el precio,
+              no sustituye la definición del alcance ni una estimación realista de horas.
+            </p>
+            <nav aria-label="Profundiza en el presupuesto freelance">
+              <a href="/como-calcular-horas-proyecto-freelance">Cómo estimar las horas</a>
+              <a href="/margen-presupuesto-freelance">Cómo calcular el margen</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
       <section className="quote-next-band">
         <div className="container quote-next-panel">
           <div>

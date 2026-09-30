@@ -6,25 +6,25 @@ import Header from '@/components/Header';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/cuanto-cobrar-por-una-pagina-web-freelance';
-const title = 'Cuanto cobrar por una pagina web freelance sin presupuestar a ciegas';
+const title = 'Cuánto cobrar por una página web freelance sin presupuestar a ciegas';
 const description =
-  'Guia practica para calcular cuanto cobrar por una pagina web freelance segun alcance, horas reales, revisiones, costes directos, margen e IVA aparte.';
+  'Guía práctica para calcular cuánto cobrar por una página web freelance según alcance, horas reales, revisiones, costes directos, margen e IVA aparte.';
 
 const pageFaqItems = [
   {
-    question: 'Cuanto cobrar por una pagina web freelance?',
+    question: '¿Cuánto cobrar por una página web freelance?',
     answer:
-      'No existe una cifra unica. El precio depende del alcance, las horas reales, las revisiones, los costes directos y el margen que necesitas proteger. Una landing sencilla y una web corporativa a medida no deberian salir del mismo calculo.',
+      'No existe una cifra única. El precio depende del alcance, las horas reales, las revisiones, los costes directos y el margen qué necesitas proteger. Una landing sencilla y una web corporativa a medida no deberían salir del mismo cálculo.',
   },
   {
-    question: 'Que deberia incluir el presupuesto de una web freelance?',
+    question: '¿Qué debería incluir el presupuesto de una web freelance?',
     answer:
-      'Como minimo deberia cubrir discovery, diseno o maquetacion, desarrollo, reuniones, revisiones, costes externos, entregables, condiciones de alcance y el IVA cuando aplique.',
+      'Como mínimo debería cubrir discovery, diseño o maquetación, desarrollo, reuniones, revisiones, costes externos, entregables, condiciones de alcance y el IVA cuando aplique.',
   },
   {
-    question: 'Es mejor cobrar una web por fases o con un precio cerrado?',
+    question: '¿Es mejor cobrar una web por fases o con un precio cerrado?',
     answer:
-      'Las dos opciones pueden funcionar. Un precio cerrado ayuda a vender mejor, pero suele ser mas sano si tienes claro tu suelo y separas bien alcance, hitos y revisiones para no absorber cambios gratis.',
+      'Las dos opciones pueden funcionar. Un precio cerrado ayuda a vender mejor, pero suele ser más sano si tienes claro tu suelo y separas bien alcance, hitos y revisiones para no absorber cambios gratis.',
   },
 ] as const;
 
@@ -35,11 +35,11 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'cuanto cobrar por una pagina web freelance',
-    'precio pagina web freelance',
-    'cuanto cobrar web freelance',
+    'cuánto cobrar por una página web freelance',
+    'precio página web freelance',
+    'cuánto cobrar web freelance',
     'presupuesto web freelance',
-    'cuanto presupuestar pagina web',
+    'cuánto presupuestar página web',
   ],
   openGraph: {
     title: `${title} | ${siteConfig.name}`,
@@ -141,14 +141,14 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
       <section className="hero">
         <div className="container article-layout">
           <div className="text-block">
-            <span className="eyebrow">Guia practica</span>
-            <h1>Cuanto cobrar por una pagina web freelance sin presupuestar a ciegas</h1>
+            <span className="eyebrow">Guía práctica</span>
+            <h1>Cuánto cobrar por una página web freelance sin presupuestar a ciegas</h1>
             <p className="lead">
-              Poner precio a una web no deberia depender solo de lo que cobra otra persona o de lo
-              que el cliente espera oir. Si quieres presupuestar con mas criterio, necesitas bajar
+              Poner precio a una web no debería depender solo de lo que cobra otra persona o de lo
+              que el cliente espera oír. Si quieres presupuestar con más criterio, necesitas bajar
               el proyecto a horas reales, buffer, alcance, costes directos y margen.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Precio por proyecto</span>
               <span className="hero-badge">Webs cerradas</span>
               <span className="hero-badge">Margen defendible</span>
@@ -161,12 +161,12 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Que vas a aterrizar aqui</h2>
+            <h2>Qué vas a aterrizar aquí</h2>
             <ul className="article-list">
-              <li>Que variables cambian de verdad el precio de una web freelance.</li>
-              <li>Como separar una landing simple de una web corporativa mas compleja.</li>
-              <li>Que errores hacen que acabes regalando horas o revisiones.</li>
-              <li>Como usar la calculadora para sacar una cifra mas defendible.</li>
+              <li>Qué variables cambian de verdad el precio de una web freelance.</li>
+              <li>Como separar una landing simple de una web corporativa más compleja.</li>
+              <li>Qué errores hacen que acabes regalando horas o revisiones.</li>
+              <li>Cómo usar la calculadora para sacar una cifra más defendible.</li>
             </ul>
           </aside>
         </div>
@@ -174,19 +174,19 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>No hay una tarifa unica para todas las webs</h2>
+          <h2>No hay una tarifa única para todas las webs</h2>
           <p>
-            Una pagina web puede significar cosas muy distintas: una landing con un formulario, una
+            Una página web puede significar cosas muy distintas: una landing con un formulario, una
             web corporativa con varias secciones, una web con blog, integraciones, contenidos,
-            soporte o una fase inicial de discovery antes de tocar una sola linea de codigo.
+            soporte o una fase inicial de discovery antes de tocar una sola línea de código.
           </p>
           <p>
-            Por eso copiar un precio de mercado sin entender el alcance suele salir mal. Lo mas
-            sano es partir de tu referencia economica y adaptarla al proyecto concreto.
+            Por eso copiar un precio de mercado sin entender el alcance suele salir mal. Lo más
+            sano es partir de tu referencia económica y adaptarla al proyecto concreto.
           </p>
           <div className="disclaimer-box">
-            <strong>Idea clave:</strong> el precio de una web no deberia salir de una intuicion
-            rapida. Deberia salir de una estimacion razonable del trabajo real y del margen que
+            <strong>Idea clave:</strong> el precio de una web no debería salir de una intuición
+            rápida. Debería salir de una estimación razonable del trabajo real y del margen que
             necesitas conservar.
           </div>
         </div>
@@ -198,14 +198,14 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
             <h2>1. Alcance y complejidad</h2>
             <p>
               No cuesta lo mismo una landing con un objetivo concreto que una web corporativa con
-              multiples paginas, formularios, blog, CMS y entregables extra.
+              múltiples páginas, formularios, blog, CMS y entregables extra.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>2. Revisiones y friccion</h2>
+            <h2>2. Revisiones y fricción</h2>
             <p>
-              Parte del precio deberia cubrir reuniones, cambios, rondas de feedback y pequenos
+              Parte del precio debería cubrir reuniones, cambios, rondas de feedback y pequeños
               imprevistos. Si no lo contemplas, acabas absorbiendo tiempo no pagado.
             </p>
           </article>
@@ -213,7 +213,7 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
           <article className="feature-card">
             <h2>3. Margen y soporte</h2>
             <p>
-              Ademas del trabajo base, necesitas espacio para margen, compras, colaboraciones o
+              Además del trabajo base, necesitas espacio para margen, compras, colaboraciones o
               post-lanzamiento si el proyecto lo requiere.
             </p>
           </article>
@@ -222,57 +222,54 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Errores tipicos al cobrar una pagina web freelance</h2>
+          <h2>Errores típicos al cobrar una página web freelance</h2>
           <ol className="article-list article-list-ordered">
-            <li>Dar un precio demasiado rapido para no perder la oportunidad.</li>
+            <li>Dar un precio demasiado rápido para no perder la oportunidad.</li>
             <li>Usar horas ideales y no horas facturables reales.</li>
             <li>No dejar margen para reuniones, cambios y revisiones.</li>
             <li>No separar el IVA del ingreso real del proyecto.</li>
             <li>Aceptar una rebaja sin tocar alcance, plazos o entregables.</li>
           </ol>
           <p>
-            Si te suena alguno, esta guia te conviene junto con la de{' '}
+            Si te suena alguno, esta guía te conviene junto con la de{' '}
             <Link href="/como-presupuestar-un-proyecto-freelance">
-              como presupuestar un proyecto freelance
-            </Link>
-            , porque la logica de fondo es la misma: definir bien tu suelo antes de negociar.
-            Si el encargo es una web de empresa con varias paginas, tambien puedes revisar{' '}
+              cómo presupuestar un proyecto freelance
+            </Link>, porque la lógica de fondo es la misma: definir bien tu suelo antes de negociar.
+            Si el encargo es una web de empresa con varias páginas, también puedes revisar{' '}
             <Link href="/cuanto-cobrar-web-corporativa-freelance">
-              cuanto cobrar por una web corporativa freelance
-            </Link>
-            .
-            Y si el cliente te pide una web profesional con mas criterio de entrega, revisa{' '}
+              cuánto cobrar por una web corporativa freelance
+            </Link>.
+            Y si el cliente te pide una web profesional con más criterio de entrega, revisa{' '}
             <Link href="/precio-pagina-web-profesional-freelance">
-              precio de una pagina web profesional freelance
-            </Link>
-            .
+              precio de una página web profesional freelance
+            </Link>.
           </p>
         </div>
       </section>
 
       <section className="section alt">
-        <div className="container feature-grid" aria-label="Como usar la calculadora para una web">
+        <div className="container feature-grid" aria-label="Cómo usar la calculadora para una web">
           <article className="feature-card">
             <h2>Referencia base por hora</h2>
             <p>
-              Te da una base economica para no improvisar. Sirve como filtro para saber si la web
-              cubre realmente el tiempo y el negocio que hay detras.
+              Te da una base económica para no improvisar. Sirve como filtro para saber si la web
+              cubre realmente el tiempo y el negocio que hay detrás.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>Precio minimo defendible</h2>
+            <h2>Precio mínimo defendible</h2>
             <p>
               Es la cifra a partir de la cual dejar de bajar si no cambia el alcance. Debajo de ese
-              punto, es facil que el proyecto deje de compensarte.
+              punto, es fácil que el proyecto deje de compensarte.
             </p>
           </article>
 
           <article className="feature-card">
             <h2>Presupuesto recomendado</h2>
             <p>
-              Te da una zona mas sana para presentar la propuesta y absorber mejor la negociacion
-              inicial sin quedarte sin margen a la primera objecion.
+              Te da una zona más sana para presentar la propuesta y absorber mejor la negociación
+              inicial sin quedarte sin margen a la primera objeción.
             </p>
           </article>
         </div>
@@ -280,15 +277,15 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Lleva la teoria a tu caso real</h2>
+          <h2>Lleva la teoría a tu caso real</h2>
           <p>
-            Si estas presupuestando una landing, una web corporativa o una propuesta mas a medida,
-            la forma mas util de bajar la duda a una cifra es probar el proyecto en la calculadora
+            Si estás presupuestando una landing, una web corporativa o una propuesta más a medida,
+            la forma más útil de bajar la duda a una cifra es probar el proyecto en la calculadora
             con tus horas, buffer, costes y margen.
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
-              Calcular cuanto cobrar
+              Calcular cuánto cobrar
             </Link>
           </div>
         </div>
@@ -297,7 +294,7 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
       <section className="section alt" aria-labelledby="cuanto-cobrar-web-faq-title">
         <div className="container text-block">
           <h2 id="cuanto-cobrar-web-faq-title">
-            Preguntas frecuentes sobre cuanto cobrar por una pagina web freelance
+            Preguntas frecuentes sobre cuánto cobrar por una página web freelance
           </h2>
 
           <div className="faq-list">
@@ -316,8 +313,8 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
           <span className="eyebrow">Siguiente paso</span>
           <h2>Convierte la duda en un presupuesto defendible</h2>
           <p>
-            Si ya sabes que una web no se deberia presupuestar a ojo, el siguiente paso util es
-            bajar tu caso a numeros concretos y ver donde queda tu precio minimo y tu zona
+            Si ya sabes que una web no se debería presupuestar a ojo, el siguiente paso útil es
+            bajar tu caso a números concretos y ver dónde queda tu precio mínimo y tu zona
             recomendada.
           </p>
           <div className="guide-cta">

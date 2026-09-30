@@ -214,7 +214,7 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
               <li>Evalúa si el alcance está escrito con suficiente detalle.</li>
               <li>Estima horas reales y añade buffer de revisiones e imprevistos.</li>
               <li>Define qué entregables entran y qué cambios quedan fuera.</li>
-              <li>Decide si hay partes del proyecto que conviene separar por fases.</li>
+              <li>Decide si hay partes del proyecto qué conviene separar por fases.</li>
               <li>Calcula tu precio mínimo antes de presentar una cifra cerrada.</li>
               <li>Incluye condiciones para extras, urgencias y ampliaciones.</li>
             </ol>
@@ -304,7 +304,7 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
           <LeadMagnetForm
             source="precio-cerrado-o-por-horas"
             title="Te enviamos el kit para elegir mejor tu modelo de cobro"
-            description="Accede al kit con plantilla de presupuesto, estructura de propuesta comercial y checklist para revisar alcance, horas, extras y margen antes de enviar la oferta."
+            description="Accede al kit con plantilla de presupuesto, estructura de propuesta comercial y lista de comprobación para revisar alcance, horas, extras y margen antes de enviar la oferta."
             buttonLabel="Quiero el kit"
           />
         </div>

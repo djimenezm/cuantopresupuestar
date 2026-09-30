@@ -24,10 +24,10 @@ export default function GraciasKitPresupuestoPage() {
           <h1>Gracias por apuntarte al kit de presupuesto freelance</h1>
           <p className="lead">
             Ya hemos recibido tu solicitud. Acabas de desbloquear el kit con plantilla de
-            presupuesto, estructura de propuesta comercial y checklist de revision.
+            presupuesto, estructura de propuesta comercial y lista de comprobación de revisión.
           </p>
           <div className="disclaimer-box">
-            <strong>Nota:</strong> tambien deberias recibir un email con el acceso directo al kit.
+            <strong>Nota:</strong> también deberías recibir un email con el acceso directo al kit.
             Si no lo ves, revisa spam o promociones.
           </div>
           <div className="guide-cta">
@@ -47,12 +47,12 @@ export default function GraciasKitPresupuestoPage() {
       <section className="section alt">
         <div className="container">
           <span className="eyebrow">Siguiente paso</span>
-          <h2>Pasa del kit a un precio mas defendible</h2>
+          <h2>Pasa del kit a un precio más defendible</h2>
           <div className="feature-grid" aria-label="Siguientes pasos recomendados">
             <article className="feature-card">
-              <h3>Facturacion base</h3>
+              <h3>Facturación base</h3>
               <p>
-                Si aun no tienes claro tu suelo mensual, calcula cuanto necesitas facturar antes de
+                Si aún no tienes claro tu suelo mensual, calcula cuánto necesitas facturar antes de
                 cerrar precios por proyecto.
               </p>
               <div className="guide-cta">
@@ -60,7 +60,7 @@ export default function GraciasKitPresupuestoPage() {
                   href="https://www.cuantofacturar.es?utm_source=cuantopresupuestar&utm_medium=thank-you&utm_campaign=kit_next_step"
                   className="primary-button"
                 >
-                  Calcular facturacion
+                  Calcular facturación
                 </a>
               </div>
             </article>
@@ -73,7 +73,7 @@ export default function GraciasKitPresupuestoPage() {
               </p>
               <div className="guide-cta">
                 <Link href="/presupuesto-desarrollo-web-freelance" className="primary-button">
-                  Ver guia web
+                  Ver guía web
                 </Link>
               </div>
             </article>
@@ -81,7 +81,7 @@ export default function GraciasKitPresupuestoPage() {
             <article className="feature-card">
               <h3>Ingresos recurrentes</h3>
               <p>
-                Si despues del proyecto vas a ofrecer soporte, calcula tambien una cuota mensual de
+                Si después del proyecto vas a ofrecer soporte, calcula también una cuota mensual de
                 mantenimiento.
               </p>
               <div className="guide-cta">

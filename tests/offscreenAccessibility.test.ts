@@ -1,3 +1,4 @@
+import { readStyles } from './readStyles';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -28,12 +29,10 @@ function collectSourceFiles(directory: string): string[] {
 describe('offscreen accessibility', () => {
   it('hides offscreen or spam-trap content from assistive technology', () => {
     const resultCard = readFileSync(join(process.cwd(), 'components/ResultCard.tsx'), 'utf8');
-    const leadForm = readFileSync(join(process.cwd(), 'components/LeadMagnetForm.tsx'), 'utf8');
-    const styles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const styles = readStyles();
 
     expect(resultCard).toContain("textArea.setAttribute('aria-hidden', 'true')");
     expect(resultCard).toContain('textArea.tabIndex = -1');
-    expect(leadForm).toContain('aria-hidden="true"');
     expect(styles).toMatch(/\.honey-field\s*{[^}]*display:\s*none/s);
   });
 

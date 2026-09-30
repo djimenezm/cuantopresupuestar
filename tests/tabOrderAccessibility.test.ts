@@ -20,11 +20,11 @@ describe('tab order accessibility', () => {
     expect(content).not.toMatch(/order:\s*-?\d/);
   });
 
-  it('keeps the offscreen spam trap out of keyboard and assistive navigation', () => {
+  it('uses Brevo fields without adding a focusable spam trap', () => {
     const leadForm = readFileSync(join(process.cwd(), 'components/LeadMagnetForm.tsx'), 'utf8');
 
-    expect(leadForm).toContain('name="_honey"');
-    expect(leadForm).toContain('tabIndex={-1}');
-    expect(leadForm).toContain('aria-hidden="true"');
+    expect(leadForm).toContain('name="EMAIL"');
+    expect(leadForm).toContain('name="email_address_check"');
+    expect(leadForm).not.toContain('name="_honey"');
   });
 });

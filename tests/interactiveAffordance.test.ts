@@ -1,9 +1,8 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { readStyles } from './readStyles';
 
 describe('interactive affordance styles', () => {
   it('makes links and buttons visibly interactive across states', () => {
-    const styles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const styles = readStyles();
 
     expect(styles).toMatch(/a\[href\],\s*button,\s*input,\s*select,\s*textarea\s*{[^}]*transition:/s);
     expect(styles).toMatch(/\.nav a,\s*\.footer-links a,\s*\.text-block a,\s*\.legal-page a\s*{[^}]*text-decoration:\s*underline/s);
