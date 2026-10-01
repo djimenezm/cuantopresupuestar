@@ -15,7 +15,7 @@ const footerGroups = [
     title: 'Preparar',
     links: [
       { href: '/ejemplo-presupuesto-freelance', label: 'Ejemplo de presupuesto' },
-      { href: '/plantilla-presupuesto-freelance', label: 'Plantilla freelance' },
+      { href: '/kit-presupuesto-freelance', label: 'Plantilla editable' },
       { href: '/condiciones-pago-presupuesto-freelance', label: 'Condiciones de pago' },
       { href: '/presupuesto-por-fases-freelance', label: 'Presupuesto por fases' },
     ],

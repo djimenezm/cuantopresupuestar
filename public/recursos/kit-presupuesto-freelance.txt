@@ -1,40 +1,71 @@
-KIT DE PRESUPUESTO FREELANCE
+PLANTILLA EDITABLE DE PRESUPUESTO FREELANCE
+Cuánto Presupuestar - cuantopresupuestar.es
 
-1. ESTRUCTURA BASE DE PRESUPUESTO
+Sustituye cada texto entre corchetes. Borra los ejemplos que no correspondan
+a tu servicio. Este modelo comercial es orientativo y no sustituye el
+asesoramiento fiscal o legal cuando lo necesites.
 
-- Nombre del proyecto y fecha
-- Resumen breve del objetivo del encargo
-- Alcance del trabajo y entregables incluidos
-- Numero de revisiones incluidas
-- Plazos estimados y dependencias del cliente
-- Precio del proyecto
-- IVA aparte, si aplica
-- Forma de pago y calendario de hitos
-- Exclusiones: que no entra en el presupuesto
-- Validez de la propuesta
-- Siguiente paso para aprobarla
+1. IDENTIFICACIÓN
 
-2. ESTRUCTURA BASE DE PROPUESTA COMERCIAL
+Profesional: [nombre y datos de contacto]
+Cliente: [nombre y persona que aprueba]
+Proyecto: [nombre reconocible para ambas partes]
+Fecha de propuesta: [fecha]
+Vigencia de la oferta: [fecha límite]
 
-- Contexto y problema
-- Objetivo del trabajo
-- Enfoque propuesto
-- Entregables
-- Alcance y limites
-- Precio, forma de pago e IVA
-- Plazos principales
-- Siguiente paso claro
+2. OBJETIVO Y CRITERIO DE ACEPTACIÓN
 
-3. LISTA DE COMPROBACIÓN ANTES DE ENVIAR
+Objetivo del encargo: [qué problema se pretende resolver]
+Resultado comprobable: [cómo sabremos que el trabajo está entregado]
 
-- La cifra parte de una base economica sana
-- El alcance deja claro que esta incluido y que no
-- Las revisiones tienen limite
-- El IVA esta bien explicado
-- La forma de pago esta clara
-- El cliente sabe cual es el siguiente paso
+3. ENTREGABLES INCLUIDOS
 
-4. RECORDATORIO
+- [Entregable 1: cantidad, formato y características]
+- [Entregable 2: cantidad, formato y características]
+- [Entregable 3: cantidad, formato y características]
 
-Este kit mejora la presentacion y la revision final.
-La calculadora de Cuanto Presupuestar sigue siendo la mejor pieza para aterrizar un precio minimo y una zona recomendada antes de redactar la propuesta.
+No escribas solo "una web" o "una campaña": especifica el número de páginas,
+piezas o sesiones y qué se revisará antes de dar cada entregable por aceptado.
+
+4. REVISIONES Y DEPENDENCIAS
+
+Rondas de revisión incluidas: [número]
+Qué puede revisarse en cada ronda: [texto, diseño, funcionamiento...]
+Quién reúne y aprueba los comentarios: [persona o rol]
+Materiales que aporta el cliente: [textos, imágenes, accesos, licencias...]
+Fecha límite para recibir materiales: [fecha]
+Inicio del plazo de entrega: [al recibir qué materiales o aprobación]
+
+5. PRECIO Y FORMA DE PAGO
+
+Precio del alcance descrito, sin IVA: [importe] EUR
+IVA, si corresponde: [tipo e importe] EUR
+Total, si corresponde: [importe] EUR
+
+Hito 1: [porcentaje o importe] al [hecho comprobable]
+Hito 2: [porcentaje o importe] al [hecho comprobable]
+Hito 3: [porcentaje o importe] al [hecho comprobable]
+
+Comprueba que la suma de los hitos coincide con el precio sin IVA.
+No confundas el IVA cobrado al cliente con ingreso propio.
+
+6. EXCLUSIONES Y CAMBIOS
+
+No se incluyen: [servicios, licencias, soporte o materiales excluidos]
+Cuando se solicite un cambio de alcance, se describirá el nuevo entregable,
+su precio y su efecto en el calendario. El trabajo adicional comenzará
+después de que ambas partes acepten esa ampliación.
+
+7. APROBACIÓN Y SIGUIENTE PASO
+
+Para avanzar: [quién confirma, por qué medio y antes de qué fecha]
+Primer paso tras la aceptación: [reunión, anticipo, envío de materiales...]
+
+LISTA FINAL DE COMPROBACIÓN
+
+[ ] Se pueden contar todos los entregables.
+[ ] Las rondas de revisión tienen un límite y un responsable de aprobación.
+[ ] Los materiales pendientes y su fecha están identificados.
+[ ] El precio, el IVA y la suma de los hitos son coherentes.
+[ ] El cliente sabe qué queda fuera y cómo se cobrarán ampliaciones.
+[ ] El siguiente paso para aceptar la oferta está escrito.

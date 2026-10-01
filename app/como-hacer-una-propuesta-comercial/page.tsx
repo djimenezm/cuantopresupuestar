@@ -253,7 +253,7 @@ export default function ComoHacerPropuestaComercialPage() {
           <p>
             Ese último punto importa mucho: si primero no has trabajado bien el número, el documento
             no te va a salvar. Para eso te conviene pasar antes por la{' '}
-            <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
+            <Link href="/kit-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
             y por la calculadora.
           </p>
         </div>

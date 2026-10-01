@@ -285,7 +285,7 @@ export default function ComoPresupuestarProyectoFreelancePage() {
           <p>
             Y si ya tienes clara la cifra pero quieres presentarla mejor, puedes apoyarte también en
             la{' '}
-            <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
+            <Link href="/kit-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
             para ordenar alcance, revisiones, pagos y exclusiones.
           </p>
           <p>

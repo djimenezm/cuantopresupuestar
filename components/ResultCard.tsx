@@ -104,6 +104,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
     try {
       await copyTextToClipboard(proposalSummary);
       setCopyStatus('copied');
+      window.va?.('event', { name: 'proposal_summary_copied' });
       window.setTimeout(() => setCopyStatus('idle'), 2500);
     } catch {
       setCopyStatus('error');

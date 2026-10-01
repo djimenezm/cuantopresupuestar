@@ -116,6 +116,7 @@ describe('CalculatorForm', () => {
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Precio mínimo defendible'));
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Colchón de negociación'));
     expect(screen.getByText('Resumen copiado.')).toBeInTheDocument();
+    expect(window.va).toHaveBeenCalledWith('event', { name: 'proposal_summary_copied' });
   });
 
   it('checks a client offer against the floor and includes it in the summary', async () => {

@@ -2,6 +2,9 @@
 
 Volver al [README](../README.md).
 
+Para el mantenimiento editorial y la evaluación de uso, consulta
+[Revisión del contenido y uso real](revision-contenido.md).
+
 ## Mapa del código
 
 | Ubicación | Responsabilidad |

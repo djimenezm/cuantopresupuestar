@@ -305,7 +305,7 @@ export default function PresupuestoPorFasesFreelancePage() {
           </div>
           <p>
             Puedes combinar este enfoque con la{' '}
-            <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
+            <Link href="/kit-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
             y con la guía para{' '}
             <Link href="/como-calcular-horas-proyecto-freelance">
               calcular horas de un proyecto freelance

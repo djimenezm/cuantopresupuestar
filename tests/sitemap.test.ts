@@ -16,7 +16,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/como-calcular-horas-proyecto-freelance');
     expect(paths).toContain('/como-hacer-una-propuesta-comercial');
     expect(paths).toContain('/ejemplo-presupuesto-freelance');
-    expect(paths).toContain('/plantilla-presupuesto-freelance');
+    expect(paths).not.toContain('/plantilla-presupuesto-freelance');
     expect(paths).toContain('/precio-cerrado-o-por-horas-freelance');
     expect(paths).toContain('/margen-presupuesto-freelance');
     expect(paths).toContain('/condiciones-pago-presupuesto-freelance');

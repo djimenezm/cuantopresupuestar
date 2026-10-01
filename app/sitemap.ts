@@ -8,7 +8,6 @@ const routes = [
   '/como-calcular-horas-proyecto-freelance',
   '/como-hacer-una-propuesta-comercial',
   '/ejemplo-presupuesto-freelance',
-  '/plantilla-presupuesto-freelance',
   '/precio-cerrado-o-por-horas-freelance',
   '/margen-presupuesto-freelance',
   '/condiciones-pago-presupuesto-freelance',

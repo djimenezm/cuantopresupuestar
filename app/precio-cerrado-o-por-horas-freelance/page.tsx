@@ -292,7 +292,7 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
             <Link href="/#calculadora" className="primary-button">
               Calcular mi precio
             </Link>
-            <Link href="/plantilla-presupuesto-freelance" className="primary-button">
+            <Link href="/kit-presupuesto-freelance" className="primary-button">
               Ver plantilla
             </Link>
           </div>

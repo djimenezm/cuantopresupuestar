@@ -36,6 +36,11 @@ describe('HTML landmarks', () => {
     pages.forEach((page) => {
       const content = readFileSync(page, 'utf8');
 
+      if (page.endsWith(join('plantilla-presupuesto-freelance', 'page.tsx'))) {
+        expect(content).toContain("permanentRedirect('/kit-presupuesto-freelance')");
+        return;
+      }
+
       expect(content).toMatch(/<main[\s>]|<LegalShell>/);
       if (content.includes('<LegalShell>')) {
         expect(content).toContain("import LegalShell from '@/components/LegalShell'");

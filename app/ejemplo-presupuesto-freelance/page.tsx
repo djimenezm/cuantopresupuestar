@@ -330,7 +330,7 @@ export default function EjemploPresupuestoFreelancePage() {
           <p>
             Si quieres una estructura más completa para convertir este ejemplo en documento, puedes
             apoyarte en la{' '}
-            <Link href="/plantilla-presupuesto-freelance">plantilla de presupuesto freelance</Link>.
+            <Link href="/kit-presupuesto-freelance">plantilla de presupuesto freelance</Link>.
           </p>
         </div>
       </section>

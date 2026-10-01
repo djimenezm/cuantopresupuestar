@@ -313,7 +313,7 @@ export default function CondicionesPagoPresupuestoFreelancePage() {
             <Link href="/ejemplo-presupuesto-freelance" className="primary-button">
               Ver ejemplo de presupuesto
             </Link>
-            <Link href="/plantilla-presupuesto-freelance" className="primary-button">
+            <Link href="/kit-presupuesto-freelance" className="primary-button">
               Ver plantilla
             </Link>
           </div>
