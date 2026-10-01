@@ -3,12 +3,17 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { assessClientPrice } from '@/lib/calculator';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import { projectExampleInput, projectExampleQuote } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/como-presupuestar-un-proyecto-freelance';
 const title = 'Cómo presupuestar un proyecto freelance sin quedarte corto';
 const description =
   'Guía práctica para saber cómo presupuestar un proyecto freelance con una referencia por hora, buffer de revisiones, costes directos, margen e IVA aparte.';
+const clientOffer = 1200;
+const offerAssessment = assessClientPrice(projectExampleQuote, clientOffer);
 
 const pageFaqItems = [
   {
@@ -83,7 +88,7 @@ export default function ComoPresupuestarProyectoFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-23',
-    dateModified: '2026-04-23',
+    dateModified: '2026-10-01',
   };
 
   const breadcrumbSchema = {
@@ -240,30 +245,32 @@ export default function ComoPresupuestarProyectoFreelancePage() {
       </section>
 
       <section className="section alt">
-        <div className="container feature-grid" aria-label="Cómo usar la calculadora">
-          <article className="feature-card">
-            <h2>Referencia base por hora</h2>
-            <p>
-              Te da una cifra para no partir de cero. Es la manera más rápida de saber si tu precio
-              por proyecto tiene sentido económico.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Precio mínimo defendible</h2>
-            <p>
-              Marca el suelo del proyecto antes de regalar margen. Si el cliente quiere bajar más,
-              probablemente haya que tocar alcance, fases o entregables.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Presupuesto recomendado</h2>
-            <p>
-              Es la zona donde puedes presentar una propuesta más sana, con espacio para negociar y
-              sin asumir tu el coste de cada pequeño imprevisto.
-            </p>
-          </article>
+        <div className="container text-block">
+          <h2>Qué hacer cuando el cliente ofrece menos que tu mínimo</h2>
+          <p>
+            En nuestro <Link href="/ejemplo-presupuesto-freelance">caso de web corporativa</Link>,
+            {' '}la base interna es {formatCurrency(projectExampleQuote.baseHourlyRate)} por hora.
+            Con {projectExampleInput.projectHours} horas estimadas, un{' '}
+            {projectExampleInput.revisionBufferPercent}% de reserva y{' '}
+            {formatCurrency(projectExampleInput.directProjectCosts)} de costes directos, el mínimo
+            sale en {formatCurrency(projectExampleQuote.projectFloorPrice)}. La propuesta con un
+            recargo del {projectExampleInput.profitMarginPercent}% sería de{' '}
+            {formatCurrency(projectExampleQuote.recommendedProjectBudget)}, sin IVA.
+          </p>
+          <p>
+            Si el cliente ofrece <strong>{formatCurrency(clientOffer)}</strong>, faltan{' '}
+            {formatCurrency(-offerAssessment.gapToFloor)} incluso para cubrir el mínimo de este
+            escenario. Manteniendo la misma base por hora y los costes directos, habría que
+            eliminar alrededor de {formatNumber(offerAssessment.hoursToTrim)} horas del alcance
+            previsto para no bajar de ese suelo. Eso podría significar menos páginas, una fase
+            posterior o menos trabajo de diseño, pero no prometer lo mismo por menos dinero.
+          </p>
+          <div className="disclaimer-box">
+            <strong>Decisión práctica:</strong> pide al cliente que priorice entregables y envía una
+            propuesta revisada. El cálculo de horas a recortar es orientativo: no todos los
+            entregables se pueden dividir en fracciones de hora, y puede haber costes fijos que
+            permanezcan aunque el proyecto se reduzca.
+          </div>
         </div>
       </section>
 

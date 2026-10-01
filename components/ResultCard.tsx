@@ -125,7 +125,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         <strong>{formatCurrency(result.recommendedProjectBudget)}</strong> sin IVA. Tu suelo para no
         quedarte corto con este alcance estaría alrededor de{' '}
         <strong>{formatCurrency(result.projectFloorPrice)}</strong>, así que la diferencia entre una
-        cifra y otra es el aire real que te das para negociar sin comerte todo el margen.
+        cifra y otra es el colchón que has previsto para negociar.
       </p>
 
       <div className="result-grid">
@@ -198,12 +198,12 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
             ) : priceAssessment.gapToRecommended < 0 ? (
               <>
                 Cubre tu mínimo, pero queda a{' '}
-                <strong>{formatCurrency(-priceAssessment.gapToRecommended)}</strong> del margen
+                <strong>{formatCurrency(-priceAssessment.gapToRecommended)}</strong> del recargo
                 que habías previsto.
               </>
             ) : (
               <>
-                Cubre tu mínimo y el margen previsto. Supera tu recomendación en{' '}
+                Cubre tu mínimo y el recargo previsto. Supera tu recomendación en{' '}
                 <strong>{formatCurrency(priceAssessment.gapToRecommended)}</strong>.
               </>
             )}
@@ -215,7 +215,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         <strong>Lectura rápida para defender el precio</strong>
         <p>
           Si el cliente te aprieta, toma <strong>{formatCurrency(result.projectFloorPrice)}</strong>{' '}
-          como referencia de suelo: por debajo de esa cifra empiezas a absorber tú el margen, los
+          como referencia de suelo: por debajo de esa cifra empiezas a absorber tú el tiempo, los
           imprevistos o parte del tiempo real del proyecto. La zona cómoda para presentar propuesta
           está más cerca de <strong>{formatCurrency(result.recommendedProjectBudget)}</strong>.
         </p>
@@ -265,7 +265,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
 
       <p className="result-summary">
         Además, has dejado una reserva fiscal orientativa del{' '}
-        <strong>{formatNumber(result.taxReservePercent, 2)}%</strong> y un margen extra del{' '}
+        <strong>{formatNumber(result.taxReservePercent, 2)}%</strong> y un recargo sobre el mínimo del{' '}
         <strong>{formatNumber(result.profitMarginPercent, 2)}%</strong>. Eso sitúa el proyecto en una referencia
         efectiva de <strong>{formatCurrency(result.effectiveHourlyRate)}/h</strong> sobre las horas
         ya amortiguadas por buffer, con un colchón adicional de{' '}

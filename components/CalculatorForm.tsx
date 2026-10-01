@@ -376,7 +376,7 @@ export default function CalculatorForm() {
         </label>
 
         <label>
-          <span>Margen extra sobre el proyecto (%)</span>
+          <span>Recargo sobre el precio mínimo (%)</span>
           <input
             type="number"
             min="0"

@@ -14,6 +14,13 @@ export const projectExampleInput = {
 
 export const projectExampleQuote = calculateProjectQuote(projectExampleInput);
 
+export const expandedProjectExampleInput = {
+  ...projectExampleInput,
+  projectHours: 48,
+} satisfies CalculatorInput;
+
+export const expandedProjectExampleQuote = calculateProjectQuote(expandedProjectExampleInput);
+
 const total = projectExampleQuote.recommendedProjectBudget;
 const definitionAmount = Math.round(total * 0.2 * 100) / 100;
 const productionAmount = Math.round(total * 0.6 * 100) / 100;

@@ -4,6 +4,13 @@ import CalculatorForm from '@/components/CalculatorForm';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import {
+  expandedProjectExampleInput,
+  expandedProjectExampleQuote,
+  projectExampleInput,
+  projectExampleQuote,
+} from '@/lib/projectExample';
 import { siteConfig } from '@/lib/site';
 
 const outcomeItems = [
@@ -98,6 +105,51 @@ export default function HomePage() {
 
       <AdSlot placement="primary" />
 
+      <section className="quote-example-band" id="ejemplo-calculado" aria-labelledby="quote-example-heading">
+        <div className="container quote-example-grid">
+          <div>
+            <span className="eyebrow">Caso calculado</span>
+            <h2 id="quote-example-heading">Una web de 32 horas no cuesta solo 32 horas.</h2>
+            <p>
+              Ejemplo hipotético de una web corporativa: objetivo neto de{' '}
+              {formatCurrency(projectExampleInput.targetMonthlyNet)} al mes,{' '}
+              {formatCurrency(projectExampleInput.monthlyFixedCosts)} de costes fijos y{' '}
+              {projectExampleInput.billableHoursPerMonth} horas facturables. No es una tarifa de
+              mercado: son las necesidades de este profesional ficticio.
+            </p>
+            <p>
+              Si el alcance crece hasta {expandedProjectExampleInput.projectHours} horas, el
+              presupuesto recomendado sube a{' '}
+              <strong>{formatCurrency(expandedProjectExampleQuote.recommendedProjectBudget)}</strong>.
+              La diferencia de{' '}
+              {formatCurrency(
+                expandedProjectExampleQuote.recommendedProjectBudget -
+                  projectExampleQuote.recommendedProjectBudget,
+              )}{' '}
+              explica por qué conviene cerrar entregables y revisiones antes de enviar la oferta.
+            </p>
+            <a href="/ejemplo-presupuesto-freelance">Ver el presupuesto completo</a>
+          </div>
+          <dl className="quote-example-steps">
+            <div>
+              <dt>Base interna</dt>
+              <dd>{formatCurrency(projectExampleQuote.baseHourlyRate)} / h</dd>
+              <small>Objetivo y costes repartidos entre horas facturables.</small>
+            </div>
+            <div>
+              <dt>Horas con revisiones</dt>
+              <dd>{formatNumber(projectExampleQuote.bufferedProjectHours)} h</dd>
+              <small>{projectExampleInput.projectHours} h estimadas + {projectExampleInput.revisionBufferPercent}% de reserva.</small>
+            </div>
+            <div>
+              <dt>Precio antes de IVA</dt>
+              <dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd>
+              <small>Incluye {formatCurrency(projectExampleInput.directProjectCosts)} de costes directos y un recargo del {projectExampleInput.profitMarginPercent}% sobre el mínimo.</small>
+            </div>
+          </dl>
+        </div>
+      </section>
+
       <section className="quote-method-band" aria-labelledby="quote-method-heading">
         <div className="container quote-method-grid">
           <div>
@@ -112,7 +164,9 @@ export default function HomePage() {
             </p>
             <p>
               El IVA se muestra aparte. El resultado es una referencia para decidir el precio,
-              no sustituye la definición del alcance ni una estimación realista de horas.
+              no sustituye la definición del alcance ni una estimación realista de horas. La
+              reserva fiscal es una hipótesis, no el IRPF real; el porcentaje de margen de la
+              herramienta es un recargo sobre el mínimo, no un margen contable sobre la venta.
             </p>
             <nav aria-label="Profundiza en el presupuesto freelance">
               <a href="/como-calcular-horas-proyecto-freelance">Cómo estimar las horas</a>

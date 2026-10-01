@@ -248,6 +248,76 @@
   font-weight: 800;
 }
 
+.quote-example-band {
+  scroll-margin-top: 6rem;
+  padding: 3.5rem 0;
+  background: #fff;
+  border-bottom: 1px solid #d2ddd7;
+}
+
+.quote-example-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.quote-example-grid h2 {
+  max-width: 18ch;
+  margin: 0.75rem 0 1.2rem;
+  color: var(--quote-dark);
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.quote-example-grid p {
+  max-width: 39rem;
+  color: #46564f;
+  line-height: 1.7;
+}
+
+.quote-example-grid a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #175a44;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.quote-example-steps {
+  margin: 0;
+  border-top: 2px solid #145a44;
+}
+
+.quote-example-steps div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 1rem;
+  border-bottom: 1px solid #d2ddd7;
+  padding: 1.1rem 0;
+}
+
+.quote-example-steps dt {
+  color: #46564f;
+  font-weight: 700;
+}
+
+.quote-example-steps dd {
+  margin: 0;
+  color: var(--quote-dark);
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.quote-example-steps small {
+  grid-column: 1 / -1;
+  color: #5f6c65;
+  line-height: 1.5;
+}
+
 .quote-method-band {
   padding: 3rem 0;
   background: #f7faf8;
@@ -535,6 +605,7 @@
   }
 
   .quote-calculator-shell,
+  .quote-example-grid,
   .quote-next-panel,
   .footer-main,
   .footer-bottom {

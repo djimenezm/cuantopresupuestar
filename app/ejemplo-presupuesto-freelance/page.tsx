@@ -5,7 +5,12 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { formatCurrency, formatNumber } from '@/lib/format';
-import { projectExampleInput, projectExampleQuote } from '@/lib/projectExample';
+import {
+  expandedProjectExampleInput,
+  expandedProjectExampleQuote,
+  projectExampleInput,
+  projectExampleQuote,
+} from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/ejemplo-presupuesto-freelance';
@@ -86,7 +91,7 @@ export default function EjemploPresupuestoFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-26',
-    dateModified: '2026-04-26',
+    dateModified: '2026-10-01',
   };
 
   const breadcrumbSchema = {
@@ -208,13 +213,16 @@ export default function EjemploPresupuestoFreelancePage() {
             <div><dt>Tarifa interna por hora</dt><dd>{formatCurrency(projectExampleQuote.baseHourlyRate)}</dd></div>
             <div><dt>Horas con reserva para revisiones</dt><dd>{formatNumber(projectExampleQuote.bufferedProjectHours)} h</dd></div>
             <div><dt>Coste mínimo del proyecto</dt><dd>{formatCurrency(projectExampleQuote.projectFloorPrice)}</dd></div>
-            <div><dt>Presupuesto con margen del {projectExampleInput.profitMarginPercent}%</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
+            <div><dt>Presupuesto con recargo del {projectExampleInput.profitMarginPercent}% sobre el mínimo</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
             <div><dt>IVA orientativo aparte</dt><dd>{formatCurrency(projectExampleQuote.vatAmount)}</dd></div>
           </dl>
           <p>
             La reserva fiscal del {projectExampleInput.taxReservePercent}% solo sirve aquí para
             estimar la tarifa interna; no sustituye un cálculo tributario personalizado. El precio
-            del presupuesto se presenta sin IVA y los importes están redondeados a céntimos.
+            del presupuesto se presenta sin IVA y los importes están redondeados a céntimos. El
+            recargo del {projectExampleInput.profitMarginPercent}% se aplica al precio mínimo: no
+            equivale a un margen del {projectExampleInput.profitMarginPercent}% sobre el precio de
+            venta.
           </p>
         </div>
       </section>
@@ -257,30 +265,50 @@ export default function EjemploPresupuestoFreelancePage() {
       </section>
 
       <section className="section">
-        <div className="container feature-grid" aria-label="Partes del ejemplo de presupuesto">
-          <article className="feature-card">
-            <h2>1. Alcance incluido</h2>
-            <p>
-              Define qué entregas exactamente: páginas, pantallas, piezas, sesiones, informes,
-              automatizaciones o cualquier resultado final que el cliente pueda validar.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>2. Precio y pagos</h2>
-            <p>
-              Presenta precio sin IVA, IVA si corresponde, total, forma de pago y calendario. Si
-              hay anticipo o hitos, indícalo antes de empezar.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>3. Límites y extras</h2>
-            <p>
-              Explica qué no entra y cómo se presupuestan cambios. Esta parte evita que una
-              propuesta clara se convierta en soporte o trabajo ilimitado.
-            </p>
-          </article>
+        <div className="container text-block">
+          <h2>Presupuesto de muestra: una web corporativa acotada</h2>
+          <p>
+            Este es un caso ficticio, no una oferta comercial ni un precio medio del sector. El
+            cliente aporta textos, imágenes y acceso al alojamiento. La propuesta cubre hasta
+            tres páginas construidas con una misma línea visual, diseño adaptable a móvil,
+            formulario de contacto, metadatos básicos y publicación.
+          </p>
+          <h3>De dónde salen las {projectExampleInput.projectHours} horas</h3>
+          <dl className="worked-example">
+            <div><dt>Reunión, objetivos y estructura</dt><dd>5 h</dd></div>
+            <div><dt>Diseño de la línea visual y plantillas</dt><dd>9 h</dd></div>
+            <div><dt>Desarrollo de las páginas y formulario</dt><dd>12 h</dd></div>
+            <div><dt>Pruebas, ajustes y publicación</dt><dd>6 h</dd></div>
+            <div><dt>Reserva adicional para revisiones</dt><dd>{formatNumber(projectExampleQuote.bufferedProjectHours - projectExampleInput.projectHours)} h</dd></div>
+          </dl>
+          <p>
+            Se incluyen dos rondas de ajustes sobre las páginas pactadas. Los{' '}
+            {formatCurrency(projectExampleInput.directProjectCosts)} de costes directos representan
+            una licencia o recurso específico necesario para este ejemplo. No se incluyen redacción,
+            fotografía, contenido legal, nuevas integraciones, alojamiento ni mantenimiento.
+          </p>
+          <h3>Precio y condiciones que recibiría el cliente</h3>
+          <p>
+            Precio cerrado de {formatCurrency(projectExampleQuote.recommendedProjectBudget)} sin
+            IVA para ese alcance, con un anticipo del 40%, un 40% al aprobar la versión de prueba y
+            el 20% restante antes de la publicación. El calendario de entrega se pactaría al
+            recibir todos los materiales; no empieza a contar mientras falten textos o accesos.
+          </p>
+          <dl className="worked-example">
+            <div><dt>Inicio (40%)</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget * 0.4)}</dd></div>
+            <div><dt>Versión de prueba (40%)</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget * 0.4)}</dd></div>
+            <div><dt>Antes de publicar (20%)</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget * 0.2)}</dd></div>
+            <div><dt>Total sin IVA</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
+          </dl>
+          <p>
+            Si el cliente pide dos páginas más y el trabajo pasa de {projectExampleInput.projectHours}
+            {' '}a {expandedProjectExampleInput.projectHours} horas, con el resto de hipótesis
+            intactas, la calculadora devuelve{' '}
+            <strong>{formatCurrency(expandedProjectExampleQuote.recommendedProjectBudget)}</strong>{' '}
+            sin IVA. La diferencia de{' '}
+            {formatCurrency(expandedProjectExampleQuote.recommendedProjectBudget - projectExampleQuote.recommendedProjectBudget)}
+            {' '}no se absorbe en las revisiones: requiere una ampliación aprobada antes de hacerla.
+          </p>
         </div>
       </section>
 

@@ -1,11 +1,30 @@
 import { describe, expect, it } from 'vitest';
-import { calculateProjectQuote } from '../lib/calculator';
-import { projectExampleInput, projectExamplePhases, projectExampleQuote } from '../lib/projectExample';
+import { assessClientPrice, calculateProjectQuote } from '../lib/calculator';
+import {
+  expandedProjectExampleInput,
+  expandedProjectExampleQuote,
+  projectExampleInput,
+  projectExamplePhases,
+  projectExampleQuote,
+} from '../lib/projectExample';
 
 describe('editorial project example', () => {
   it('uses the same calculation as the interactive form', () => {
     expect(projectExampleQuote).toEqual(calculateProjectQuote(projectExampleInput));
     expect(projectExampleQuote.recommendedProjectBudget).toBeGreaterThan(projectExampleQuote.projectFloorPrice);
+  });
+
+  it('shows the cost of a larger scope without changing the other assumptions', () => {
+    expect(expandedProjectExampleQuote).toEqual(calculateProjectQuote(expandedProjectExampleInput));
+    expect(expandedProjectExampleQuote.recommendedProjectBudget).toBeGreaterThan(
+      projectExampleQuote.recommendedProjectBudget,
+    );
+  });
+
+  it('identifies when a client offer is below the example floor', () => {
+    const assessment = assessClientPrice(projectExampleQuote, 1200);
+    expect(assessment.gapToFloor).toBeLessThan(0);
+    expect(assessment.hoursToTrim).toBeGreaterThan(0);
   });
 
   it('allocates the full price across the three phases without rounding drift', () => {

@@ -81,7 +81,7 @@ function getFieldError(field: FieldName, value: string) {
       case 'taxReservePercent':
         return 'Indica una reserva fiscal orientativa.';
       case 'profitMarginPercent':
-        return 'Indica el margen extra del proyecto.';
+        return 'Indica el recargo sobre el precio mínimo.';
     }
   }
 
@@ -142,7 +142,7 @@ function getFieldError(field: FieldName, value: string) {
       case 'taxReservePercent':
         return 'La reserva fiscal no puede ser negativa.';
       case 'profitMarginPercent':
-        return 'El margen no puede ser negativo.';
+        return 'El recargo no puede ser negativo.';
     }
   }
 
