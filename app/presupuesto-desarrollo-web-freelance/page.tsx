@@ -4,12 +4,19 @@ import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import {
+  expandedProjectExampleInput,
+  expandedProjectExampleQuote,
+  projectExampleInput,
+  webDevelopmentExamplePhases,
+} from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/presupuesto-desarrollo-web-freelance';
-const title = 'Presupuesto de desarrollo web freelance: cómo calcularlo con margen';
+const title = 'Presupuesto de desarrollo web freelance: fases y ejemplo';
 const description =
-  'Guía para preparar un presupuesto de desarrollo web freelance con alcance, horas reales, revisiones, costes directos, hitos, margen e IVA aparte.';
+  'Ejemplo de presupuesto de desarrollo web con 48 horas repartidas por fase, revisiones, costes directos, precio calculado y cambios de alcance.';
 
 const pageFaqItems = [
   {
@@ -84,7 +91,7 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-26',
-    dateModified: '2026-05-02',
+    dateModified: '2026-10-02',
   };
 
   const breadcrumbSchema = {
@@ -143,7 +150,7 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
         <div className="container article-layout">
           <div className="text-block">
             <span className="eyebrow">Guía práctica</span>
-            <h1>Presupuesto de desarrollo web freelance: cómo calcularlo sin perder margen</h1>
+            <h1>Presupuesto de desarrollo web freelance, fase por fase</h1>
             <p className="lead">
               Un proyecto de desarrollo web no se presupuesta igual que una tarea suelta. Hay
               discovery, arquitectura, reuniones, maquetación, desarrollo, pruebas, revisiones,
@@ -205,31 +212,44 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="section alt" aria-labelledby="desarrollo-fases-title">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Fórmula para construir el precio desde dentro</h2>
+            <h2 id="desarrollo-fases-title">Ejemplo: 48 horas de trabajo antes de revisiones</h2>
             <p>
-              Antes de enviar una propuesta, separa el proyecto en fases. No necesitas acertar cada
-              hora al minuto, pero si necesitas saber si el precio final cubre el suelo económico de
-              tu actividad.
+              Caso hipotético: una web de empresa con varias páginas, un CMS y un formulario.
+              El cliente aporta textos, imágenes y acceso al alojamiento. Repartimos las{' '}
+              {expandedProjectExampleInput.projectHours} horas estimadas según el trabajo que debe
+              quedar terminado en cada fase.
             </p>
-            <ol className="article-list article-list-ordered">
-              <li>Lista entregables y funcionalidades concretas.</li>
-              <li>Estima horas por fase: análisis, diseño, desarrollo, pruebas y entrega.</li>
-              <li>Suma reuniones, gestión, revisiones y tiempo no productivo.</li>
-              <li>Añade costes directos: licencias, plugins, colaboraciones o herramientas.</li>
-              <li>Aplica buffer, margen profesional e IVA aparte cuando corresponda.</li>
-            </ol>
-            <div className="disclaimer-box">
-              <strong>Regla sana:</strong> si el cliente pide precio cerrado, tu cálculo interno
-              debe ser todavía más claro. El precio puede ser cerrado, pero el alcance no puede ser
-              infinito.
-            </div>
+            <dl className="worked-example">
+              {webDevelopmentExamplePhases.map((phase) => (
+                <div key={phase.name}>
+                  <dt>{phase.name}</dt>
+                  <dd>{phase.hours} h</dd>
+                </div>
+              ))}
+            </dl>
+            <p>
+              Con el {projectExampleInput.revisionBufferPercent}% de reserva se presupuestan{' '}
+              {formatNumber(expandedProjectExampleQuote.bufferedProjectHours)} horas. Para el mismo
+              profesional ficticio del{' '}
+              <Link href="/ejemplo-presupuesto-freelance">ejemplo completo</Link>, la base es{' '}
+              {formatCurrency(expandedProjectExampleQuote.baseHourlyRate)}/h; al añadir{' '}
+              {formatCurrency(expandedProjectExampleInput.directProjectCosts)} de costes directos,
+              el mínimo es {formatCurrency(expandedProjectExampleQuote.projectFloorPrice)}. Con el
+              recargo del {expandedProjectExampleInput.profitMarginPercent}% la referencia queda en{' '}
+              <strong>{formatCurrency(expandedProjectExampleQuote.recommendedProjectBudget)} sin IVA</strong>.
+            </p>
+            <p>
+              Si el cliente añade un idioma, una integración o más páginas, vuelve a estimar la
+              fase afectada antes de aceptar el cambio. El presupuesto debe especificar qué
+              entregable y qué aprobación cierran cada fase.
+            </p>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Exclusiones qué conviene nombrar</h2>
+            <h2>Exclusiones que conviene nombrar</h2>
             <ul className="article-list">
               <li>Textos, imágenes o contenidos no entregados por el cliente.</li>
               <li>Nuevas funcionalidades no descritas en la propuesta.</li>

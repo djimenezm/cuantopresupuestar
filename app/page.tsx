@@ -129,6 +129,13 @@ export default function HomePage() {
               explica por qué conviene cerrar entregables y revisiones antes de enviar la oferta.
             </p>
             <a href="/ejemplo-presupuesto-freelance">Ver el presupuesto completo</a>
+            <p>
+              Para comparar una landing, una web corporativa y una tienda con la misma base de
+              cálculo, consulta{' '}
+              <a href="/cuanto-cobrar-por-una-pagina-web-freelance">
+                los tres ejemplos de precio web
+              </a>.
+            </p>
           </div>
           <dl className="quote-example-steps">
             <div>
@@ -171,6 +178,7 @@ export default function HomePage() {
             <nav aria-label="Profundiza en el presupuesto freelance">
               <a href="/como-calcular-horas-proyecto-freelance">Cómo estimar las horas</a>
               <a href="/margen-presupuesto-freelance">Cómo calcular el margen</a>
+              <a href="/precio-cerrado-o-por-horas-freelance">Precio cerrado o por horas</a>
             </nav>
           </div>
         </div>

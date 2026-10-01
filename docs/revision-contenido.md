@@ -21,6 +21,23 @@ aprobación: la revisión depende de Google y de señales de uso observables.
 La antigua URL `/plantilla-presupuesto-freelance` redirige al kit. No debe
 publicarse otra página que repita la misma lista con un título diferente.
 
+## Línea base de búsqueda orgánica
+
+Consulta del 1 de octubre de 2026, antes de revisar las guías de precios web:
+
+- Search Console, 1-28 de septiembre: 71 impresiones, 2 clics y CTR del 2,8 %.
+- Informe de indexación, actualizado el 21 de septiembre: 18 páginas indexadas
+  y una rastreada sin indexar (`/cuanto-cobrar-por-una-pagina-web-freelance`).
+  Su último rastreo registrado era del 25 de abril, por lo que ese estado no
+  describe necesariamente la versión publicada ahora.
+- Las consultas con impresiones incluían «precio cerrado» y «calculadora de
+  presupuestos freelance». Son muestras pequeñas: no justifican crear páginas
+  casi iguales para cada variación de palabras.
+
+Comparar periodos equivalentes en el
+[informe de rendimiento](https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fwww.cuantopresupuestar.es%2F&num_of_days=28)
+y en el [informe de indexación](https://search.google.com/search-console/index?resource_id=https%3A%2F%2Fwww.cuantopresupuestar.es%2F).
+
 ## Revisión editorial periódica
 
 Una vez al mes, el responsable del sitio debería:

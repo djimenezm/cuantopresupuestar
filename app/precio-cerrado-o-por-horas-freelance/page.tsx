@@ -4,12 +4,19 @@ import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import {
+  expandedProjectExampleInput,
+  expandedProjectExampleQuote,
+  projectExampleInput,
+  projectExampleQuote,
+} from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/precio-cerrado-o-por-horas-freelance';
 const title = 'Precio cerrado o por horas freelance: cuándo usar cada modelo';
 const description =
-  'Guía para decidir si cobrar un proyecto freelance a precio cerrado, por horas o por fases según alcance, riesgo, revisiones, urgencia y margen.';
+  'Decide entre precio cerrado, horas o fases con un ejemplo calculado. Compara alcance definido, ampliaciones y trabajo todavía incierto.';
 
 const pageFaqItems = [
   {
@@ -84,7 +91,7 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-26',
-    dateModified: '2026-04-26',
+    dateModified: '2026-10-02',
   };
 
   const breadcrumbSchema = {
@@ -214,7 +221,7 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
               <li>Evalúa si el alcance está escrito con suficiente detalle.</li>
               <li>Estima horas reales y añade buffer de revisiones e imprevistos.</li>
               <li>Define qué entregables entran y qué cambios quedan fuera.</li>
-              <li>Decide si hay partes del proyecto qué conviene separar por fases.</li>
+              <li>Decide si hay partes del proyecto que conviene separar por fases.</li>
               <li>Calcula tu precio mínimo antes de presentar una cifra cerrada.</li>
               <li>Incluye condiciones para extras, urgencias y ampliaciones.</li>
             </ol>
@@ -237,39 +244,51 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" aria-labelledby="modelo-ejemplo-title">
         <div className="container text-block">
-          <h2>Cómo llevar cada modelo a presupuesto</h2>
+          <h2 id="modelo-ejemplo-title">Una web de 32 horas: qué modelo elegir</h2>
           <p>
-            Para un precio cerrado, parte de tu tarifa interna, estima horas, añade buffer, costes,
-            margen y reserva fiscal. Para cobrar por horas, define tarifa, estimación orientativa,
-            mínimo de contratación, forma de seguimiento y cómo se aprueban horas adicionales.
+            Supongamos una web corporativa de tres páginas, textos entregados por el cliente y
+            dos rondas de revisión. Con la misma base ficticia de la{' '}
+            <Link href="/ejemplo-presupuesto-freelance">calculadora de ejemplo</Link>, las{' '}
+            {projectExampleInput.projectHours} horas estimadas y el{' '}
+            {projectExampleInput.revisionBufferPercent}% de reserva se convierten en{' '}
+            {formatNumber(projectExampleQuote.bufferedProjectHours)} horas presupuestables. El
+            precio recomendado es {formatCurrency(projectExampleQuote.recommendedProjectBudget)}
+            {' '}antes de IVA.
           </p>
-          <div className="feature-grid" aria-label="Modelos de propuesta">
-            <article className="feature-card">
-              <h3>Precio cerrado</h3>
-              <p>
-                Úsalo para vender un resultado concreto. El presupuesto debe incluir alcance,
-                revisiones, plazos, precio, IVA y exclusiones.
-              </p>
-            </article>
-
-            <article className="feature-card">
-              <h3>Por horas</h3>
-              <p>
-                Úsalo para trabajo incierto. El acuerdo debe incluir tarifa, seguimiento, límite
-                inicial y autorización antes de superar horas previstas.
-              </p>
-            </article>
-
-            <article className="feature-card">
-              <h3>Por fases</h3>
-              <p>
-                Úsalo cuando primero necesitas definir mejor. Discovery por horas o fase fija, y
-                ejecución posterior con precio cerrado.
-              </p>
-            </article>
-          </div>
+          <dl className="worked-example">
+            <div>
+              <dt>Alcance definido</dt>
+              <dd>Precio cerrado de {formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd>
+            </div>
+            <div>
+              <dt>Se añaden 16 horas</dt>
+              <dd>
+                {formatCurrency(expandedProjectExampleQuote.recommendedProjectBudget)} para{' '}
+                {expandedProjectExampleInput.projectHours} h estimadas
+              </dd>
+            </div>
+            <div>
+              <dt>Trabajo aún por descubrir</dt>
+              <dd>Primera fase acotada por horas; ejecución después</dd>
+            </div>
+          </dl>
+          <p>
+            La ampliación supone{' '}
+            {formatCurrency(
+              expandedProjectExampleQuote.recommendedProjectBudget -
+                projectExampleQuote.recommendedProjectBudget,
+            )}{' '}
+            adicionales si los demás supuestos se mantienen. No debe absorberse como una revisión
+            gratis. Si faltan requisitos para estimar, acuerda primero una fase de definición con
+            límite de horas, entregable y autorización antes de excederlo; fija el precio de
+            ejecución cuando conozcas el alcance.
+          </p>
+          <p>
+            Los importes son una simulación basada en los costes y el objetivo de un profesional
+            ficticio, no una tarifa recomendada para todos los freelance.
+          </p>
         </div>
       </section>
 

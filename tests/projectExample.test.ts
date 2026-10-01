@@ -6,6 +6,7 @@ import {
   projectExampleInput,
   projectExamplePhases,
   projectExampleQuote,
+  webDevelopmentExamplePhases,
 } from '../lib/projectExample';
 
 describe('editorial project example', () => {
@@ -31,5 +32,10 @@ describe('editorial project example', () => {
     expect(projectExamplePhases.reduce((sum, phase) => sum + phase.share, 0)).toBe(100);
     expect(Math.round(projectExamplePhases.reduce((sum, phase) => sum + phase.amount, 0) * 100) / 100)
       .toBe(projectExampleQuote.recommendedProjectBudget);
+  });
+
+  it('allocates every estimated web development hour to a named phase', () => {
+    expect(webDevelopmentExamplePhases.reduce((sum, phase) => sum + phase.hours, 0))
+      .toBe(expandedProjectExampleInput.projectHours);
   });
 });

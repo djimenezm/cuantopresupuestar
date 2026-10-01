@@ -21,6 +21,14 @@ export const expandedProjectExampleInput = {
 
 export const expandedProjectExampleQuote = calculateProjectQuote(expandedProjectExampleInput);
 
+export const webDevelopmentExamplePhases = [
+  { name: 'Definición: mapa y requisitos', hours: 6 },
+  { name: 'Arquitectura y diseño', hours: 8 },
+  { name: 'Desarrollo y carga inicial', hours: 22 },
+  { name: 'Pruebas y ajustes', hours: 8 },
+  { name: 'Publicación y entrega', hours: 4 },
+] as const;
+
 const total = projectExampleQuote.recommendedProjectBudget;
 const definitionAmount = Math.round(total * 0.2 * 100) / 100;
 const productionAmount = Math.round(total * 0.6 * 100) / 100;
