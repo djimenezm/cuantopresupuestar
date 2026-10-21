@@ -245,6 +245,11 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
               Si el cliente añade un idioma, una integración o más páginas, vuelve a estimar la
               fase afectada antes de aceptar el cambio. El presupuesto debe especificar qué
               entregable y qué aprobación cierran cada fase.
+              {' '}Puedes contrastar este caso con los{' '}
+              <Link href="/cuanto-cobrar-por-una-pagina-web-freelance">
+                presupuestos de una landing, una web corporativa y una tienda
+              </Link>{' '}
+              para distinguir qué cambia al ampliar el alcance.
             </p>
           </div>
 

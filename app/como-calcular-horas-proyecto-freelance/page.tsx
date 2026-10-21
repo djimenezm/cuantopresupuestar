@@ -294,6 +294,11 @@ export default function ComoCalcularHorasProyectoFreelancePage() {
             Cuando ya tienes el total de horas, el siguiente paso es convertirlo en una cifra
             rentable. No basta con multiplicar por una tarifa aleatoria: revisa tu objetivo mensual,
             horas facturables reales, costes, reserva fiscal, margen y si el IVA va aparte.
+            {' '}Para un encargo web, compara los{' '}
+            <Link href="/cuanto-cobrar-por-una-pagina-web-freelance">
+              tres ejemplos de precio por alcance
+            </Link>{' '}
+            antes de dar por válida tu estimación.
           </p>
           <p>
             Si el resultado queda lejos de lo que el cliente esperaba, puedes reducir alcance, partir
