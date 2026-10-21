@@ -31,5 +31,9 @@ describe('web pricing guide crawlability', () => {
 
     expect(links.length).toBeGreaterThan(0);
     expect(links[0].textContent?.trim().length).toBeGreaterThan(15);
+    const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')]
+      .map((script) => JSON.parse(script.textContent!));
+    expect(schemas.map((schema) => schema['@type'])).toEqual(['Article', 'BreadcrumbList', 'FAQPage']);
+    expect(schemas[0].mainEntityOfPage).not.toContain('/cuanto-cobrar-por-una-pagina-web-freelance');
   });
 });
