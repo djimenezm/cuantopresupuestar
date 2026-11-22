@@ -1,9 +1,9 @@
 # Guion para moderar la prueba de Cuánto Presupuestar
 
-Volver a la [preparación de la ronda](README.md).
+Volver a la [validación técnica](README.md).
 
-**Documento exclusivo del moderador.** No enseñar las observaciones ni las
-respuestas numéricas al participante. No se han realizado sesiones.
+**Guion archivado de una ronda descartada. No usar para convocar ni realizar
+sesiones.** No se han realizado sesiones.
 
 ## Preparación
 

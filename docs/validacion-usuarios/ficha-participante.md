@@ -1,5 +1,7 @@
 # Datos para preparar un presupuesto
 
+**Ficha archivada de la ronda descartada. Los datos son ficticios.**
+
 Imagina que trabajas por tu cuenta y preparas un presupuesto para un encargo.
 Todos los datos de esta ficha son ficticios. No necesitas utilizar información
 personal ni datos de clientes reales.

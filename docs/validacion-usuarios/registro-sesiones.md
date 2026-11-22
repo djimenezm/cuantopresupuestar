@@ -1,10 +1,9 @@
 # Registro de pruebas con personas
 
-Volver a la [preparación de la ronda](README.md).
+Volver a la [validación técnica](README.md).
 
-**Estado actual: ninguna sesión realizada.** Esta es una plantilla vacía, no
-un informe de resultados. No rellenar respuestas por deducción, simulación o
-pruebas automatizadas.
+**Plantilla archivada de una ronda descartada.** No se realizó ninguna sesión.
+Registrar las pruebas de software en la [validación técnica](README.md).
 
 ## Códigos de resultado
 
@@ -71,7 +70,7 @@ Completar únicamente después de las sesiones. Usar recuentos sobre personas
 realmente observadas, sin porcentajes de éxito generalizados ni resultados ficticios.
 
 - Sesiones realizadas: 0.
-- Sesiones previstas: de 3 a 5; participantes pendientes de confirmar.
+- Sesiones con participantes: descartadas.
 - Tareas no observadas: todas.
 - Confusiones críticas: no evaluadas.
 - Decisión sobre ajustes y repetición: pendiente.

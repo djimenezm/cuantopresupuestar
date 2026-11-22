@@ -83,6 +83,15 @@ export default function CalculatorForm() {
   const resultRegionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    function clearComparisonWhenRestored(event: PageTransitionEvent) {
+      if (event.persisted) setSituationA(null);
+    }
+
+    window.addEventListener('pageshow', clearComparisonWhenRestored);
+    return () => window.removeEventListener('pageshow', clearComparisonWhenRestored);
+  }, []);
+
+  useEffect(() => {
     if (invalidSubmissionCount > 0) {
       formRef.current?.querySelector<HTMLInputElement>('[aria-invalid="true"]')?.focus();
     }

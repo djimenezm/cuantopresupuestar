@@ -6,7 +6,7 @@ Para el mantenimiento editorial y la evaluación de uso, consulta
 [Revisión del contenido y uso real](revision-contenido.md).
 
 El [piloto de comparación de situaciones](piloto-comparacion.md) documenta
-la integración local, la comprobación aritmética y el guion de prueba con personas.
+la integración, la comprobación aritmética y la validación técnica local.
 
 ## Mapa del código
 

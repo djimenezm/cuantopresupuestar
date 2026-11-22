@@ -1,13 +1,13 @@
-# Piloto local: comparación de situaciones
+# Piloto de comparación de situaciones
 
 Volver a [Desarrollo](desarrollo.md).
 
 ## Alcance
 
-Solo Cuánto Presupuestar, en local. Se mantienen las fórmulas de estimación,
-el tipo de IVA y la reserva fiscal. `lib/calculator.ts` cambia únicamente el
-cierre monetario y la comparación de importes finales, según la política
-acordada tras la revisión. No se publica ni extiende este piloto todavía.
+Las comprobaciones del piloto de Cuánto Presupuestar se ejecutan en local con
+datos ficticios. Se mantienen las fórmulas de estimación, el tipo de IVA y la
+reserva fiscal. `lib/calculator.ts` cambia únicamente el cierre monetario y la
+comparación de importes finales, según la política acordada tras la revisión.
 
 La comparación de situaciones responde a cómo cambia el presupuesto al
 modificar los datos del trabajo. La comparación con la oferta del cliente
@@ -30,7 +30,7 @@ sigue respondiendo a si esa oferta cubre el mínimo y el recargo previsto.
 | `tests/ScenarioComparison.test.tsx` | Pruebas del flujo de interacción y conservación de estado. |
 | `tests/calculatorForm.test.ts` y `tests/CalculatorForm.test.tsx` | Regresiones de decimales, pegado, mínimo de horas y etiqueta y copia del IVA. |
 | `tests/money.test.ts` y `tests/calculator.test.ts` | Empates de medio céntimo, límites, precisión y suma exacta del presupuesto. |
-| `docs/desarrollo.md` y `docs/piloto-comparacion.md` | Mapa del código, alcance, comprobaciones y prueba pendiente con personas. |
+| `docs/desarrollo.md` y `docs/piloto-comparacion.md` | Mapa del código, alcance y comprobaciones técnicas. |
 
 A contiene todos los datos de entrada, no una cifra ajustada ni una referencia
 mutable al formulario. A y B se vuelven a calcular con la misma función importada
@@ -46,9 +46,11 @@ Si B es inválida o el cálculo desborda el rango numérico, se ocultan sus resu
 y la tabla. A permanece guardada y puede eliminarse; no puede sustituirse por B
 hasta corregirla. La oferta del cliente se conserva durante la corrección.
 
-A desaparece al recargar, salir de la página o desmontar la calculadora. No se
-guarda en URL, almacenamiento local, cuentas ni servicios externos. Este piloto
-no añade eventos analíticos ni transmite entradas, importes o diferencias.
+A se descarta al volver a la calculadora, también si Atrás restaura la página
+desde la caché de navegación. En esa restauración se conservan los datos del
+formulario y la oferta. A no se guarda en URL, almacenamiento local, cuentas ni
+servicios externos. Este piloto no añade eventos analíticos ni transmite
+entradas, importes o diferencias.
 
 ## Supuestos y límites existentes
 
@@ -174,7 +176,7 @@ Cambios de referencia contrastados, no expectativas regeneradas automáticamente
 
 El cambio de cierre puede modificar algún IVA, total o empate monetario respecto
 al motor anterior. Se documenta como decisión de coherencia, no revisión fiscal.
-Las regresiones anteriores se conservan. Queda pendiente la prueba con personas.
+Las regresiones anteriores se conservan.
 
 ### Revisión fiscal profesional
 
@@ -184,7 +186,8 @@ su asesoría. No presentar el piloto como una auditoría fiscal.
 
 ## Comprobación local
 
-1. `npm run dev` (puerto habitual 3002; usar otro si está ocupado).
+1. [Arrancar la aplicación en local](validacion-usuarios/README.md#preparar-el-equipo-de-prueba)
+   con los anuncios desactivados.
 2. Calcular con valores iniciales: recomendado **811,18 EUR sin IVA**.
 3. Guardar como situación A. Introducir una oferta del cliente de **900 EUR**.
 4. Cambiar las horas estimadas de 18 a 36. B debe pasar a **1.622,36 EUR sin IVA**,
@@ -195,10 +198,19 @@ su asesoría. No presentar el piloto como una auditoría fiscal.
    atribuye el efecto conjunto a una sola causa.
 7. Sustituir A, volver a editar, eliminar la comparación y recargar.
 8. Repetir con teclado y pantallas de 320, 390, 768 y 1440 px, sin desbordamiento.
+9. Volver a los valores iniciales, calcular e introducir una oferta de
+   811,18 EUR. El mensaje debe indicar que coincide con el recomendado.
+10. Guardar A e introducir `100000000000000` en los costes directos de B para
+    dejarla fuera de rango. Al eliminar A con Enter, el formulario debe recibir
+    el foco y Tab debe llevar al primer campo.
+11. Calcular con datos válidos, guardar A, abrir «Ejemplo» y volver con Atrás.
+    Si el navegador restaura la página desde su caché de navegación, deben
+    conservarse los datos actuales y la oferta. La tabla anterior se oculta y
+    se puede guardar una nueva A.
 
 Ejecutar `npm test`, `npm run lint` y `npm run build` antes de plantear publicación.
 
-## Validación realizada en local
+## Historial de validación local
 
 - `npm test`: **171 pruebas correctas en 32 archivos**, incluidas las del motor
   original y 77 nuevas de comparación, entradas, redondeo e interacción.
@@ -219,25 +231,14 @@ Ejecutar `npm test`, `npm run lint` y `npm run build` antes de plantear publicac
   registrado como aviso del entorno, no como un resultado limpio de consola.
 - `lib/calculator.ts` cambia el cierre monetario; `lib/calculatorForm.ts`
   corrige las entradas y el mínimo de horas. Dependencias y sitemap no modificados.
-  Validado con Next.js 16.3.5 y React 19.2.4 del proyecto, no con un
-  montaje aislado en otra versión. No se ha desplegado ni extendido el piloto.
+  Validado con Next.js 16.3.5 y React 19.2.4 del proyecto en esa revisión.
 
 Vitest también informa de una advertencia existente sobre una futura carga
-nativa de su configuración; no es un fallo de prueba. Ninguna de estas
-comprobaciones equivale a una prueba con usuarios ajenos al desarrollo.
+nativa de su configuración; no es un fallo de prueba.
 
-## Guion para personas reales (pendiente de realizar)
+## Validación técnica vigente
 
-La ronda técnica está cerrada; no añadir funciones antes de observar su uso.
-La [preparación de la prueba](validacion-usuarios/README.md) separa la ficha del
-participante, el guion privado del moderador y el registro anónimo de sesiones.
-
-Primera ronda propuesta: 3 a 5 personas ajenas al desarrollo. El escenario de
-investigación mantiene 150 EUR de costes directos, amplía el trabajo de 18 a
-36 horas y conserva una oferta de 1.200 EUR sin IVA. Es distinto del caso técnico
-de 900 EUR descrito en la comprobación local; no sustituye esas pruebas.
-
-No se han realizado sesiones ni confirmado participantes. No inventar resultados
-ni confundir recorridos automatizados con investigación de usuarios. Mantener el
-piloto local y no extenderlo mientras queden confusiones que puedan cambiar el
-importe enviado. Una decisión comercial distinta no es por sí misma un error.
+La [validación técnica](validacion-usuarios/README.md) se limita a pruebas
+automatizadas y ensayos internos con datos ficticios. Queda prohibido reclutar
+o contactar con personas ajenas al desarrollo para este piloto. El material de
+la ronda descartada se conserva como archivo histórico.

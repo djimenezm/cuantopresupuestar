@@ -136,6 +136,30 @@ describe('scenario comparison flow', () => {
     fetchSpy.mockRestore();
   });
 
+  it('drops only A when the browser restores the page from its history cache', async () => {
+    const user = userEvent.setup();
+    render(<CalculatorForm />);
+    await startComparison(user);
+
+    const hours = screen.getByRole('spinbutton', { name: 'Horas estimadas del proyecto' });
+    fireEvent.change(hours, { target: { value: '36' } });
+    await user.type(screen.getByRole('textbox', { name: /qué precio propone el cliente/i }), '900');
+
+    fireEvent(window, new PageTransitionEvent('pageshow', { persisted: false }));
+    const cells = within(budgetRow()).getAllByRole('cell');
+    expect(cells[0].textContent).toContain(formatCurrency(811.18));
+    expect(cells[1].textContent).toContain(formatCurrency(1622.36));
+
+    fireEvent(window, new PageTransitionEvent('pageshow', { persisted: true }));
+
+    expect(screen.queryByRole('table')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Guardar como situación A' })).toBeEnabled();
+    expect(hours).toHaveValue(36);
+    expect(screen.getByRole('textbox', { name: /qué precio propone el cliente/i })).toHaveValue('900');
+    expect(document.querySelector('.result-copy-preview')!.textContent)
+      .toContain(`Presupuesto recomendado: ${formatCurrency(1622.36)} sin IVA`);
+  });
+
   it('returns keyboard focus to saving A when the comparison is removed', async () => {
     const user = userEvent.setup();
     render(<CalculatorForm />);
