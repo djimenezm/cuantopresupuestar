@@ -100,6 +100,35 @@ describe('scenario comparison flow', () => {
     expect(within(vatRow).getAllByRole('cell')[1].textContent).toContain(formatCurrency(0));
   });
 
+  it('recovers the same comparison and offer when IVA is turned off after a range error', async () => {
+    const user = userEvent.setup();
+    render(<CalculatorForm />);
+    await startComparison(user);
+
+    const withoutIVA = screen.getByRole('radio', { name: 'No' });
+    await user.click(withoutIVA);
+    const costs = screen.getByRole('spinbutton', { name: /costes directos del proyecto/i });
+    fireEvent.change(costs, { target: { value: '60000000000000' } });
+    const offerLabel = /qué precio propone el cliente/i;
+    await user.type(screen.getByRole('textbox', { name: offerLabel }), '900');
+
+    const amountsBeforeIVA = within(budgetRow()).getAllByRole('cell').map((cell) => cell.textContent);
+    expect(amountsBeforeIVA[0]).toContain(formatCurrency(811.18));
+    expect(screen.getByText('Total final sin IVA')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('radio', { name: 'Sí' }));
+    expect(screen.getByRole('alert')).toHaveTextContent(/superan el rango seguro/);
+    expect(within(comparison()).getByRole('status')).toHaveTextContent('B no es válida.');
+    expect(screen.queryByRole('table')).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Tu presupuesto recomendado para este proyecto' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Sustituir A por la situación actual' })).toBeDisabled();
+
+    await user.click(withoutIVA);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(within(budgetRow()).getAllByRole('cell').map((cell) => cell.textContent)).toEqual(amountsBeforeIVA);
+    expect(screen.getByRole('textbox', { name: offerLabel })).toHaveValue('900');
+  });
+
   it('replaces A independently and can remove it while B is invalid', async () => {
     const user = userEvent.setup();
     render(<CalculatorForm />);
