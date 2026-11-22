@@ -1,3 +1,12 @@
+import {
+  addCents,
+  fromCents,
+  percentageOfCents,
+  roundMoney,
+  subtractMoney,
+  toCents,
+} from '@/lib/money';
+
 export type CalculatorInput = {
   targetMonthlyNet: number;
   monthlyFixedCosts: number;
@@ -50,17 +59,18 @@ export function assessClientPrice(
   result: CalculationResult,
   offeredPrice: number,
 ): ClientPriceAssessment {
-  const price = Math.max(0, safeNumber(offeredPrice));
+  const price = roundMoney(Math.max(0, safeNumber(offeredPrice)));
+  const gapToDirectCosts = subtractMoney(price, result.directProjectCosts);
   const affordableHours = result.baseHourlyRate > 0
-    ? Math.max(0, (price - result.directProjectCosts) / result.baseHourlyRate)
+    ? Math.max(0, gapToDirectCosts / result.baseHourlyRate)
     : result.bufferedProjectHours;
 
   return {
-    offeredPrice: roundToTwo(price),
-    gapToFloor: roundToTwo(price - result.projectFloorPrice),
-    gapToRecommended: roundToTwo(price - result.recommendedProjectBudget),
+    offeredPrice: price,
+    gapToFloor: subtractMoney(price, result.projectFloorPrice),
+    gapToRecommended: subtractMoney(price, result.recommendedProjectBudget),
     hoursToTrim: roundToTwo(Math.max(0, result.bufferedProjectHours - affordableHours)),
-    directCostsUncovered: price < result.directProjectCosts,
+    directCostsUncovered: gapToDirectCosts < 0,
   };
 }
 
@@ -93,27 +103,28 @@ export function calculateProjectQuote({
   const bufferedProjectHours = safeProjectHours * (1 + safeRevisionBufferPercent / 100);
   const projectFloorPrice = bufferedProjectHours * baseHourlyRate + safeDirectProjectCosts;
   const recommendedProjectBudget = projectFloorPrice * (1 + marginRate);
-  const vatAmount = hasIVA ? recommendedProjectBudget * 0.21 : 0;
-  const totalWithVAT = recommendedProjectBudget + vatAmount;
   const effectiveHourlyRate = recommendedProjectBudget / bufferedProjectHours;
+  const budgetCents = toCents(recommendedProjectBudget);
+  const vatCents = hasIVA ? percentageOfCents(budgetCents, 21) : 0;
+  const totalCents = addCents(budgetCents, vatCents);
 
   return {
-    targetMonthlyNet: roundToTwo(safeTargetMonthlyNet),
-    monthlyFixedCosts: roundToTwo(safeMonthlyFixedCosts),
+    targetMonthlyNet: roundMoney(safeTargetMonthlyNet),
+    monthlyFixedCosts: roundMoney(safeMonthlyFixedCosts),
     billableHoursPerMonth: safeBillableHoursPerMonth,
     projectHours: roundToTwo(safeProjectHours),
     bufferedProjectHours: roundToTwo(bufferedProjectHours),
     revisionBufferPercent: roundToTwo(safeRevisionBufferPercent),
-    directProjectCosts: roundToTwo(safeDirectProjectCosts),
+    directProjectCosts: roundMoney(safeDirectProjectCosts),
     taxReservePercent: roundToTwo(safeTaxReservePercent),
     profitMarginPercent: roundToTwo(safeProfitMarginPercent),
-    preTaxIncomeTarget: roundToTwo(preTaxIncomeTarget),
-    monthlyRevenueTarget: roundToTwo(monthlyRevenueTarget),
-    baseHourlyRate: roundToTwo(baseHourlyRate),
-    projectFloorPrice: roundToTwo(projectFloorPrice),
-    recommendedProjectBudget: roundToTwo(recommendedProjectBudget),
-    vatAmount: roundToTwo(vatAmount),
-    totalWithVAT: roundToTwo(totalWithVAT),
-    effectiveHourlyRate: roundToTwo(effectiveHourlyRate),
+    preTaxIncomeTarget: roundMoney(preTaxIncomeTarget),
+    monthlyRevenueTarget: roundMoney(monthlyRevenueTarget),
+    baseHourlyRate: roundMoney(baseHourlyRate),
+    projectFloorPrice: roundMoney(projectFloorPrice),
+    recommendedProjectBudget: fromCents(budgetCents),
+    vatAmount: fromCents(vatCents),
+    totalWithVAT: fromCents(totalCents),
+    effectiveHourlyRate: roundMoney(effectiveHourlyRate),
   };
 }

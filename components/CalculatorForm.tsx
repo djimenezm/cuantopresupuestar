@@ -9,15 +9,17 @@ import {
   useState,
 } from 'react';
 import ResultCard from '@/components/ResultCard';
+import ScenarioComparison from '@/components/ScenarioComparison';
 import { calculateProjectQuote } from '@/lib/calculator';
+import { createQuoteSituation, type QuoteSituation } from '@/lib/quoteComparison';
 import {
   DEFAULT_FORM_VALUES,
   type FieldName,
   getNormalizedPastedValue,
   normalizeFieldValue,
+  parseInputNumber,
   validateForm,
 } from '@/lib/calculatorForm';
-import { parseSpanishNumber } from '@/lib/spanishNumber';
 
 declare global {
   interface Window {
@@ -73,6 +75,7 @@ export default function CalculatorForm() {
   );
   const [hasIVA, setHasIVA] = useState(DEFAULT_FORM_VALUES.hasIVA);
   const [submitted, setSubmitted] = useState(false);
+  const [situationA, setSituationA] = useState<QuoteSituation | null>(null);
   const [invalidSubmissionCount, setInvalidSubmissionCount] = useState(0);
   const formRef = useRef<HTMLFormElement | null>(null);
   const [hasTrackedConversion, setHasTrackedConversion] = useState(false);
@@ -109,7 +112,7 @@ export default function CalculatorForm() {
     ],
   );
 
-  const parsedBillableHours = parseSpanishNumber(billableHoursPerMonth);
+  const parsedBillableHours = parseInputNumber(billableHoursPerMonth);
   const hasValidationErrors = Object.keys(validationErrors).length > 0;
   const showBillableHoursError =
     Boolean(validationErrors.billableHoursPerMonth) &&
@@ -118,16 +121,16 @@ export default function CalculatorForm() {
         Number.isFinite(parsedBillableHours) &&
         parsedBillableHours <= 0));
 
-  const result = useMemo(() => {
-    return calculateProjectQuote({
-      targetMonthlyNet: parseSpanishNumber(targetMonthlyNet),
-      monthlyFixedCosts: parseSpanishNumber(monthlyFixedCosts),
-      billableHoursPerMonth: parseSpanishNumber(billableHoursPerMonth),
-      projectHours: parseSpanishNumber(projectHours),
-      revisionBufferPercent: parseSpanishNumber(revisionBufferPercent),
-      directProjectCosts: parseSpanishNumber(directProjectCosts),
-      taxReservePercent: parseSpanishNumber(taxReservePercent),
-      profitMarginPercent: parseSpanishNumber(profitMarginPercent),
+  const situationB = useMemo(() => {
+    return createQuoteSituation({
+      targetMonthlyNet,
+      monthlyFixedCosts,
+      billableHoursPerMonth,
+      projectHours,
+      revisionBufferPercent,
+      directProjectCosts,
+      taxReservePercent,
+      profitMarginPercent,
       hasIVA,
     });
   }, [
@@ -141,27 +144,29 @@ export default function CalculatorForm() {
     profitMarginPercent,
     hasIVA,
   ]);
+  const result = useMemo(() => situationB ? calculateProjectQuote(situationB) : null, [situationB]);
+  const hasInvalidResult = !hasValidationErrors && !result;
+  const showRangeError = submitted && hasInvalidResult;
 
   useEffect(() => {
     if (validSubmissionCount > 0) {
-      resultRegionRef.current?.focus({ preventScroll: false });
+      const frame = window.requestAnimationFrame(() => {
+        resultRegionRef.current?.focus({ preventScroll: false });
+      });
+      return () => window.cancelAnimationFrame(frame);
     }
   }, [validSubmissionCount]);
 
   const setResultRegionRef = useCallback(
     (node: HTMLElement | null) => {
       resultRegionRef.current = node;
-
-      if (node && validSubmissionCount > 0) {
-        window.requestAnimationFrame(() => node.focus({ preventScroll: false }));
-      }
     },
-    [validSubmissionCount],
+    [],
   );
 
   return (
     <div className="calculator-card" id="calculadora">
-      <h2>Calculadora</h2>
+      <h2 id="calculator-title">Calculadora</h2>
       <p className="card-intro" id="calculator-intro">
         Define tus números y el proyecto. El resultado aparece al calcular, sin registro.
       </p>
@@ -169,23 +174,25 @@ export default function CalculatorForm() {
       <form
         ref={formRef}
         noValidate
-        aria-describedby="calculator-intro"
+        tabIndex={-1}
+        aria-labelledby="calculator-title"
+        aria-describedby={showRangeError ? 'calculator-intro calculator-range-error' : 'calculator-intro'}
         onSubmit={(event) => {
           event.preventDefault();
           setSubmitted(true);
 
-          if (hasValidationErrors) {
+          if (hasValidationErrors || hasInvalidResult) {
             setInvalidSubmissionCount((count) => count + 1);
           }
 
-          if (!hasValidationErrors) {
+          if (result) {
             setValidSubmissionCount((currentCount) => currentCount + 1);
           }
 
-          if (!hasValidationErrors && !hasTrackedConversion) {
+          if (result && !hasTrackedConversion) {
             trackProjectQuoteCalculated({
               hasIVA: hasIVA ? 'yes' : 'no',
-              hasMargin: parseSpanishNumber(profitMarginPercent) > 0 ? 'yes' : 'no',
+              hasMargin: parseInputNumber(profitMarginPercent) > 0 ? 'yes' : 'no',
             });
             setHasTrackedConversion(true);
           }
@@ -433,6 +440,12 @@ export default function CalculatorForm() {
             Revisa los campos marcados antes de calcular.
           </p>
         )}
+        {showRangeError && (
+          <p className="form-message" id="calculator-range-error" role="alert">
+            Estas cifras superan el rango seguro del cálculo.
+            Reduce los importes o las horas.
+          </p>
+        )}
 
         <p className="form-note">
           La herramienta es orientativa: sirve para convertir una intuición difusa en un presupuesto
@@ -440,8 +453,29 @@ export default function CalculatorForm() {
         </p>
       </form>
 
-      {submitted && !hasValidationErrors && (
-        <ResultCard ref={setResultRegionRef} result={result} hasIVA={hasIVA} />
+      {submitted && (
+        <ResultCard
+          ref={setResultRegionRef}
+          result={result}
+          hasIVA={hasIVA}
+          comparison={(result || situationA) ? (
+            <ScenarioComparison
+              situationA={situationA}
+              situationB={situationB}
+              onSave={() => {
+                if (situationB) setSituationA(Object.freeze({ ...situationB }));
+              }}
+              onClear={() => {
+                setSituationA(null);
+                if (!result) {
+                  const form = formRef.current;
+                  const invalidField = form?.querySelector<HTMLInputElement>('[aria-invalid="true"]');
+                  (invalidField ?? form)?.focus();
+                }
+              }}
+            />
+          ) : null}
+        />
       )}
     </div>
   );

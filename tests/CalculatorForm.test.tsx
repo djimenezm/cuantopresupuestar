@@ -1,7 +1,8 @@
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CalculatorForm from '@/components/CalculatorForm';
+import { formatCurrency } from '@/lib/format';
 
 describe('CalculatorForm', () => {
   beforeEach(() => {
@@ -169,6 +170,22 @@ describe('CalculatorForm', () => {
     }), { timeout: 2000 });
   });
 
+  it('identifies a client offer matching the recommended budget', async () => {
+    const user = userEvent.setup();
+    render(<CalculatorForm />);
+    await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
+
+    const offer = await screen.findByRole('textbox', { name: /qué precio propone el cliente/i });
+    await user.type(offer, '811,18');
+
+    expect(screen.getByRole('status')).toHaveTextContent(/coincide con tu presupuesto recomendado/i);
+    await user.tab();
+    expect(window.va).toHaveBeenCalledWith('event', {
+      name: 'client_offer_compared',
+      data: { outcome: 'meets_recommended' },
+    });
+  });
+
   it('keeps fractional billable hours visible for correction', async () => {
     const user = userEvent.setup();
 
@@ -215,6 +232,59 @@ describe('CalculatorForm', () => {
     expect(targetInput).toHaveValue(2500.5);
   });
 
+  it.each([
+    ['0,125', 0.13, 811.32],
+    ['1,005', 1.01, 812.29],
+    ['12,345', 12.35, 824.77],
+  ])('uses pasted costs %s without turning decimals into thousands', async (pasted, costs, budget) => {
+    const user = userEvent.setup();
+    render(<CalculatorForm />);
+    const costsInput = screen.getByRole('spinbutton', { name: /costes directos del proyecto/i });
+    await user.click(costsInput);
+    await user.paste(pasted);
+    await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
+
+    expect(costsInput).toHaveValue(costs);
+    const summary = document.querySelector('.result-copy-preview')!;
+    expect(summary.textContent).toContain(`Presupuesto recomendado: ${formatCurrency(budget)} sin IVA`);
+  });
+
+  it('reads canonical decimal costs live and rounds them only on blur', async () => {
+    const user = userEvent.setup();
+    render(<CalculatorForm />);
+    await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
+    const costsInput = screen.getByRole('spinbutton', { name: /costes directos del proyecto/i });
+    fireEvent.change(costsInput, { target: { value: '1.234' } });
+
+    expect(costsInput).toHaveValue(1.234);
+    expect(document.querySelector('.result-copy-preview')!.textContent)
+      .toContain(`Presupuesto recomendado: ${formatCurrency(812.54)} sin IVA`);
+    fireEvent.blur(costsInput);
+    expect(costsInput).toHaveValue(1.23);
+    expect(document.querySelector('.result-copy-preview')!.textContent)
+      .toContain(`Presupuesto recomendado: ${formatCurrency(812.53)} sin IVA`);
+    fireEvent.blur(costsInput);
+    expect(costsInput).toHaveValue(1.23);
+  });
+
+  it('keeps the no-IVA total label and copied summary consistent', async () => {
+    const user = userEvent.setup();
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText },
+    });
+    render(<CalculatorForm />);
+    await user.click(screen.getByRole('radio', { name: 'No' }));
+    await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
+
+    expect(screen.getByText('Total final sin IVA')).toBeInTheDocument();
+    expect(screen.queryByText('Total final con IVA')).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /copiar resumen/i }));
+    expect(writeText).toHaveBeenCalledWith(expect.stringContaining('IVA: no añadido en esta simulación'));
+    expect(writeText.mock.calls[0][0]).not.toContain('Total final con IVA');
+  });
+
   it('tracks the conversion only once per visit even if the user recalculates', async () => {
     const user = userEvent.setup();
 
@@ -226,5 +296,16 @@ describe('CalculatorForm', () => {
     await user.click(submitButton);
 
     expect(window.va).toHaveBeenCalledTimes(1);
+  });
+
+  it('rejects a finite client offer that cannot be represented safely in cents', async () => {
+    const user = userEvent.setup();
+    render(<CalculatorForm />);
+    await user.click(screen.getByRole('button', { name: /calcular presupuesto/i }));
+    const offer = screen.getByRole('textbox', { name: /qué precio propone el cliente/i });
+    await user.type(offer, '100000000000000');
+    expect(offer).toHaveAttribute('aria-invalid', 'true');
+    expect(document.querySelector('.result-copy-preview')!.textContent).not.toMatch(/NaN|Infinity/);
+    expect(document.querySelector('.price-check-result')).toBeNull();
   });
 });

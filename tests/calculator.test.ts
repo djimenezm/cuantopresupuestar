@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { assessClientPrice, calculateProjectQuote } from '@/lib/calculator';
 
+const initialInput = {
+  targetMonthlyNet: 2000, monthlyFixedCosts: 350, billableHoursPerMonth: 80,
+  projectHours: 18, revisionBufferPercent: 15, directProjectCosts: 0,
+  taxReservePercent: 20, profitMarginPercent: 10, hasIVA: true,
+};
+
 describe('calculateProjectQuote', () => {
   it('calculates a project budget from the monthly target and project inputs', () => {
     const result = calculateProjectQuote({
@@ -77,6 +83,51 @@ describe('calculateProjectQuote', () => {
         effectiveHourlyRate: 0,
       }),
     );
+  });
+
+  it('closes the 1.5-hour budget using the visible base and IVA without rounding the hourly rate first', () => {
+    const result = calculateProjectQuote({ ...initialInput, projectHours: 1.5 });
+    expect(result.recommendedProjectBudget).toBe(67.60);
+    expect(result.vatAmount).toBe(14.20);
+    expect(result.totalWithVAT).toBe(81.80);
+  });
+
+  it('keeps the closed base and total equal when IVA is disabled', () => {
+    const result = calculateProjectQuote({ ...initialInput, projectHours: 1.5, hasIVA: false });
+    expect(result.recommendedProjectBudget).toBe(67.60);
+    expect(result.vatAmount).toBe(0);
+    expect(result.totalWithVAT).toBe(67.60);
+  });
+
+  it.each([
+    [0.5, 0.5, 0.11, 0.61],
+    [1.005, 1.01, 0.21, 1.22],
+    [10.075, 10.08, 2.12, 12.20],
+  ])('closes a raw budget of %s with decimal half-up rounding', (costs, base, vat, total) => {
+    const result = calculateProjectQuote({
+      ...initialInput, targetMonthlyNet: 0, monthlyFixedCosts: 0,
+      directProjectCosts: costs, revisionBufferPercent: 0,
+      profitMarginPercent: 0, taxReservePercent: 0,
+    });
+    expect(result.projectFloorPrice).toBe(base);
+    expect(result.recommendedProjectBudget).toBe(base);
+    expect(result.vatAmount).toBe(vat);
+    expect(result.totalWithVAT).toBe(total);
+  });
+
+  it('always makes the total equal the displayed base plus IVA in integer cents', () => {
+    for (const hasIVA of [true, false]) {
+      for (let i = 1; i <= 200; i++) {
+        const result = calculateProjectQuote({
+          ...initialInput, projectHours: 0.5 + i / 10,
+          directProjectCosts: i / 100, hasIVA,
+        });
+        const baseCents = Math.round(result.recommendedProjectBudget * 100);
+        const vatCents = Math.round(result.vatAmount * 100);
+        const totalCents = Math.round(result.totalWithVAT * 100);
+        expect(totalCents).toBe(baseCents + vatCents);
+      }
+    }
   });
 });
 

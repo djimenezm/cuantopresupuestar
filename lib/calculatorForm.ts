@@ -24,6 +24,14 @@ export const DEFAULT_FORM_VALUES = {
   hasIVA: true,
 };
 
+// Native number inputs use a decimal point, never localized thousands separators.
+export function parseInputNumber(value: string) {
+  const text = value.trim();
+  if (!/^-?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(text)) return NaN;
+  const number = Number(text);
+  return Number.isFinite(number) ? number : NaN;
+}
+
 function formatNormalizedNumber(value: number, maximumFractionDigits = 2) {
   return value.toLocaleString('en-US', {
     useGrouping: false,
@@ -31,13 +39,7 @@ function formatNormalizedNumber(value: number, maximumFractionDigits = 2) {
   });
 }
 
-export function normalizeFieldValue(field: FieldName, value: string) {
-  const parsedValue = parseSpanishNumber(value);
-
-  if (!Number.isFinite(parsedValue) || getFieldError(field, value)) {
-    return value.trim() === '' ? '' : value;
-  }
-
+function formatFieldNumber(field: FieldName, parsedValue: number) {
   switch (field) {
     case 'targetMonthlyNet':
     case 'monthlyFixedCosts':
@@ -54,15 +56,26 @@ export function normalizeFieldValue(field: FieldName, value: string) {
   }
 }
 
+export function normalizeFieldValue(field: FieldName, value: string) {
+  const parsedValue = parseInputNumber(value);
+  if (!Number.isFinite(parsedValue) || getFieldError(field, value)) {
+    return value.trim() === '' ? '' : value;
+  }
+  return formatFieldNumber(field, parsedValue);
+}
+
 export function getNormalizedPastedValue(field: FieldName, value: string) {
   const parsedValue = parseSpanishNumber(value);
-  return Number.isFinite(parsedValue)
-    ? normalizeFieldValue(field, String(parsedValue))
-    : null;
+  if (!Number.isFinite(parsedValue)) return null;
+
+  const canonicalValue = String(parsedValue);
+  return getFieldError(field, canonicalValue)
+    ? canonicalValue
+    : formatFieldNumber(field, parsedValue);
 }
 
 function getFieldError(field: FieldName, value: string) {
-  const parsedValue = parseSpanishNumber(value);
+  const parsedValue = parseInputNumber(value);
 
   if (value.trim() === '') {
     switch (field) {
@@ -110,8 +123,8 @@ function getFieldError(field: FieldName, value: string) {
     return 'Las horas facturables deben ser un número entero.';
   }
 
-  if (field === 'projectHours' && parsedValue <= 0) {
-    return 'Las horas del proyecto deben ser mayores que 0.';
+  if (field === 'projectHours' && parsedValue < 0.5) {
+    return 'Las horas del proyecto deben ser como mínimo 0,5.';
   }
 
   if (

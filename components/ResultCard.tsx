@@ -1,13 +1,15 @@
 'use client';
 
-import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import { forwardRef, type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { assessClientPrice, type CalculationResult } from '@/lib/calculator';
 import { formatCurrency, formatNumber } from '@/lib/format';
 import { parseSpanishNumber } from '@/lib/spanishNumber';
+import { roundMoney, subtractMoney } from '@/lib/money';
 
 type ResultCardProps = {
-  result: CalculationResult;
+  result: CalculationResult | null;
   hasIVA: boolean;
+  comparison?: ReactNode;
 };
 
 type CopyStatus = 'idle' | 'copied' | 'error';
@@ -37,7 +39,7 @@ async function copyTextToClipboard(text: string) {
 }
 
 const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
-  { result, hasIVA },
+  { result, hasIVA, comparison },
   ref,
 ) {
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
@@ -45,21 +47,22 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
   const lastTrackedPrice = useRef<number | null>(null);
   const parsedClientPrice = parseSpanishNumber(clientPrice);
   const hasClientPrice = clientPrice.trim() !== '';
-  const clientPriceIsValid = Number.isFinite(parsedClientPrice) && parsedClientPrice >= 0;
-  const priceAssessment = hasClientPrice && clientPriceIsValid
+  const clientPriceIsValid = Number.isFinite(roundMoney(parsedClientPrice)) && parsedClientPrice >= 0;
+  const priceAssessment = result && hasClientPrice && clientPriceIsValid
     ? assessClientPrice(result, parsedClientPrice)
     : null;
   const hoursToTrim = priceAssessment?.hoursToTrim.toLocaleString('es-ES', {
     maximumFractionDigits: 2,
   });
-  const pricingBuffer = Math.max(0, result.recommendedProjectBudget - result.projectFloorPrice);
-  const proposalSummary = [
+  const pricingBuffer = result ? Math.max(0, subtractMoney(result.recommendedProjectBudget, result.projectFloorPrice)) : 0;
+  const proposalSummary = result ? [
     'Resumen de presupuesto - Cuánto Presupuestar',
     `Precio mínimo defendible: ${formatCurrency(result.projectFloorPrice)} sin IVA`,
     `Presupuesto recomendado: ${formatCurrency(result.recommendedProjectBudget)} sin IVA`,
     hasIVA
-      ? `Total final con IVA: ${formatCurrency(result.totalWithVAT)}`
+      ? `IVA añadido: ${formatCurrency(result.vatAmount)}`
       : 'IVA: no añadido en esta simulación',
+    `Total final ${hasIVA ? 'con' : 'sin'} IVA: ${formatCurrency(result.totalWithVAT)}`,
     `Horas estimadas: ${formatNumber(result.projectHours, 2)} h`,
     `Horas con buffer: ${formatNumber(result.bufferedProjectHours, 2)} h`,
     `Buffer de revisiones e imprevistos: ${formatNumber(result.revisionBufferPercent, 2)}%`,
@@ -74,7 +77,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         ]
       : []),
     'Nota: si el cliente pide bajar precio, conviene ajustar alcance antes de bajar del mínimo defendible.',
-  ].join('\n');
+  ].join('\n') : '';
 
   const trackPriceComparison = useCallback(() => {
     if (!priceAssessment || lastTrackedPrice.current === parsedClientPrice) return;
@@ -110,6 +113,8 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
       setCopyStatus('error');
     }
   }
+
+  if (!result) return <>{comparison}</>;
 
   return (
     <section
@@ -161,10 +166,12 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         </div>
 
         <div className="result-item result-item-full">
-          <span>Total final con IVA</span>
+          <span>{hasIVA ? 'Total final con IVA' : 'Total final sin IVA'}</span>
           <strong>{formatCurrency(result.totalWithVAT)}</strong>
         </div>
       </div>
+
+      {comparison}
 
       <div className="price-check">
         <label htmlFor="client-price">¿Qué precio propone el cliente? (sin IVA)</label>
@@ -202,6 +209,8 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
                 <strong>{formatCurrency(-priceAssessment.gapToRecommended)}</strong> del recargo
                 que habías previsto.
               </>
+            ) : priceAssessment.gapToRecommended === 0 ? (
+              <>La oferta coincide con tu presupuesto recomendado.</>
             ) : (
               <>
                 Cubre tu mínimo y el recargo previsto. Supera tu recomendación en{' '}

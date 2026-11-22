@@ -184,6 +184,11 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.quote-calculator-shell .calculator-form:focus {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
 .quote-calculator-shell .calculator-form > button,
 .quote-calculator-shell .calculator-form > .form-note,
 .quote-calculator-shell .calculator-form > .form-message {
@@ -211,6 +216,202 @@
 .quote-landing .result-copy-box,
 .quote-landing .result-copy-preview {
   border-radius: 8px;
+}
+
+.scenario-comparison {
+  margin: 1.25rem 0;
+  border-block: 1px solid #d2ddd7;
+  padding-block: 1rem;
+  color: var(--text);
+  scroll-margin-top: 8rem;
+}
+
+.result-card {
+  scroll-margin-top: 8rem;
+}
+
+.scenario-comparison-header,
+.scenario-comparison-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+}
+
+.scenario-comparison-header {
+  justify-content: space-between;
+}
+
+.scenario-comparison h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.scenario-comparison-actions button {
+  min-height: 44px;
+  max-width: 100%;
+  border: 1px solid #9baea4;
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  background: #fff;
+  color: #175a44;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.scenario-comparison-actions button:hover:not(:disabled) {
+  border-color: #175a44;
+  background: #e9f3ef;
+}
+
+.scenario-comparison-actions button:disabled {
+  color: #58675f;
+  border-color: #d2ddd7;
+  cursor: not-allowed;
+}
+
+.scenario-comparison-note,
+.scenario-comparison-table caption {
+  margin: 0.75rem 0;
+  color: #46564f;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.scenario-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.scenario-comparison-table caption {
+  text-align: left;
+}
+
+.scenario-comparison-table th,
+.scenario-comparison-table td {
+  border-bottom: 1px solid #d2ddd7;
+  padding: 0.7rem 0.35rem;
+  text-align: right;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.scenario-comparison-table th:first-child {
+  width: 34%;
+  padding-left: 0;
+  text-align: left;
+}
+
+.scenario-comparison-table thead {
+  color: #46564f;
+}
+
+.scenario-comparison-table td:last-child {
+  font-weight: 700;
+}
+
+.scenario-mobile-label {
+  display: none;
+}
+
+.scenario-comparison-summary {
+  margin: 0.8rem 0;
+  line-height: 1.6;
+}
+
+.scenario-comparison-changes summary,
+.quote-method-checks summary {
+  width: fit-content;
+  max-width: 100%;
+  padding-block: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.scenario-comparison-changes li {
+  margin-block: 0.4rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.scenario-comparison-changes summary:focus-visible,
+.quote-method-checks summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+#quote-method-heading {
+  scroll-margin-top: 8rem;
+}
+
+.scenario-comparison-method {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding-block: 0.4rem;
+  color: #175a44;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 620px) {
+  .scenario-comparison-table,
+  .scenario-comparison-table tbody {
+    display: block;
+  }
+
+  .scenario-comparison-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .scenario-comparison-table caption {
+    display: block;
+  }
+
+  .scenario-comparison-table tr {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 1px solid #d2ddd7;
+    padding-block: 0.5rem;
+  }
+
+  .scenario-comparison-table th,
+  .scenario-comparison-table td {
+    border: 0;
+    text-align: left;
+    padding: 0.4rem 0.25rem 0.4rem 0;
+  }
+
+  .scenario-comparison-table th:first-child {
+    grid-column: 1 / -1;
+    width: auto;
+  }
+
+  .scenario-mobile-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #46564f;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 380px) {
+  .scenario-comparison-table {
+    font-size: 0.83rem;
+  }
 }
 
 .quote-mini-strip {

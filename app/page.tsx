@@ -170,7 +170,8 @@ export default function HomePage() {
               directos y margen.
             </p>
             <p>
-              El IVA se muestra aparte. El resultado es una referencia para decidir el precio,
+              El IVA se calcula sobre el recomendado redondeado a céntimos; el total suma ambos
+              importes. El resultado es una referencia para decidir el precio,
               no sustituye la definición del alcance ni una estimación realista de horas. La
               reserva fiscal es una hipótesis, no el IRPF real; el porcentaje de margen de la
               herramienta es un recargo sobre el mínimo, no un margen contable sobre la venta.
@@ -180,6 +181,21 @@ export default function HomePage() {
               <a href="/margen-presupuesto-freelance">Cómo calcular el margen</a>
               <a href="/precio-cerrado-o-por-horas-freelance">Precio cerrado o por horas</a>
             </nav>
+            <details className="quote-method-checks">
+              <summary>Cómo comprobamos el cálculo y qué no valida</summary>
+              <p>
+                Las pruebas automatizadas comprueban el software: cálculo, validación y
+                comparación. Un caso de control contrasta los resultados con operaciones
+                aritméticas resueltas por separado y valores esperados fijos. Los ejemplos de las
+                guías, en cambio, se generan con el mismo motor y no son una comprobación independiente.
+              </p>
+              <p>
+                Estas comprobaciones no son una auditoría fiscal ni se acredita una revisión
+                fiscal profesional. La reserva fiscal la eliges tú; la herramienta no determina
+                tus obligaciones tributarias ni si debes aplicar IVA en tu caso.
+              </p>
+              <a href="/ejemplo-presupuesto-freelance">Ver el ejemplo y sus límites</a>
+            </details>
           </div>
         </div>
       </section>

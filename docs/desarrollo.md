@@ -5,6 +5,9 @@ Volver al [README](../README.md).
 Para el mantenimiento editorial y la evaluación de uso, consulta
 [Revisión del contenido y uso real](revision-contenido.md).
 
+El [piloto de comparación de situaciones](piloto-comparacion.md) documenta
+la integración local, la comprobación aritmética y el guion de prueba con personas.
+
 ## Mapa del código
 
 | Ubicación | Responsabilidad |
@@ -13,8 +16,11 @@ Para el mantenimiento editorial y la evaluación de uso, consulta
 | `app/*/page.tsx` | Guías, ejemplos, recurso descargable y páginas legales. |
 | `components/CalculatorForm.tsx` | Estado e interacción del formulario. |
 | `components/ResultCard.tsx` | Desglose y acciones del resultado. |
+| `components/ScenarioComparison.tsx` y `lib/quoteComparison.ts` | Comparación de dos situaciones completas con el mismo motor. |
 | `lib/calculator.ts` | Cálculo del presupuesto, independiente de React. |
-| `lib/calculatorForm.ts` y `lib/spanishNumber.ts` | Valores iniciales, validación y lectura de importes españoles. |
+| `lib/money.ts` | Cierre monetario, operaciones en céntimos y control de precisión del piloto. |
+| `lib/calculatorForm.ts` | Valores iniciales, lectura numérica canónica y validación. |
+| `lib/spanishNumber.ts` | Lectura de texto localizado para pegado y oferta del cliente. |
 | `app/globals.css` y `app/styles/` | Entrada de estilos y hojas en orden de cascada. |
 | `tests/` | Pruebas de cálculo, formulario, accesibilidad y configuración. |
 
