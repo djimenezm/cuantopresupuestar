@@ -11,6 +11,7 @@ import {
   projectExampleQuote,
 } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import WebScopeComparison from './WebScopeComparison';
 
 const route = '/cuanto-cobrar-por-una-pagina-web-freelance';
 const title = 'Cuánto cobrar por una página web freelance: tres casos';
@@ -60,6 +61,14 @@ export const metadata: Metadata = {
 export default function CuantoCobrarPaginaWebFreelancePage() {
   const siteUrl = getSiteUrl();
   const pageUrl = new URL(route, siteUrl).toString();
+  const exampleQuotes = scenarios.map((scenario) => ({
+    ...scenario,
+    quote: calculateProjectQuote({
+      ...projectExampleInput,
+      projectHours: scenario.projectHours,
+      directProjectCosts: scenario.directProjectCosts,
+    }),
+  }));
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -107,6 +116,9 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
               con la misma base económica y ver qué cambia al ampliar el alcance.
             </p>
             <div className="guide-cta">
+              <Link href="#comparar-precios-web" className="primary-button">
+                Comparar mis presupuestos web
+              </Link>
               <Link href="/#calculadora" className="primary-button">
                 Calcular mi proyecto
               </Link>
@@ -137,35 +149,34 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
             </p>
           </div>
           <div className="feature-grid">
-            {scenarios.map((scenario) => {
-              const quote = calculateProjectQuote({
-                ...projectExampleInput,
-                projectHours: scenario.projectHours,
-                directProjectCosts: scenario.directProjectCosts,
-              });
-
-              return (
-                <article className="feature-card" key={scenario.name}>
-                  <h3>{scenario.name}</h3>
-                  <p>{scenario.scope}</p>
-                  <p>
-                    {scenario.projectHours} h estimadas + {projectExampleInput.revisionBufferPercent}%
-                    {' '}de reserva = {formatNumber(quote.bufferedProjectHours)} h;{' '}
-                    {formatCurrency(scenario.directProjectCosts)} de costes directos.
-                  </p>
-                  <p>
-                    <strong>{formatCurrency(quote.recommendedProjectBudget)} sin IVA</strong>
-                  </p>
-                  <Link href={scenario.href}>{scenario.linkText}</Link>
-                </article>
-              );
-            })}
+            {exampleQuotes.map((scenario) => (
+              <article className="feature-card" key={scenario.name}>
+                <h3>{scenario.name}</h3>
+                <p>{scenario.scope}</p>
+                <p>
+                  {scenario.projectHours} h estimadas + {projectExampleInput.revisionBufferPercent}%
+                  {' '}de reserva = {formatNumber(scenario.quote.bufferedProjectHours)} h;{' '}
+                  {formatCurrency(scenario.directProjectCosts)} de costes directos.
+                </p>
+                <p>
+                  <strong>{formatCurrency(scenario.quote.recommendedProjectBudget)} sin IVA</strong>
+                </p>
+                <Link href={scenario.href}>{scenario.linkText}</Link>
+              </article>
+            ))}
           </div>
           <p className="text-block">
             Son simulaciones, no precios de mercado ni ofertas aplicables a cualquier web. Una
             migración, redacción de textos, fotografías, accesibilidad específica o integraciones
             a medida cambian las horas y el presupuesto.
           </p>
+          <WebScopeComparison
+            scenarios={exampleQuotes.map(({ name, quote, directProjectCosts }) => ({
+              name,
+              hours: quote.bufferedProjectHours,
+              costs: directProjectCosts,
+            }))}
+          />
         </div>
       </section>
 
@@ -189,7 +200,7 @@ export default function CuantoCobrarPaginaWebFreelancePage() {
             La decisión no es bajar el precio automáticamente, sino acordar qué se elimina, qué
             pasa a otra fase o cómo se aprueba el trabajo adicional. Consulta{' '}
             <Link href="/presupuesto-desarrollo-web-freelance">
-              cómo repartir un desarrollo web por fases
+              cómo calcular el precio de un desarrollo web por fases
             </Link>{' '}
             si el encargo requiere más que páginas estándar.
           </p>

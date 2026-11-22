@@ -11,6 +11,7 @@ import {
   webDevelopmentExamplePhases,
 } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import WebPhaseBudget from './WebPhaseBudget';
 
 const route = '/presupuesto-desarrollo-web-freelance';
 const title = 'Presupuesto de desarrollo web freelance: fases y ejemplo';
@@ -162,8 +163,8 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
               <span className="hero-badge">Hitos y alcance</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular presupuesto
+              <Link href="#calcular-presupuesto-web" className="primary-button">
+                Calcular mi presupuesto web
               </Link>
               <Link href="/kit-presupuesto-freelance" className="primary-button">
                 Ver kit de presupuesto
@@ -233,8 +234,9 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
               Con el {projectExampleInput.revisionBufferPercent}% de reserva se presupuestan{' '}
               {formatNumber(expandedProjectExampleQuote.bufferedProjectHours)} horas. Para el mismo
               profesional ficticio del{' '}
-              <Link href="/ejemplo-presupuesto-freelance">ejemplo completo</Link>, la base es{' '}
-              {formatCurrency(expandedProjectExampleQuote.baseHourlyRate)}/h; al añadir{' '}
+              <Link href="/ejemplo-presupuesto-freelance">ejemplo completo</Link>, la tarifa interna
+              se muestra redondeada a {formatCurrency(expandedProjectExampleQuote.baseHourlyRate)}/h.
+              Al añadir{' '}
               {formatCurrency(expandedProjectExampleInput.directProjectCosts)} de costes directos,
               el mínimo es {formatCurrency(expandedProjectExampleQuote.projectFloorPrice)}. Con el
               recargo del {expandedProjectExampleInput.profitMarginPercent}% la referencia queda en{' '}
@@ -262,6 +264,17 @@ export default function PresupuestoDesarrolloWebFreelancePage() {
               <li>Cambios aprobados después de cerrar una fase.</li>
             </ul>
           </aside>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="calcular-presupuesto-web-title">
+        <div className="container text-block">
+          <WebPhaseBudget phases={webDevelopmentExamplePhases} />
+          <p>
+            Con el total acordado, puedes{' '}
+            <Link href="/presupuesto-por-fases-freelance#reparto-hitos">repartir el cobro por hitos</Link>
+            {' '}y decidir qué aprobación corresponde a cada pago.
+          </p>
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import PaymentSplit from './PaymentSplit';
 
 const route = '/condiciones-pago-presupuesto-freelance';
 const title = 'Condiciones de pago en presupuesto freelance: anticipo, hitos y plazos';
@@ -160,11 +161,11 @@ export default function CondicionesPagoPresupuestoFreelancePage() {
               <span className="hero-badge">Plazos claros</span>
             </div>
             <div className="guide-cta">
+              <Link href="#reparto-pagos" className="primary-button">
+                Desglosar mis pagos
+              </Link>
               <Link href="/#calculadora" className="primary-button">
                 Calcular presupuesto
-              </Link>
-              <Link href="/presupuesto-por-fases-freelance" className="primary-button">
-                Ver presupuesto por fases
               </Link>
             </div>
           </div>
@@ -270,6 +271,7 @@ export default function CondicionesPagoPresupuestoFreelancePage() {
             bastar un anticipo y un pago final. En uno mediano o grande, los hitos reducen riesgo y
             ayudan a que el proyecto avance con menos tensión.
           </p>
+          <PaymentSplit />
           <div className="feature-grid" aria-label="Ejemplos de condiciones de pago">
             <article className="feature-card">
               <h3>Proyecto pequeño</h3>
@@ -283,6 +285,7 @@ export default function CondicionesPagoPresupuestoFreelancePage() {
               <p>
                 30% al inicio, 40% al aprobar una fase intermedia y 30% antes de la entrega final.
               </p>
+              <Link href="/presupuesto-por-fases-freelance">Ver presupuesto por fases</Link>
             </article>
 
             <article className="feature-card">

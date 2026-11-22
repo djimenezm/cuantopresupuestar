@@ -1,0 +1,74 @@
+.card {
+  scroll-margin-top: 7rem;
+}
+
+.card form,
+.error {
+  margin-top: 1rem;
+}
+
+.rate {
+  max-width: 18rem;
+}
+
+.line {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.line legend {
+  padding-inline: 0.35rem;
+  font-weight: 700;
+}
+
+.baseFields,
+.extraFields,
+.extras {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.baseFields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.extraFields {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr) minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+.extras h3 {
+  margin: 0;
+}
+
+.card button {
+  justify-self: start;
+}
+
+.secondaryButton {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  background: #fff;
+  color: var(--accent-dark);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  border-color: var(--accent);
+}
+
+.error {
+  display: block;
+}
+
+@media (max-width: 620px) {
+  .baseFields,
+  .extraFields {
+    grid-template-columns: 1fr;
+  }
+}

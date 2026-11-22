@@ -1,0 +1,70 @@
+.card {
+  scroll-margin-top: 7rem;
+}
+
+.card form,
+.error,
+.summary {
+  margin-top: 1rem;
+}
+
+.rate {
+  max-width: 18rem;
+}
+
+.scenarios,
+.prices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.scenario {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.scenario legend {
+  padding-inline: 0.35rem;
+  font-weight: 700;
+}
+
+.card button {
+  justify-self: start;
+}
+
+.error {
+  display: block;
+}
+
+.summary h4 {
+  margin: 0;
+}
+
+.prices {
+  margin: 0.4rem 0 0;
+}
+
+.prices > div {
+  border-top: 1px solid var(--line);
+  padding-top: 0.55rem;
+}
+
+.prices dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .scenarios,
+  .prices {
+    grid-template-columns: 1fr;
+  }
+}

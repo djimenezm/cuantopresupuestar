@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import CorporateScopeBudget from './CorporateScopeBudget';
 
 const route = '/cuanto-cobrar-web-corporativa-freelance';
 const title = 'Cuánto cobrar por una web corporativa freelance';
@@ -155,8 +156,8 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
               <span className="hero-badge">Alcance y revisiones</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular web corporativa
+              <Link href="#calcular-web-corporativa" className="primary-button">
+                Calcular mi web corporativa
               </Link>
               <Link href="/precio-pagina-web-profesional-freelance" className="primary-button">
                 Ver web profesional
@@ -262,6 +263,12 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="calcular-web-corporativa-title">
+        <div className="container text-block">
+          <CorporateScopeBudget />
+        </div>
+      </section>
+
       <section className="section alt">
         <div className="container text-block">
           <h2>Rangos orientativos sin convertirlos en promesa</h2>
@@ -279,8 +286,8 @@ export default function CuantoCobrarWebCorporativaFreelancePage() {
             <Link href="/#calculadora" className="primary-button">
               Usar calculadora de proyectos web
             </Link>
-            <Link href="/como-hacer-una-propuesta-comercial" className="primary-button">
-              Ver lista de comprobación de propuesta web
+            <Link href="/como-hacer-una-propuesta-comercial#preparar-propuesta" className="primary-button">
+              Preparar la propuesta de mi web
             </Link>
           </div>
         </div>

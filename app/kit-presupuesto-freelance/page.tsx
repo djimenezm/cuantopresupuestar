@@ -7,6 +7,7 @@ import TemplateDownloadLink from '@/components/TemplateDownloadLink';
 import { formatCurrency, formatNumber } from '@/lib/format';
 import { projectExampleInput, projectExampleQuote } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import BudgetDraft from './BudgetDraft';
 
 const route = '/kit-presupuesto-freelance';
 const title = 'Plantilla de presupuesto freelance para adaptar a tu proyecto';
@@ -71,27 +72,37 @@ export default function KitPresupuestoFreelancePage() {
             <span className="eyebrow">Recurso abierto</span>
             <h1>Una plantilla de presupuesto que deja el alcance por escrito</h1>
             <p className="lead">
-              Descarga un documento editable sin dejar tu correo. La plantilla te obliga a definir
-              entregables, revisiones, materiales pendientes, precio y pagos antes de enviar una
-              cifra al cliente.
+              Rellena el alcance, el precio y los pagos para copiar un borrador. La plantilla
+              completa te ayuda a detallar revisiones, materiales pendientes y cambios de alcance.
             </p>
             <div className="guide-cta">
+              <Link href="#rellenar-plantilla" className="primary-button">
+                Rellenar mi plantilla
+              </Link>
               <TemplateDownloadLink>
                 Descargar plantilla editable
               </TemplateDownloadLink>
-              <Link href="/#calculadora" className="primary-button">
-                Calcular el precio
-              </Link>
             </div>
           </div>
           <aside className="feature-card article-summary">
             <h2>Antes de rellenarla</h2>
             <p>
-              La plantilla no calcula el precio por ti. Primero estima horas y costes; después
-              concreta qué recibe el cliente por esa cifra. El ejemplo de esta página es ficticio
-              y no establece una tarifa de mercado.
+              Calcula primero el precio con tus horas y costes. Luego concreta qué recibe
+              el cliente por esa cifra.
             </p>
           </aside>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="rellenar-plantilla-title">
+        <div className="container text-block">
+          <BudgetDraft />
+          <p>
+            Si divides el cobro, comprueba que el{' '}
+            <Link href="/condiciones-pago-presupuesto-freelance#reparto-pagos">anticipo y el saldo</Link>{' '}
+            o los <Link href="/presupuesto-por-fases-freelance#reparto-hitos">pagos por hitos</Link>{' '}
+            suman el precio sin IVA que indicas en el borrador.
+          </p>
         </div>
       </section>
 
@@ -99,8 +110,9 @@ export default function KitPresupuestoFreelancePage() {
         <div className="container text-block">
           <h2 id="modelo-presupuesto-title">Los seis campos que conviene cerrar</h2>
           <p>
-            Copia estos apartados a tu propuesta o usa el archivo descargable. Sustituye cada
-            texto entre corchetes por una decisión concreta, no por una frase genérica.
+            Si todavía necesitas fijar el precio, usa la{' '}
+            <Link href="/#calculadora">calculadora de presupuesto</Link>. Después sustituye cada
+            texto entre corchetes por una decisión concreta.
           </p>
           <dl className="worked-example">
             <div>

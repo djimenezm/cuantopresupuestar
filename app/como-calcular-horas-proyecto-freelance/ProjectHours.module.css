@@ -1,0 +1,53 @@
+.card {
+  margin-top: 1.4rem;
+  scroll-margin-top: 7rem;
+}
+
+.card form,
+.error {
+  margin-top: 1rem;
+}
+
+.taskFields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.65fr) auto;
+  align-items: end;
+  gap: 0.7rem;
+}
+
+.secondaryButton {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  background: #fff;
+  color: var(--accent-dark);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  border-color: var(--accent);
+}
+
+.card form > button {
+  justify-self: start;
+}
+
+.reserve {
+  max-width: 16rem;
+}
+
+.error {
+  display: block;
+}
+
+@media (max-width: 520px) {
+  .taskFields {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .taskFields > :first-child {
+    grid-column: 1 / -1;
+  }
+}

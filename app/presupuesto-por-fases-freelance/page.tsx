@@ -7,6 +7,7 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { formatCurrency } from '@/lib/format';
 import { projectExamplePhases, projectExampleQuote } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import MilestonePayments from './MilestonePayments';
 
 const route = '/presupuesto-por-fases-freelance';
 const title = 'Presupuesto por fases freelance: cómo dividir un proyecto sin perder margen';
@@ -157,11 +158,11 @@ export default function PresupuestoPorFasesFreelancePage() {
               <span className="hero-badge">Cambios controlados</span>
             </div>
             <div className="guide-cta">
+              <Link href="#reparto-hitos" className="primary-button">
+                Repartir mi presupuesto por hitos
+              </Link>
               <Link href="/#calculadora" className="primary-button">
                 Calcular presupuesto
-              </Link>
-              <Link href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
-                Comparar modelos
               </Link>
             </div>
           </div>
@@ -189,6 +190,9 @@ export default function PresupuestoPorFasesFreelancePage() {
           <p>
             También ayuda al cliente: ve avances, sabe qué está pagando en cada momento y no tiene
             que aprobar de golpe una cifra grande cuando todavía hay demasiadas preguntas abiertas.
+          </p>
+          <p>
+            <Link href="/precio-cerrado-o-por-horas-freelance">Comparar precio cerrado y cobro por horas</Link>
           </p>
           <div className="disclaimer-box">
             <strong>Idea clave:</strong> si una fase no tiene entregable, criterio de aprobación y
@@ -272,24 +276,9 @@ export default function PresupuestoPorFasesFreelancePage() {
           <p>
             En proyectos por fases, evita cobrar todo al final. Una estructura simple puede ser
             señal inicial para reservar agenda, pago por fase entregada y cierre antes de publicar o
-            entregar materiales finales. No es desconfianza: es salud financiera.
+            entregar materiales finales.
           </p>
-          <div className="feature-grid" aria-label="Opciones de pago por fases">
-            <article className="feature-card">
-              <h3>40% al inicio</h3>
-              <p>Activa el proyecto, reserva agenda y reduce riesgo antes de producir.</p>
-            </article>
-
-            <article className="feature-card">
-              <h3>40% tras la fase principal</h3>
-              <p>Vincula el segundo pago a un hito visible y revisable.</p>
-            </article>
-
-            <article className="feature-card">
-              <h3>20% antes del cierre</h3>
-              <p>Deja la entrega final, publicación o documentación ligada al último pago.</p>
-            </article>
-          </div>
+          <MilestonePayments />
         </div>
       </section>
 
@@ -312,8 +301,8 @@ export default function PresupuestoPorFasesFreelancePage() {
             </Link>. Así conviertes fases, horas y margen en una propuesta más fácil de defender.
           </p>
           <div className="guide-cta">
-            <Link href="/#calculadora" className="primary-button">
-              Calcular precio por fase
+            <Link href="#reparto-hitos" className="primary-button">
+              Repartir el cobro por hitos
             </Link>
             <Link href="/ejemplo-presupuesto-freelance" className="primary-button">
               Ver ejemplo completo

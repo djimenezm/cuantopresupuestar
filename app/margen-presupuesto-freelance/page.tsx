@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import BudgetMargin from './BudgetMargin';
 
 const route = '/margen-presupuesto-freelance';
 const title = 'Margen en presupuesto freelance: cuánto añadir sin perder competitividad';
@@ -13,14 +14,14 @@ const description =
 
 const pageFaqItems = [
   {
-    question: '¿Cuánto margen debería añadir a un presupuesto freelance?',
+    question: '¿Qué recargo debería aplicar a un presupuesto freelance?',
     answer:
-      'Depende del riesgo, urgencia, incertidumbre y valor del proyecto. Como orientación, un 15% a 25% puede encajar en proyectos claros; si hay más incertidumbre, dependencias o urgencia, el margen debería subir o el alcance separarse por fases.',
+      'Depende del riesgo, la urgencia y el valor del proyecto. Como orientación, un recargo del 15 % al 25 % sobre el coste puede encajar en proyectos claros. Si hay más incertidumbre, dependencias o urgencia, puedes subir el recargo o separar el alcance por fases.',
   },
   {
     question: '¿El margen es lo mismo que beneficio?',
     answer:
-      'No exactamente. El margen ayuda a proteger beneficio, pero antes debes cubrir horas reales, costes directos, gestión, revisiones, impuestos y tiempo no vendible. Si esos elementos no están cubiertos, el margen puede ser solo apariencia.',
+      'El beneficio del proyecto es la diferencia entre el precio y el coste. El margen real expresa esa diferencia como porcentaje del precio sin IVA. Para que refleje tu proyecto, incluye en el coste tanto tu tiempo como los gastos asociados.',
   },
   {
     question: '¿Cómo explico el margen al cliente?',
@@ -156,10 +157,10 @@ export default function MargenPresupuestoFreelancePage() {
               <span className="hero-badge">Beneficio real</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular presupuesto
+              <Link href="#calcular-margen" className="primary-button">
+                Calcular mi margen y recargo
               </Link>
-              <Link href="/como-calcular-horas-proyecto-freelance" className="primary-button">
+              <Link href="/como-calcular-horas-proyecto-freelance#estimar-horas" className="primary-button">
                 Estimar horas antes
               </Link>
             </div>
@@ -181,9 +182,10 @@ export default function MargenPresupuestoFreelancePage() {
         <div className="container text-block">
           <h2>Qué significa margen en un presupuesto freelance</h2>
           <p>
-            El margen es la distancia entre lo que te cuesta entregar el proyecto y el precio que
-            presentas al cliente. Pero ese coste no es solo el tiempo de producción: también entran
-            reuniones, gestión, pruebas, revisiones, herramientas, coordinación y oportunidad perdida.
+            El margen real es el porcentaje del precio que queda después de cubrir el coste del
+            proyecto. El recargo mide esa misma diferencia sobre el coste. En ese coste entran las
+            horas de producción, reuniones, gestión, pruebas y revisiones, además de los gastos
+            directos del proyecto.
           </p>
           <p>
             Cuando presupuestas sin margen, cualquier desviación sale de tu bolsillo o de tu agenda.
@@ -194,6 +196,7 @@ export default function MargenPresupuestoFreelancePage() {
             <strong>Idea clave:</strong> margen no es inflar el precio. Es evitar que el proyecto se
             coma todo el beneficio al primer cambio razonable.
           </div>
+          <BudgetMargin />
         </div>
       </section>
 
@@ -231,11 +234,11 @@ export default function MargenPresupuestoFreelancePage() {
             <h2>Método simple para calcular margen</h2>
             <ol className="article-list article-list-ordered">
               <li>Calcula tus horas reales de producción y gestión.</li>
-              <li>Multiplica esas horas por tu tarifa interna mínima.</li>
+              <li>Añade a esas horas una reserva por revisiones y ajustes previsibles.</li>
+              <li>Multiplica las horas con reserva por tu tarifa interna mínima.</li>
               <li>Suma costes directos que dependan del proyecto.</li>
-              <li>Añade buffer por revisiones, cambios esperables e incertidumbre.</li>
-              <li>Aplica margen según riesgo, urgencia y valor del resultado.</li>
-              <li>Comprueba si el precio final sigue siendo defendible con el alcance.</li>
+              <li>Aplica un recargo sobre el coste según riesgo, urgencia y valor del resultado.</li>
+              <li>Comprueba el margen sobre el precio final y si ese precio encaja con el alcance.</li>
             </ol>
             <p>
               Si el resultado parece alto, no bajes margen automáticamente. Revisa primero si el
@@ -247,11 +250,11 @@ export default function MargenPresupuestoFreelancePage() {
           <aside className="feature-card article-summary">
             <h2>Fórmula orientativa</h2>
             <p>
-              Precio recomendado = horas reales + costes directos + buffer + margen.
+              Coste total = horas con reserva × tarifa interna + costes directos.
             </p>
             <p>
-              La calculadora te ayuda a ordenar esa lógica para que no sea una suma hecha con el
-              pulso acelerado cinco minutos antes de enviar la propuesta.
+              El <Link href="/como-presupuestar-un-proyecto-freelance#calcular-precio-proyecto">cálculo del precio recomendado</Link> obtiene el precio
+              multiplicando ese coste por (1 + recargo / 100).
             </p>
           </aside>
         </div>
@@ -259,12 +262,12 @@ export default function MargenPresupuestoFreelancePage() {
 
       <section className="section alt">
         <div className="container text-block">
-          <h2>Rangos orientativos de margen</h2>
+          <h2>Rangos orientativos de recargo</h2>
           <p>
-            No hay un porcentaje universal. El margen depende del tipo de servicio, de tu
-            posicionamiento y del riesgo real. Aun así, estos rangos ayudan a no partir de cero.
+            El recargo sobre el coste depende del tipo de servicio, de tu posicionamiento y del
+            riesgo. Una vez fijado el precio, comprueba qué margen te queda sobre esa cifra.
           </p>
-          <div className="feature-grid" aria-label="Rangos de margen">
+          <div className="feature-grid" aria-label="Rangos de recargo">
             <article className="feature-card">
               <h3>10% a 15%</h3>
               <p>Para proyectos muy claros, repetibles, con bajo riesgo y pocas revisiones.</p>
@@ -297,7 +300,7 @@ export default function MargenPresupuestoFreelancePage() {
             baja cuando baja lo que estás vendiendo, no cuando desaparece tu beneficio.
           </p>
           <div className="guide-cta">
-            <Link href="/#calculadora" className="primary-button">
+            <Link href="#calcular-margen" className="primary-button">
               Calcular margen en mi presupuesto
             </Link>
             <Link href="/presupuesto-por-fases-freelance" className="primary-button">

@@ -12,6 +12,7 @@ import {
   projectExampleQuote,
 } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import FixedOrHourly from './FixedOrHourly';
 
 const route = '/precio-cerrado-o-por-horas-freelance';
 const title = 'Precio cerrado o por horas freelance: cuándo usar cada modelo';
@@ -162,11 +163,11 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
               <span className="hero-badge">Fases y extras</span>
             </div>
             <div className="guide-cta">
+              <Link href="#comparar-modelos" className="primary-button">
+                Comparar con mis datos
+              </Link>
               <Link href="/#calculadora" className="primary-button">
                 Calcular presupuesto
-              </Link>
-              <Link href="/ejemplo-presupuesto-freelance" className="primary-button">
-                Ver ejemplo
               </Link>
             </div>
           </div>
@@ -289,6 +290,7 @@ export default function PrecioCerradoOPorHorasFreelancePage() {
             Los importes son una simulación basada en los costes y el objetivo de un profesional
             ficticio, no una tarifa recomendada para todos los freelance.
           </p>
+          <FixedOrHourly />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import ProjectHours from './ProjectHours';
 
 const route = '/como-calcular-horas-proyecto-freelance';
 const title = 'Cómo calcular horas de un proyecto freelance antes de presupuestar';
@@ -154,8 +155,8 @@ export default function ComoCalcularHorasProyectoFreelancePage() {
               <span className="hero-badge">Horas invisibles</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular presupuesto
+              <Link href="#estimar-horas" className="primary-button">
+                Estimar las horas de mi proyecto
               </Link>
               <Link href="/precio-cerrado-o-por-horas-freelance" className="primary-button">
                 Elegir modelo de cobro
@@ -249,11 +250,6 @@ export default function ComoCalcularHorasProyectoFreelancePage() {
               Horas del proyecto = horas de producción + reuniones + gestión + revisiones + pruebas
               + entrega + buffer.
             </p>
-            <p>
-              Después puedes llevar ese total a la{' '}
-              <Link href="/#calculadora">calculadora de presupuesto freelance</Link> para convertir
-              esfuerzo en precio recomendado.
-            </p>
           </aside>
         </div>
       </section>
@@ -263,7 +259,7 @@ export default function ComoCalcularHorasProyectoFreelancePage() {
           <h2>Qué buffer usar sin inflar el presupuesto a ciegas</h2>
           <p>
             El buffer no es una excusa para inventar precio. Es una protección ante incertidumbre.
-            Si el alcance es claro y el cliente decide rápido, puedes trabajar con un margen menor.
+            Si el alcance es claro y el cliente decide rápido, puedes trabajar con una reserva menor.
             Si hay muchas personas opinando, dependencias externas u objetivos poco definidos, el
             buffer debe subir o el proyecto debería separarse por fases.
           </p>
@@ -283,6 +279,7 @@ export default function ComoCalcularHorasProyectoFreelancePage() {
               <p>Para alcance difuso, integraciones, urgencias o alta dependencia del cliente.</p>
             </article>
           </div>
+          <ProjectHours />
         </div>
       </section>
 
@@ -305,11 +302,11 @@ export default function ComoCalcularHorasProyectoFreelancePage() {
             precio manteniendo las mismas horas y el mismo nivel de exigencia.
           </p>
           <div className="guide-cta">
-            <Link href="/#calculadora" className="primary-button">
+            <Link href="/como-presupuestar-un-proyecto-freelance#calcular-precio-proyecto" className="primary-button">
               Pasar horas a presupuesto
             </Link>
             <Link href="/ejemplo-presupuesto-freelance" className="primary-button">
-              Ver ejemplo de propuesta
+              Ver un presupuesto completo
             </Link>
           </div>
         </div>

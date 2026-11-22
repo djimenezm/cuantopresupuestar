@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import CommercialProposalDraft from './CommercialProposalDraft';
 
 const route = '/como-hacer-una-propuesta-comercial';
 const title = 'Cómo hacer una propuesta comercial freelance que defienda mejor tu precio';
@@ -155,6 +156,9 @@ export default function ComoHacerPropuestaComercialPage() {
               <span className="hero-badge">Siguiente paso claro</span>
             </div>
             <div className="guide-cta">
+              <Link href="#preparar-propuesta" className="primary-button">
+                Preparar mi propuesta
+              </Link>
               <Link href="/#calculadora" className="primary-button">
                 Ir a la calculadora
               </Link>
@@ -236,6 +240,12 @@ export default function ComoHacerPropuestaComercialPage() {
           <p>
             Esta estructura no tiene por qué ser rígida, pero si debería ayudarte a evitar el error
             más común: enviar una propuesta que suena bien, pero deja demasiadas preguntas abiertas.
+          </p>
+          <CommercialProposalDraft />
+          <p>
+            Completa el precio, el IVA si corresponde y las condiciones de pago en la{' '}
+            <Link href="/kit-presupuesto-freelance#rellenar-plantilla">plantilla de presupuesto</Link>{' '}
+            para adjuntarla a la propuesta.
           </p>
         </div>
       </section>

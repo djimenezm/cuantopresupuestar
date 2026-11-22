@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import StoreCatalogBudget from './StoreCatalogBudget';
 
 const route = '/cuanto-cobrar-tienda-online-freelance';
 const title = 'Cuánto cobrar por una tienda online freelance';
@@ -155,8 +156,8 @@ export default function CuantoCobrarTiendaOnlineFreelancePage() {
               <span className="hero-badge">Extras aparte</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular tienda online
+              <Link href="#calcular-tienda-online" className="primary-button">
+                Calcular mi tienda online
               </Link>
               <Link href="/presupuesto-desarrollo-web-freelance" className="primary-button">
                 Ver desarrollo web
@@ -257,6 +258,12 @@ export default function CuantoCobrarTiendaOnlineFreelancePage() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="calcular-tienda-online-title">
+        <div className="container text-block">
+          <StoreCatalogBudget />
+        </div>
+      </section>
+
       <section className="section alt">
         <div className="container text-block">
           <h2>Cómo presentar el precio sin meter soporte gratis</h2>
@@ -278,7 +285,7 @@ export default function CuantoCobrarTiendaOnlineFreelancePage() {
               Ver condiciones de pago
             </Link>
             <Link href="/presupuesto-por-fases-freelance" className="primary-button">
-              Dividir por fases
+              Dividir el cobro por hitos
             </Link>
           </div>
         </div>

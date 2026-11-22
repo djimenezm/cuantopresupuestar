@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import ProfessionalWebBudget from './ProfessionalWebBudget';
 
 const route = '/precio-pagina-web-profesional-freelance';
 const title = 'Precio de una página web profesional freelance';
@@ -156,8 +157,8 @@ export default function PrecioPaginaWebProfesionalFreelancePage() {
               <span className="hero-badge">Alcance defendible</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular precio web
+              <Link href="#calcular-precio-web-profesional" className="primary-button">
+                Calcular mi precio base y extras
               </Link>
               <Link
                 href="/cuanto-cobrar-por-una-pagina-web-freelance"
@@ -262,6 +263,12 @@ export default function PrecioPaginaWebProfesionalFreelancePage() {
               <li>Mantenimiento mensual o cambios posteriores al lanzamiento.</li>
             </ul>
           </aside>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="calcular-precio-web-profesional-title">
+        <div className="container text-block">
+          <ProfessionalWebBudget />
         </div>
       </section>
 

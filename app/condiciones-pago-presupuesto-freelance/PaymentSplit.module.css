@@ -1,0 +1,29 @@
+.card {
+  margin-block: 1.4rem;
+  scroll-margin-top: 7rem;
+}
+
+.card form,
+.error {
+  margin-top: 1rem;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.card button {
+  justify-self: start;
+}
+
+.error {
+  display: block;
+}
+
+@media (max-width: 520px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+}

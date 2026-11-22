@@ -7,6 +7,7 @@ import { assessClientPrice } from '@/lib/calculator';
 import { formatCurrency, formatNumber } from '@/lib/format';
 import { projectExampleInput, projectExampleQuote } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import ProjectPricing from './ProjectPricing';
 
 const route = '/como-presupuestar-un-proyecto-freelance';
 const title = 'Cómo presupuestar un proyecto freelance sin quedarte corto';
@@ -159,6 +160,9 @@ export default function ComoPresupuestarProyectoFreelancePage() {
               <span className="hero-badge">Margen defendible</span>
             </div>
             <div className="guide-cta">
+              <Link href="#calcular-precio-proyecto" className="primary-button">
+                Calcular el precio de mi proyecto
+              </Link>
               <Link href="/#calculadora" className="primary-button">
                 Ir a la calculadora
               </Link>
@@ -220,8 +224,8 @@ export default function ComoPresupuestarProyectoFreelancePage() {
           <article className="feature-card">
             <h2>3. Separa mínimo y recomendado</h2>
             <p>
-              El mínimo te dice hasta donde puedes bajar sin comerte el margen. El recomendado te da
-              espacio para negociar sin desprotegerte en cuanto aparezcan cambios o fricción.
+              El mínimo cubre el trabajo con reserva y los costes directos. El recomendado añade un
+              recargo sobre ese mínimo para darte margen de negociación.
             </p>
           </article>
         </div>
@@ -249,7 +253,8 @@ export default function ComoPresupuestarProyectoFreelancePage() {
           <h2>Qué hacer cuando el cliente ofrece menos que tu mínimo</h2>
           <p>
             En nuestro <Link href="/ejemplo-presupuesto-freelance">caso de web corporativa</Link>,
-            {' '}la base interna es {formatCurrency(projectExampleQuote.baseHourlyRate)} por hora.
+              {' '}la base interna se muestra redondeada a {formatCurrency(projectExampleQuote.baseHourlyRate)}
+              por hora. El ejemplo conserva la tarifa sin redondear en el cálculo.
             Con {projectExampleInput.projectHours} horas estimadas, un{' '}
             {projectExampleInput.revisionBufferPercent}% de reserva y{' '}
             {formatCurrency(projectExampleInput.directProjectCosts)} de costes directos, el mínimo
@@ -261,8 +266,8 @@ export default function ComoPresupuestarProyectoFreelancePage() {
             Si el cliente ofrece <strong>{formatCurrency(clientOffer)}</strong>, faltan{' '}
             {formatCurrency(-offerAssessment.gapToFloor)} incluso para cubrir el mínimo de este
             escenario. Manteniendo la misma base por hora y los costes directos, habría que
-            eliminar alrededor de {formatNumber(offerAssessment.hoursToTrim)} horas del alcance
-            previsto para no bajar de ese suelo. Eso podría significar menos páginas, una fase
+            eliminar alrededor de {formatNumber(offerAssessment.hoursToTrim)} horas del total
+            con reserva para cubrir ese mínimo. Eso podría significar menos páginas, una fase
             posterior o menos trabajo de diseño, pero no prometer lo mismo por menos dinero.
           </p>
           <div className="disclaimer-box">
@@ -276,17 +281,17 @@ export default function ComoPresupuestarProyectoFreelancePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Usa la calculadora para aterrizar tu caso</h2>
+          <h2>Calcula tu precio mínimo y recomendado</h2>
           <p>
-            Esta guía te da el marco. La calculadora te ayuda a probar números concretos con objetivo
-            mensual, costes fijos, horas facturables, horas del proyecto, buffer, margen e IVA para
-            obtener una referencia mucho más útil que un precio improvisado.
+            Si aún necesitas calcular tu tarifa interna, parte de tu objetivo mensual, tus costes
+            fijos y tus horas facturables en la <Link href="/#calculadora">calculadora de presupuesto</Link>.
           </p>
+          <ProjectPricing />
           <p>
-            Y si ya tienes clara la cifra pero quieres presentarla mejor, puedes apoyarte también en
-            la{' '}
-            <Link href="/kit-presupuesto-freelance">plantilla de presupuesto freelance</Link>{' '}
-            para ordenar alcance, revisiones, pagos y exclusiones.
+            Cuando elijas el precio sin IVA que vas a presentar, puedes{' '}
+            <Link href="/presupuesto-por-fases-freelance#reparto-hitos">repartirlo en hitos de cobro</Link>{' '}
+            y llevar los importes y las condiciones a la{' '}
+            <Link href="/kit-presupuesto-freelance#rellenar-plantilla">plantilla de presupuesto freelance</Link>.
           </p>
           <p>
             Si tu duda concreta gira en torno a webs corporativas, landings o proyectos similares,

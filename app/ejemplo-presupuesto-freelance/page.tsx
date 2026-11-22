@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { formatCurrency, formatNumber } from '@/lib/format';
+import { roundPaymentCents } from '@/lib/paymentSchedule';
 import {
   expandedProjectExampleInput,
   expandedProjectExampleQuote,
@@ -12,11 +13,15 @@ import {
   projectExampleQuote,
 } from '@/lib/projectExample';
 import { getSiteUrl, siteConfig } from '@/lib/site';
+import AdaptedBudgetExample from './AdaptedBudgetExample';
 
 const route = '/ejemplo-presupuesto-freelance';
 const title = 'Ejemplo de presupuesto freelance para presentar mejor tus precios';
 const description =
   'Ejemplo práctico de presupuesto freelance con alcance, entregables, revisiones, precio, pagos, exclusiones e IVA para defender mejor una propuesta.';
+const quoteCents = Math.round(projectExampleQuote.recommendedProjectBudget * 100);
+const firstPaymentCents = roundPaymentCents(quoteCents, 40);
+const finalPaymentCents = quoteCents - firstPaymentCents * 2;
 
 const pageFaqItems = [
   {
@@ -162,8 +167,8 @@ export default function EjemploPresupuestoFreelancePage() {
               <span className="hero-badge">Precio defendible</span>
             </div>
             <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Calcular mi presupuesto
+              <Link href="#adaptar-ejemplo" className="primary-button">
+                Adaptar el ejemplo con mis datos
               </Link>
               <Link href="/kit-presupuesto-freelance" className="primary-button">
                 Ver kit de presupuesto
@@ -213,17 +218,20 @@ export default function EjemploPresupuestoFreelancePage() {
             <div><dt>Tarifa interna por hora</dt><dd>{formatCurrency(projectExampleQuote.baseHourlyRate)}</dd></div>
             <div><dt>Horas con reserva para revisiones</dt><dd>{formatNumber(projectExampleQuote.bufferedProjectHours)} h</dd></div>
             <div><dt>Coste mínimo del proyecto</dt><dd>{formatCurrency(projectExampleQuote.projectFloorPrice)}</dd></div>
-            <div><dt>Presupuesto con recargo del {projectExampleInput.profitMarginPercent}% sobre el mínimo</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
+            <div><dt>Precio sin IVA con recargo del {projectExampleInput.profitMarginPercent}% sobre el mínimo</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
             <div><dt>IVA orientativo aparte</dt><dd>{formatCurrency(projectExampleQuote.vatAmount)}</dd></div>
+            <div><dt>Total con IVA orientativo</dt><dd>{formatCurrency(projectExampleQuote.totalWithVAT)}</dd></div>
           </dl>
           <p>
             La reserva fiscal del {projectExampleInput.taxReservePercent}% solo sirve aquí para
             estimar la tarifa interna; no sustituye un cálculo tributario personalizado. El precio
-            del presupuesto se presenta sin IVA y los importes están redondeados a céntimos. El
-            recargo del {projectExampleInput.profitMarginPercent}% se aplica al precio mínimo: no
+            del presupuesto se presenta sin IVA. El cálculo conserva la precisión de la tarifa
+            interna y muestra los importes redondeados a céntimos. El recargo del{' '}
+            {projectExampleInput.profitMarginPercent}% se aplica al precio mínimo: no
             equivale a un margen del {projectExampleInput.profitMarginPercent}% sobre el precio de
             venta.
           </p>
+          <AdaptedBudgetExample />
         </div>
       </section>
 
@@ -295,11 +303,16 @@ export default function EjemploPresupuestoFreelancePage() {
             recibir todos los materiales; no empieza a contar mientras falten textos o accesos.
           </p>
           <dl className="worked-example">
-            <div><dt>Inicio (40%)</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget * 0.4)}</dd></div>
-            <div><dt>Versión de prueba (40%)</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget * 0.4)}</dd></div>
-            <div><dt>Antes de publicar (20%)</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget * 0.2)}</dd></div>
+            <div><dt>Inicio (40 %)</dt><dd>{formatCurrency(firstPaymentCents / 100)}</dd></div>
+            <div><dt>Versión de prueba (40 %)</dt><dd>{formatCurrency(firstPaymentCents / 100)}</dd></div>
+            <div><dt>Antes de publicar (20 %)</dt><dd>{formatCurrency(finalPaymentCents / 100)}</dd></div>
             <div><dt>Total sin IVA</dt><dd>{formatCurrency(projectExampleQuote.recommendedProjectBudget)}</dd></div>
           </dl>
+          <p>
+            Puedes aplicar el mismo criterio a tu importe con el{' '}
+            <Link href="/presupuesto-por-fases-freelance#reparto-hitos">reparto por hitos</Link>.
+            El último pago completa el total al céntimo.
+          </p>
           <p>
             Si el cliente pide dos páginas más y el trabajo pasa de {projectExampleInput.projectHours}
             {' '}a {expandedProjectExampleInput.projectHours} horas, con el resto de hipótesis
@@ -330,7 +343,7 @@ export default function EjemploPresupuestoFreelancePage() {
           <p>
             Si quieres una estructura más completa para convertir este ejemplo en documento, puedes
             apoyarte en la{' '}
-            <Link href="/kit-presupuesto-freelance">plantilla de presupuesto freelance</Link>.
+            <Link href="/kit-presupuesto-freelance#rellenar-plantilla">plantilla de presupuesto freelance</Link>.
           </p>
         </div>
       </section>
