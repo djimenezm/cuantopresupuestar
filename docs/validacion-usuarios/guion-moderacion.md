@@ -7,15 +7,13 @@ respuestas numéricas al participante. No se han realizado sesiones.
 
 ## Preparación
 
-- Propuesta interna: 3 a 5 participantes; reservar unos 30 a 40 minutos por
-  sesión y tiempo aparte para ordenar las notas. No es un tamaño de muestra
-  estadístico ni un requisito publicitario.
-- Buscar usuarios potenciales que preparen presupuestos, no solo desarrolladores
-  o personas que ya hayan visto el comparador.
-- Abrir una página nueva en <http://localhost:3002/> por sesión, con el piloto
-  ya en ejecución. No abrir la versión de producción ni publicar un enlace remoto.
-- Comprobar que no haya resultados o una comparación anterior. Recargar antes
-  de empezar; no hacerlo durante la tarea, porque se perdería la situación guardada.
+- Reservar 30 a 40 minutos por sesión. Orientativamente, dedicar 5 minutos a la
+  introducción, 20 a 25 a las tareas y 5 a 10 al cierre. Dejar tiempo aparte para
+  ordenar las notas.
+- Abrir <http://127.0.0.1:3002/> con la revisión `a7e87de` y preparar un editor
+  de texto local vacío. Confirmar que la calculadora empieza sin resultados y
+  que el editor está vacío. Recargar entre sesiones para borrar el estado de
+  la anterior.
 - Entregar solo la [ficha ficticia](ficha-participante.md). El participante maneja
   los controles; no hacer una demostración previa.
 - Pedir permiso para tomar notas anónimas. No grabar audio, vídeo o pantalla;
@@ -42,10 +40,10 @@ es para el moderador, no para el participante.
 
 | Tarea | Qué observar y registrar |
 | --- | --- |
-| 1. Prepara un presupuesto para un trabajo de 18 horas, con 150 EUR de costes directos. Utiliza la ficha para completar los demás datos. Explica los importes que obtienes. | Completa los campos y distingue mínimo, recomendado y total. |
-| 2. El cliente amplía el encargo a 36 horas. Necesitas conservar la propuesta inicial y valorar la nueva. Los demás datos, incluidos los costes directos, no cambian. | Descubre cómo conservar la inicial antes de editar; entiende cuál queda fija y cuál está modificando. No señalar el botón de guardar. |
-| 3. El cliente mantiene una oferta de 1.200 EUR sin IVA. Explica qué cambia respecto a la propuesta inicial y qué le responderías. | Distingue la oferta del recomendado; compara importes sin IVA y fundamenta su respuesta en el alcance actual. |
-| 4. Prepara el resumen que enviarías al cliente y explica qué incluye el total. | Elige la situación pretendida, encuentra el resumen y explica base, IVA y total. La oferta no se confunde con la propuesta calculada. |
+| 1. Prepara el presupuesto inicial con los datos de la ficha. Explica los importes que obtienes. | Anota las horas, el coste directo y el IVA que quedaron en pantalla. Observa si diferencia el mínimo, el recomendado y el total. Los costes directos empiezan en 0 EUR y la ficha pide 150 EUR. |
+| 2. El cliente amplía el encargo a 36 horas. Conserva la propuesta inicial y valora la ampliación con los demás datos de la ficha. | Observa cómo intenta conservar la cifra inicial antes de editar. Anota qué situación queda guardada y si identifica cuál está modificando. |
+| 3. El cliente propone pagar 1.200 EUR sin IVA por el encargo ampliado. ¿Cómo encaja esa oferta con el encargo inicial y con el ampliado? ¿Qué le responderías y en qué te basas? | Anota qué cifras compara para cada alcance, si corresponden a importes sin IVA y cómo fundamenta la decisión sobre el encargo ampliado. |
+| 4. Usa el resumen del encargo ampliado para preparar un borrador en el editor de texto. Explica qué importe indicarías al cliente, qué incluye y qué revisarías antes de enviarlo. | Observa si encuentra cómo obtener el resumen, si procede del encargo ampliado y si lo distingue de la oferta. Registra qué parte del borrador enviaría. La tarea termina en el editor local. |
 | 5. Antes de utilizar esta cifra en un trabajo real, ¿qué comprobarías sobre cómo está calculada? | Busca los supuestos y reconoce límites, sin tomar la herramienta por una revisión fiscal. |
 
 No evaluar la decisión comercial como correcta o incorrecta. Aceptar, negociar,
@@ -70,6 +68,11 @@ Si no conserva la inicial, no restaurarla en silencio: anotar el hecho. Si acept
 ayuda para poder seguir, registrar la intervención y que las tareas siguientes
 ya no prueban un descubrimiento completamente espontáneo.
 
+Antes de pasar a la tarea siguiente, registrar los valores con los que terminó.
+Si un dato de la ficha quedó mal introducido y hace falta corregirlo para seguir,
+anotar el estado original, la ayuda exacta y qué tareas posteriores dependen de
+esa corrección.
+
 ## Referencias privadas del moderador
 
 Con todos los datos de la ficha y cambiando únicamente las horas del proyecto:
@@ -85,6 +88,13 @@ Con todos los datos de la ficha y cambiando únicamente las horas del proyecto:
 La oferta de 1.200 EUR **sin IVA** supera el recomendado inicial en 223,82 EUR.
 Para el proyecto ampliado queda 424,88 EUR por debajo del mínimo y 587,36 EUR
 por debajo del recomendado. No compararla directamente con un total con IVA.
+
+En la tarea 4, el resumen corresponde al presupuesto que se está editando. Con
+36 h muestra 1.787,36 EUR recomendado sin IVA, 375,35 EUR de IVA y 2.162,71 EUR
+en total. También incluye el mínimo, las tarifas, los costes, el colchón de
+negociación y la oferta introducida. Observar qué conservaría la persona para
+el cliente y qué trataría como información interna. Mantener estas referencias
+fuera de la vista durante la tarea.
 
 Las horas se duplican, pero no los costes directos: se mantienen en 150 EUR en
 ambos trabajos. No suponer que todos los importes se duplican. Pedir que señale
@@ -107,7 +117,5 @@ importe: situación equivocada, oferta tomada por recomendado, base tomada por
 total o IVA tratado incorrectamente. No cerrar la ronda con un problema crítico
 sin resolver. Corregirlo y repetir la tarea con alguien que no conozca la interfaz.
 
-Si las tareas se completan sin ayuda y no quedan confusiones de importes, documentar
-esa evidencia limitada a los participantes observados. No convertirla en una tasa
-de éxito universal ni en una garantía publicitaria. Mantener pendiente la decisión
-de publicación y la revisión del sitio completo.
+Documentar qué tareas se completaron sin ayuda y qué casos necesitaron una
+intervención. Limitar las conclusiones a las personas y tareas observadas.

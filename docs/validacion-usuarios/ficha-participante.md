@@ -6,8 +6,9 @@ personal ni datos de clientes reales.
 
 ## El encargo inicial
 
-El trabajo requiere 18 horas y tiene 150 EUR de costes directos. Utiliza estas
-condiciones para preparar el presupuesto:
+El trabajo requiere 18 horas y tiene 150 EUR de costes directos. Usa los valores
+de la tabla y comprueba los que ya aparezcan en la calculadora antes de obtener
+el presupuesto.
 
 | Dato | Valor |
 | --- | --- |

@@ -21,8 +21,9 @@ de las tareas posteriores; anotarlo expresamente.
 
 ## Plantilla por sesión
 
-Crear un registro independiente por participante, con un código anónimo como P1.
-No copiar información personal del navegador, del participante o de sus clientes.
+Crear un registro independiente por participante y guardarlo en local, fuera del
+repositorio. Usar los códigos P1 a P5. Anotar solo hechos del ejercicio ficticio
+y las explicaciones anónimas.
 
 - Código de sesión: pendiente.
 - Fecha: pendiente.
@@ -39,15 +40,21 @@ No copiar información personal del navegador, del participante o de sus cliente
 | 1. Presupuesto inicial | Pendiente | Pendiente | Pendiente | Pendiente |
 | 2. Conservar y comparar el alcance | Pendiente | Pendiente | Pendiente | Pendiente |
 | 3. Interpretar la oferta de 1.200 EUR sin IVA | Pendiente | Pendiente | Pendiente | Pendiente |
-| 4. Preparar el resumen y explicar el total | Pendiente | Pendiente | Pendiente | Pendiente |
+| 4. Preparar el borrador del encargo ampliado | Pendiente | Pendiente | Pendiente | Pendiente |
 | 5. Consultar supuestos y límites | Pendiente | Pendiente | Pendiente | Pendiente |
 
-### Decisión explicada por la persona
+### Estado observado entre tareas
 
-- Situación e importe que eligió: pendiente.
-- Indicó si incluía IVA: pendiente.
-- Explicación en sus palabras, sin datos personales: pendiente.
-- Necesitó una interpretación del moderador: pendiente.
+| Momento | Qué anotar | Observación |
+| --- | --- | --- |
+| Tras el cálculo inicial | Horas, costes directos e IVA introducidos. Importes que señaló al explicarlo. | Pendiente |
+| Tras la ampliación | Qué quedó guardado como inicial, qué horas y costes quedaron en el formulario y qué diferencias interpretó. | Pendiente |
+| Tras valorar la oferta | Importes que usó como referencia para cada alcance, si incluían IVA y qué decisión explicó. | Pendiente |
+| Tras preparar el borrador | Situación de la que obtuvo el texto, importe sin IVA, IVA y total que señaló o pegó, y qué parte enviaría o quitaría. | Pendiente |
+
+Si hubo una corrección asistida, conservar el primer intento y anotar qué tareas
+posteriores quedaron condicionadas. Registrar por separado lo que dijo la persona
+y lo que apareció en el borrador si difieren.
 
 ### Observación e hipótesis separadas
 
@@ -67,7 +74,16 @@ realmente observadas, sin porcentajes de éxito generalizados ni resultados fict
 - Sesiones previstas: de 3 a 5; participantes pendientes de confirmar.
 - Tareas no observadas: todas.
 - Confusiones críticas: no evaluadas.
-- Decisión de publicar o extender el piloto: pendiente.
+- Decisión sobre ajustes y repetición: pendiente.
+
+Para las tareas de conservar y comparar, interpretar la oferta y preparar el
+borrador, anotar los códigos de sesión por resultado.
+
+| Tarea | SA | CA | NC | NO |
+| --- | --- | --- | --- | --- |
+| 2. Conservar y comparar | Pendiente | Pendiente | Pendiente | Pendiente |
+| 3. Interpretar la oferta | Pendiente | Pendiente | Pendiente | Pendiente |
+| 4. Preparar el borrador | Pendiente | Pendiente | Pendiente | Pendiente |
 
 | Hallazgo | Sesiones con evidencia | Riesgo sobre el importe o la decisión | Cambio propuesto | Resultado de repetir la tarea |
 | --- | --- | --- | --- | --- |

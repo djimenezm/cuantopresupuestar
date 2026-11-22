@@ -2,12 +2,10 @@
 
 Volver al [piloto de comparación](../piloto-comparacion.md).
 
-La ronda técnica está cerrada. Esta fase comprueba si una persona puede conservar
-un presupuesto, comparar un cambio de alcance y explicar qué enviaría al cliente
-sin confundir los importes. **No se ha realizado ninguna sesión todavía.**
-
-El piloto permanece en local, sin nuevas funciones, publicación ni extensión a
-otras calculadoras. El ZIP v2 revisado no se modifica.
+La primera ronda comprueba si una persona puede conservar un presupuesto,
+comparar un cambio de alcance y explicar qué enviaría al cliente. Las sesiones se
+preparan en una copia local de `a7e87de`, la revisión verificada en producción.
+**Aún no hay participantes confirmados ni sesiones realizadas.**
 
 ## Material separado por destinatario
 
@@ -19,22 +17,38 @@ otras calculadoras. El ZIP v2 revisado no se modifica.
 
 ## Primera ronda
 
-Propuesta interna: 3 a 5 personas ajenas al desarrollo, preferiblemente varias
-que preparen presupuestos. Cada una maneja el teclado y el ratón en el equipo
-donde se ejecuta el piloto. Usar solo la ficha ficticia, no información de clientes
-ni ingresos personales. La selección y la disponibilidad siguen pendientes.
+Preparar sesiones individuales de 30 a 40 minutos con 3 a 5 personas ajenas al
+desarrollo. Buscar usuarios potenciales con distinta experiencia al presupuestar
+y priorizar a quienes todavía no hayan usado el comparador. Identificar las tres
+primeras sesiones como P1 a P3 y usar P4 y P5 si se incorporan más personas.
 
-Leer el guion antes de la sesión. Entregar solo la ficha, plantear las tareas
-sin demostrar botones y registrar cualquier ayuda. No evaluar si la persona
-acepta o rechaza el encargo: evaluar si utiliza los datos correctos para decidir.
+Cada persona maneja los controles en el equipo de prueba y trabaja con la
+ficha ficticia. Entregar solo la ficha, plantear las tareas de una en una y
+registrar cualquier ayuda. Reservar tiempo entre sesiones para ordenar notas,
+cerrar el borrador de prueba y reiniciar la calculadora.
+
+## Preparar el equipo de prueba
+
+Desde una copia local de `a7e87de`, instalar las dependencias con `npm ci` si
+aún no están presentes. En PowerShell, arrancar la aplicación en el equipo de la
+sesión con los anuncios desactivados para ese proceso.
+
+```powershell
+$env:NEXT_PUBLIC_ADSENSE_ENABLED = 'false'
+npm run dev -- --hostname 127.0.0.1
+```
+
+Abrir <http://127.0.0.1:3002/> y preparar un editor local vacío para la tarea del
+borrador. Antes de recibir a la primera persona, ensayar el caso con los importes
+de referencia del guion. Empezar cada sesión con la portada recién cargada, el
+editor vacío y una copia del registro sin rellenar.
 
 ## Decisión posterior
 
-No dar por superada la ronda mientras quede una confusión observada que pueda
-llevar a enviar un importe equivocado. Corregir el punto concreto y repetir las
-tareas afectadas con una persona que no conozca la interfaz.
-
-Las sesiones orientan decisiones de producto, no prueban estadísticamente que
-todos los usuarios comprenderán la herramienta. No validan los supuestos fiscales
-ni garantizan la aprobación de AdSense. Una eventual publicación requiere una
-decisión posterior y la revisión del sitio completo; no se solicita ahora.
+Revisar cuántas personas conservaron la propuesta inicial, interpretaron la
+oferta con el alcance correcto y prepararon el borrador con los importes que
+pretendían usar. Distinguir los intentos autónomos de los que necesitaron ayuda.
+Si queda una confusión que pueda llevar a enviar un importe equivocado o una
+tarea clave solo se completa con ayuda, revisar ese punto y repetir la tarea
+afectada con alguien que todavía no conozca la interfaz. Las conclusiones se
+limitan a las personas y tareas observadas.
