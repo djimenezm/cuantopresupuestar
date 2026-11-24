@@ -26,6 +26,7 @@ const routes = [
 const lastContentUpdates: Record<string, string> = {
   '/': '2026-10-02',
   '/cuanto-cobrar-por-una-pagina-web-freelance': '2026-10-02',
+  '/condiciones-pago-presupuesto-freelance': '2026-11-24',
   '/precio-cerrado-o-por-horas-freelance': '2026-10-02',
   '/presupuesto-desarrollo-web-freelance': '2026-10-02',
 };

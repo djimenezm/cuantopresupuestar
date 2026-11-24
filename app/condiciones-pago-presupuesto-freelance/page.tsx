@@ -90,7 +90,7 @@ export default function CondicionesPagoPresupuestoFreelancePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-27',
-    dateModified: '2026-04-27',
+    dateModified: '2026-11-24',
   };
 
   const breadcrumbSchema = {
@@ -155,6 +155,17 @@ export default function CondicionesPagoPresupuestoFreelancePage() {
               También debe explicar cómo se paga, cuando se factura, qué entrega queda asociada a
               cada hito y qué pasa si el cliente retrasa materiales, aprobaciones o pagos.
             </p>
+            <aside className="disclaimer-box" aria-labelledby="ejemplo-pago-hitos">
+              <strong id="ejemplo-pago-hitos">Ejemplo de pago en tres hitos</strong>
+              <p>
+                Para un presupuesto de <strong>1.500 € sin IVA</strong>, se abonarán{' '}
+                <strong>450 €</strong> al aceptar la propuesta, <strong>600 €</strong> al aprobar el diseño y{' '}
+                <strong>450 €</strong> antes de la entrega final.
+              </p>
+              <Link href="/presupuesto-por-fases-freelance#reparto-hitos">
+                Calcular el reparto en tres hitos
+              </Link>
+            </aside>
             <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Anticipo</span>
               <span className="hero-badge">Pagos por hitos</span>
